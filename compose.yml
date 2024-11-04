@@ -1,12 +1,11 @@
-version: "3.8"
 services:
   mysql:
     image: mysql:8.0
-    container_name: fallstack23-mysql
+    container_name: fallstack24-mysql
     # restart: always
     environment:
       MYSQL_ROOT_PASSWORD: docker
-      MYSQL_DATABASE: fallstack23
+      MYSQL_DATABASE: fallstack24
     ports:
       - 3306:3306
     volumes:
