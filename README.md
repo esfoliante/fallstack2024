@@ -30,13 +30,33 @@ The event takes place in ISEP (Instituto Superior de Engenharia do Porto) in the
 
 ## Running locally
 
-Run `pnpm dev` to start the development server.
+To start the local server use
 
-> 💡 By using `docker compose up -d` you will be starting a MySQL server in a Docker container. This is the recommended way to run the database locally.
+```bash
+pnpm dev
+```
+
+> 💡 Use our docker compose file to create the MySQL database locally.
+
+```bash
+docker compose up -d
+```
 
 ## Migrations
 
-To apply your Prisma schema changes, create a migration with `pnpm migrate`.
+To apply your Prisma schema changes, create a migration with
+
+```bash
+pnpm migrate
+```
+
+## Seeding
+
+To run the seeding script run
+
+```bash
+pnpm prisma db seed
+```
 
 ## Contributing to the project
 
