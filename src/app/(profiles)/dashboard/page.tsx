@@ -19,7 +19,7 @@ const Dashboard: React.FC = async () => {
 
   return (
     <section
-      className={`flex h-full min-h-screen w-full flex-col items-center bg-company`}
+      className={`flex size-full min-h-screen flex-col items-center bg-company`}
     >
       <CompanyProfileSectionContainer
         company={session.company}

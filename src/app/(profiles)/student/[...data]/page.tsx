@@ -75,7 +75,7 @@ const StudentPage: React.FC<ProfileProps> = async ({ params }) => {
     <section
       className={`${
         session && session.role === "COMPANY" ? "bg-company" : "bg-inherit"
-      } flex h-full min-h-screen w-full flex-col items-center`}
+      } flex size-full min-h-screen flex-col items-center`}
     >
       {session && session.company && session.role === "COMPANY" ? (
         <CompanyViewProfileSectionContainer
