@@ -1,7 +1,6 @@
 import { PrismaClient, Role, Tier } from "@prisma/client";
 
 import { hashPassword } from "../src/services/authService";
-import generateRandomCode from "../src/utils/GenerateCode";
 
 const prisma = new PrismaClient();
 
@@ -35,6 +34,7 @@ async function seedInterests() {
       { name: "Software Development" },
     ],
   });
+  console.log("Interests seeded");
 }
 
 async function seedUser() {
@@ -56,8 +56,11 @@ async function seedUser() {
       email,
       password,
       role: Role.COMPANY,
+      isAdmin: true,
     },
   });
+
+  console.log("User seeded");
 
   return newUser;
 }
@@ -71,16 +74,18 @@ async function seedCompanies(userId: number) {
 
   const company = await prisma.company.create({
     data: {
-      name: "Company 1",
+      name: "Company1",
       userId: userId,
       tier: Tier.DIAMOND,
     },
   });
 
+  console.log("Company seeded");
+
   return company;
 }
 
-async function seedTalks(companyId: number) {
+async function seedTalks(companyName: string) {
   const talks = await prisma.talk.findMany();
   if (talks.length > 0) {
     console.log("Talks already seeded");
@@ -90,17 +95,18 @@ async function seedTalks(companyId: number) {
   await prisma.talk.create({
     data: {
       startTime: new Date(),
-      code: generateRandomCode().slice(3),
-      companyId: companyId,
+      companyName,
     },
   });
+
+  console.log("Talk seeded");
 }
 
 async function main() {
   await seedInterests();
   const user = await seedUser();
   const company = await seedCompanies(user.id);
-  seedTalks(company.id);
+  seedTalks(company.name);
 }
 
 main()

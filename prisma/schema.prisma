@@ -25,13 +25,12 @@ model User {
 model Talk {
   id        Int      @id @default(autoincrement())
   startTime DateTime
-  code      String
   isLive    Boolean  @default(false)
 
-  company   Company  @relation(fields: [companyId], references: [id])
-  companyId Int
-  Student   Student? @relation(fields: [studentId], references: [id])
-  studentId Int?
+  company     Company  @relation(fields: [companyName], references: [name])
+  companyName String
+  Student     Student? @relation(fields: [studentId], references: [id])
+  studentId   Int?
 }
 
 model Student {
@@ -55,7 +54,7 @@ model Student {
 model Company {
   id     Int     @id @default(autoincrement())
   user   User    @relation(fields: [userId], references: [id])
-  name   String
+  name   String  @unique
   tier   Tier
   avatar String? @map("image")
 

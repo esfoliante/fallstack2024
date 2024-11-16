@@ -49,7 +49,7 @@ export async function POST(req: Request) {
     const token = signJwt({ id });
 
     // set cookie with token
-    setCookie(token);
+    await setCookie(token);
 
     return NextResponse.json(
       { message: "Sign in successfully" },
