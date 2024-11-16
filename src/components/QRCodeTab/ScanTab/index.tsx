@@ -16,17 +16,37 @@ const ScanTab: React.FC<ScanTabProps> = ({ setHidden }) => {
   const [processing, setProcessing] = React.useState<boolean>(false);
   const router = useRouter();
 
-  // handle scan for the companies
+  function handleStudentProfileOpen(data: string) {
+    if (data.startsWith(window.location.origin)) {
+      const path = new URL(data).pathname;
+      router.push(path);
+      setHidden(true);
+    } else window.open(data, "_self");
+  }
+
+  async function handleTalkScan(data: string) {
+    const talkId = data.split("-")[1];
+
+    await fetch(BASE_URL + `/talk/${talkId}`, {
+      method: "POST",
+      body: JSON.stringify({ data }),
+    });
+
+    setHidden(true);
+    setProcessing(false);
+  }
+
   const handleScan = async (data: string) => {
     try {
       setProcessing(true);
 
       if (data.match("^https?://.*")) {
-        if (data.startsWith(window.location.origin)) {
-          const path = new URL(data).pathname;
-          router.push(path);
-          setHidden(true);
-        } else window.open(data, "_self");
+        handleStudentProfileOpen(data);
+        return;
+      }
+
+      if (data.match("^talk-.*")) {
+        await handleTalkScan(data);
         return;
       }
 
@@ -54,7 +74,7 @@ const ScanTab: React.FC<ScanTabProps> = ({ setHidden }) => {
       <div className="flex items-center justify-center ">
         {processing ? (
           <div
-            className="mt-24 inline-block h-24 w-24 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-primary motion-reduce:animate-[spin_1.5s_linear_infinite]"
+            className="mt-24 inline-block size-24 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-primary motion-reduce:animate-[spin_1.5s_linear_infinite]"
             role="status"
           >
             <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">

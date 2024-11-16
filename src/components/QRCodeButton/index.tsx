@@ -17,7 +17,7 @@ const QRCodeButton: React.FC<QRCodeButtonProps> = ({ user }) => {
 
   return (
     <>
-      <button className="flex h-6 w-6 items-center justify-center fill-black p-0.5 text-2xl transition-colors hover:text-primary dark:fill-white">
+      <button className="flex size-6 items-center justify-center fill-black p-0.5 text-2xl transition-colors hover:text-primary dark:fill-white">
         <BsQrCodeScan onClick={() => setIsHidden(false)} size={20} />
       </button>
 
