@@ -19,13 +19,15 @@ const Dashboard: React.FC = async () => {
 
   return (
     <section
-      className={`flex h-full min-h-screen w-full flex-col items-center bg-company`}
+      className={`flex size-full min-h-screen flex-col items-center bg-company`}
     >
       <CompanyProfileSectionContainer
         company={session.company}
         globalStats={globalStats}
         totalStudents={totalStudents}
         history={history instanceof HttpError ? [] : history}
+        interests={session.interests.map((interest) => interest.name)}
+        userId={session.id}
       />
     </section>
   );

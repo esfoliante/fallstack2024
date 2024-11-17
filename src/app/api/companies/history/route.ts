@@ -18,7 +18,11 @@ export async function GET() {
       student: {
         select: {
           name: true,
-          interests: true,
+          user: {
+            include: {
+              interests: true,
+            },
+          },
           code: true,
           cv: true,
         },

@@ -7,15 +7,16 @@ import { isSaved } from "@/lib/savedStudents";
 import { verifyJwt } from "@/services/authService";
 
 interface StudentParams {
-  params: {
+  params: Promise<{
     code: string;
-  };
+  }>;
 }
 
-export async function GET(
-  req: NextRequest,
-  { params: { code } }: StudentParams
-) {
+export async function GET(req: NextRequest, props: StudentParams) {
+  const params = await props.params;
+
+  const { code } = params;
+
   const { searchParams } = new URL(req.url);
   const token = searchParams.get("token");
   if (!token)

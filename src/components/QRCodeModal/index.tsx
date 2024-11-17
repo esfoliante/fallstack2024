@@ -8,7 +8,7 @@ import useIsMobile from "@/hooks/useIsMobile";
 import { useDisableBodyScroll } from "../../hooks/disableBackgroundMoving";
 import QRCodeTab from "../QRCodeTab";
 import CompanyTab from "../QRCodeTab/CompanyTab";
-import PerfilTab from "../QRCodeTab/PerfilTab";
+import ProfileTab from "../QRCodeTab/ProfileTab";
 import ScanTab from "../QRCodeTab/ScanTab";
 
 import { BsX } from "react-icons/bs";
@@ -28,7 +28,7 @@ const QRCodeModal: React.FC<QRCodeModalProps> = ({
 
   const tabTitles = ["Perfil", "Scan"];
   const tabs = [
-    <PerfilTab key={""} user={user} />,
+    <ProfileTab key={""} user={user} />,
     <ScanTab key={""} setHidden={setHidden} />,
   ];
   const modalTitle = [
@@ -54,9 +54,9 @@ const QRCodeModal: React.FC<QRCodeModalProps> = ({
       role="dialog"
       aria-modal="true"
     >
-      <div className="flex min-h-[100svh] items-center justify-center">
+      <div className="flex min-h-svh items-center justify-center">
         <div className="w-full">
-          <div className="h-full w-full bg-white text-left shadow-xl transition-all">
+          <div className="size-full bg-white text-left shadow-xl transition-all">
             {/* Close button */}
             <button
               className="absolute right-4 top-4 z-10 cursor-pointer text-gray-500"
@@ -72,11 +72,10 @@ const QRCodeModal: React.FC<QRCodeModalProps> = ({
                     {user.role === "STUDENT"
                       ? modalTitle[titleIndex]
                       : isMobile
-                      ? modalTitle[1]
-                      : modalTitle[2]}
+                        ? modalTitle[1]
+                        : modalTitle[2]}
                   </h1>
 
-                  {/* Grid */}
                   {user.role === "STUDENT" ? (
                     <QRCodeTab
                       tabTitles={tabTitles}

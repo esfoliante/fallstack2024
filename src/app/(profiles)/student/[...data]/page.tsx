@@ -12,12 +12,13 @@ import PublicProfileSectionContainer from "@/components/Profile/PublicProfileSec
 import Custom404 from "@/app/not-found";
 
 interface ProfileProps {
-  params: {
+  params: Promise<{
     data: string[];
-  };
+  }>;
 }
 
-const StudentPage: React.FC<ProfileProps> = async ({ params }) => {
+const StudentPage: React.FC<ProfileProps> = async (props) => {
+  const params = await props.params;
   const session = await getServerSession();
 
   if (!session) return Custom404();
@@ -54,7 +55,9 @@ const StudentPage: React.FC<ProfileProps> = async ({ params }) => {
   // companies may access if they saved the profile
   if (session.company && !isSavedStudent && !isPreview) return Custom404();
 
-  const sanitizedInterests = student.interests.map((interest) => interest.name);
+  const sanitizedInterests = student.user.interests.map(
+    (interest) => interest.name
+  );
 
   const globalStats = await getStats(student.code);
   const todayStats = await getTodayStats(student.id);
@@ -75,7 +78,7 @@ const StudentPage: React.FC<ProfileProps> = async ({ params }) => {
     <section
       className={`${
         session && session.role === "COMPANY" ? "bg-company" : "bg-inherit"
-      } flex h-full min-h-screen w-full flex-col items-center`}
+      } flex size-full min-h-screen flex-col items-center`}
     >
       {session && session.company && session.role === "COMPANY" ? (
         <CompanyViewProfileSectionContainer

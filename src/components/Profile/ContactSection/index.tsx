@@ -15,7 +15,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ email }) => {
         <h3 className="text-left text-xl font-bold text-gray-600">Contactos</h3>
       </div>
       <div className="flex items-center">
-        <Email className="h-5 w-5"></Email>
+        <Email className="size-5"></Email>
         <p className="pl-2">{email}</p>
       </div>
     </div>

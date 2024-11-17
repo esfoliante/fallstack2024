@@ -6,7 +6,7 @@ import config from "@/config";
 import prisma from "@/lib/prisma";
 
 const getServerSession = async () => {
-  const cookie = cookies().get(config.cookies.auth.name);
+  const cookie = (await cookies()).get(config.cookies.auth.name);
   const token = cookie?.value as string;
   if (!token) return null;
 
@@ -19,6 +19,7 @@ const getServerSession = async () => {
     if (!user) return null;
     return user;
   } catch (error) {
+    console.log("Error verifying token", error);
     return null;
   }
 };

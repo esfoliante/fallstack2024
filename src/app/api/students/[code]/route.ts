@@ -14,12 +14,13 @@ const schema = z.object({
 const schemaPartial = schema.partial();
 
 interface StudentProps {
-  params: {
+  params: Promise<{
     code: string;
-  };
+  }>;
 }
 
-export async function PATCH(req: NextRequest, { params }: StudentProps) {
+export async function PATCH(req: NextRequest, props: StudentProps) {
+  const params = await props.params;
   const session = await getServerSession();
   const { code } = params;
 
@@ -36,11 +37,16 @@ export async function PATCH(req: NextRequest, { params }: StudentProps) {
     return NextResponse.json({ message: safeParse.error });
 
   const student = await prisma.student.update({
-    where: { code: params.code },
+    where: { code },
     data: {
       bio: body.bio?.trim(),
       linkedin: body.linkedin,
       github: body.github,
+    },
+  });
+  await prisma.user.update({
+    where: { id: session.id },
+    data: {
       interests: {
         set: body.interests.map((interest: string) => ({ name: interest })),
       },
@@ -49,11 +55,16 @@ export async function PATCH(req: NextRequest, { params }: StudentProps) {
   return NextResponse.json(student);
 }
 
-export async function GET(req: NextRequest, { params }: StudentProps) {
+export async function GET(req: NextRequest, props: StudentProps) {
+  const params = await props.params;
   const student = await prisma.student.findUnique({
     where: { code: params.code },
     include: {
-      interests: true,
+      user: {
+        include: {
+          interests: true,
+        },
+      },
     },
   });
 

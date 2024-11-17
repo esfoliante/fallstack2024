@@ -31,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-[100svh]">
+    <html lang="en" className="h-svh">
       <body className={inter.className}>
         <AuthContextProvider>
           <InstallableContextProvider>

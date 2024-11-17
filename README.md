@@ -55,7 +55,15 @@ pnpm migrate
 To run the seeding script run
 
 ```bash
-pnpm prisma db seed
+pnpm seed
+```
+
+## Wipe DB
+
+To wipe the database run
+
+```bash
+pnpm wipe
 ```
 
 ## Contributing to the project

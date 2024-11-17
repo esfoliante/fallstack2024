@@ -49,7 +49,7 @@ const TopBar: React.FC = () => {
           {!session.user ? (
             <Link
               href="/login"
-              className="z-20 flex h-full w-full items-center justify-center fill-black text-2xl transition-colors hover:text-primary dark:fill-white"
+              className="z-20 flex size-full items-center justify-center fill-black text-2xl transition-colors hover:text-primary dark:fill-white"
             >
               <IoIosLogIn />
             </Link>

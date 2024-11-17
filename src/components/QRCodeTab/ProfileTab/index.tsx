@@ -13,7 +13,7 @@ interface PerfilTabProps {
   user: UserWithProfile;
 }
 
-const PerfilTab: React.FC<PerfilTabProps> = ({ user }) => {
+const ProfileTab: React.FC<PerfilTabProps> = ({ user }) => {
   const [qrcode, setQrcode] = useState<string | null>(null);
 
   const controls = useAnimation();
@@ -93,4 +93,4 @@ const PerfilTab: React.FC<PerfilTabProps> = ({ user }) => {
   );
 };
 
-export default PerfilTab;
+export default ProfileTab;

@@ -32,7 +32,7 @@ const Hero: FunctionComponent<HeaderProps> = ({
   }, []);
 
   return (
-    <section className="relative flex h-full min-h-screen w-full flex-col items-center justify-center">
+    <section className="relative flex size-full min-h-screen flex-col items-center justify-center">
       <motion.div
         initial={{
           opacity: 0,
@@ -75,7 +75,7 @@ const Hero: FunctionComponent<HeaderProps> = ({
         className="absolute bottom-6 flex animate-bounce cursor-pointer items-center justify-center text-center transition-all duration-200 hover:scale-105"
         onClick={() => contentRef.current?.scrollIntoView()}
       >
-        <ChevronDown className="h-6 w-6" />
+        <ChevronDown className="size-6" />
       </a>
     </section>
   );

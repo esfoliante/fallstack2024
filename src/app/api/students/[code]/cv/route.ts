@@ -10,12 +10,16 @@ const schema = z.object({
 });
 
 interface StudentParams {
-  params: {
+  params: Promise<{
     code: string;
-  };
+  }>;
 }
 
-export async function GET(_: NextRequest, { params: { code } }: StudentParams) {
+export async function GET(_: NextRequest, props: StudentParams) {
+  const params = await props.params;
+
+  const { code } = params;
+
   const session = await getServerSession();
   if (!session)
     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
@@ -44,10 +48,11 @@ export async function GET(_: NextRequest, { params: { code } }: StudentParams) {
   return NextResponse.json({ url });
 }
 
-export async function POST(
-  req: NextRequest,
-  { params: { code } }: StudentParams
-) {
+export async function POST(req: NextRequest, props: StudentParams) {
+  const params = await props.params;
+
+  const { code } = params;
+
   const session = await getServerSession();
   if (!session)
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

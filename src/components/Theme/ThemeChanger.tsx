@@ -18,7 +18,7 @@ export default function ThemeChanger() {
   if (!mounted) {
     // Show default icons while loading from the server.
     return (
-      <div className="flex h-full w-full items-center justify-center rounded-full text-primary dark:text-primary ">
+      <div className="flex size-full items-center justify-center rounded-full text-primary dark:text-primary ">
         <BsMoonStarsFill className="dark:hidden" size={20} />
         <BsFillSunFill className="hidden dark:block" size={20} />
       </div>

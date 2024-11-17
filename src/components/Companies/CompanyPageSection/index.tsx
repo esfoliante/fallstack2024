@@ -41,11 +41,11 @@ const CompanyPageSection: React.FC<CompanyPageSectionProps> = ({
   modalInformation,
 }) => {
   return (
-    <div className="mt-12 h-full w-full items-center justify-center md:my-14">
-      <div className="mb-12 mt-4 flex h-full w-full flex-col items-center">
+    <div className="mt-12 size-full items-center justify-center md:my-14">
+      <div className="mb-12 mt-4 flex size-full flex-col items-center">
         <div className="flex flex-col items-center justify-center pt-8">
           {company.props.logoHref ? (
-            <div className="relative my-8 flex h-full w-full flex-col items-center">
+            <div className="relative my-8 flex size-full flex-col items-center">
               <Image
                 width={320}
                 height={320}
@@ -69,7 +69,7 @@ const CompanyPageSection: React.FC<CompanyPageSectionProps> = ({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Twitter className="h-6 w-6 hover:scale-105 md:h-8 md:w-8" />
+                <Twitter className="size-6 hover:scale-105 md:size-8" />
               </Link>
             )}
             {modalInformation.linkedinLink && (
@@ -78,7 +78,7 @@ const CompanyPageSection: React.FC<CompanyPageSectionProps> = ({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Linkedin className="h-6 w-6 transition-all hover:scale-105 hover:drop-shadow-2xl md:h-8 md:w-8" />
+                <Linkedin className="size-6 transition-all hover:scale-105 hover:drop-shadow-2xl md:size-8" />
               </Link>
             )}
             {modalInformation.facebookLink && (
@@ -87,7 +87,7 @@ const CompanyPageSection: React.FC<CompanyPageSectionProps> = ({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Facebook className="h-6 w-6 transition-all hover:scale-105 hover:drop-shadow-2xl md:h-8 md:w-8" />
+                <Facebook className="size-6 transition-all hover:scale-105 hover:drop-shadow-2xl md:size-8" />
               </Link>
             )}
             {modalInformation.instagramLink && (
@@ -96,7 +96,7 @@ const CompanyPageSection: React.FC<CompanyPageSectionProps> = ({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Instagram className="h-6 w-6 transition-all hover:scale-105 hover:drop-shadow-2xl md:h-8 md:w-8" />
+                <Instagram className="size-6 transition-all hover:scale-105 hover:drop-shadow-2xl md:size-8" />
               </Link>
             )}
             {modalInformation.website && (
@@ -105,7 +105,7 @@ const CompanyPageSection: React.FC<CompanyPageSectionProps> = ({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Globe className="h-6 w-6 transition-all hover:scale-105 hover:drop-shadow-2xl md:h-8 md:w-8" />
+                <Globe className="size-6 transition-all hover:scale-105 hover:drop-shadow-2xl md:size-8" />
               </Link>
             )}
           </p>

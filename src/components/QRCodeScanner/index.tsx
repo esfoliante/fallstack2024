@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useZxing } from "react-zxing";
 
@@ -25,7 +25,7 @@ const QRCodeScanner: React.FC<QRCodeScannerProps> = ({ handleScan }) => {
     },
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     let stream: MediaStream;
     const checkCameraPermission = async () => {
       try {
@@ -57,10 +57,10 @@ const QRCodeScanner: React.FC<QRCodeScannerProps> = ({ handleScan }) => {
   return (
     <div className="flex items-center">
       {loading && (
-        <div className="absolute left-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-50">
+        <div className="absolute left-0 top-0 flex size-full items-center justify-center bg-black/50">
           <div className="flex flex-col items-center">
-            <div className="h-12 w-12 animate-spin rounded-full border-y-2 border-r-2 border-blue-500"></div>
-            <p className="mt-2 text-white">A ligar a sua câmera...</p>
+            <div className="size-12 animate-spin rounded-full border-y-2 border-r-2 border-blue-500"></div>
+            <p className="mt-2 text-white">A ligar a tua câmara...</p>
           </div>
         </div>
       )}

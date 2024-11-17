@@ -5,7 +5,9 @@ export interface HistoryData {
   createdAt: string;
   studentId: number;
   savedById: number;
-  student: Prisma.StudentGetPayload<{ include: { interests: true } }>;
+  student: Prisma.StudentGetPayload<{
+    include: { user: { include: { interests: true } } };
+  }>;
   savedBy: {
     company?: {
       name: string;

@@ -33,7 +33,7 @@ const CompanyImage: React.FC<UserImageProps> = ({ company }) => {
     <motion.div
       initial="initial"
       whileHover="hover"
-      className="relative my-8 flex h-full w-full flex-col items-center"
+      className="relative my-8 flex size-full flex-col items-center"
     >
       <Image
         width={400}
@@ -42,7 +42,7 @@ const CompanyImage: React.FC<UserImageProps> = ({ company }) => {
           company.avatar || "/assets/images/companies/diamond/armis_logo.png"
         }
         alt="profile image"
-        className="h-3/4 w-3/4 drop-shadow-[0px_0px_20px_#c0c0c0]"
+        className="size-3/4 drop-shadow-[0px_0px_20px_#c0c0c0]"
       />
     </motion.div>
   );

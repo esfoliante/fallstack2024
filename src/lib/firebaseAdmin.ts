@@ -45,4 +45,17 @@ const createAdminApp = () => {
 };
 
 const admin = createAdminApp();
-export const storage = getStorage(admin);
+export const storage =
+  process.env.NODE_DEV !== "production"
+    ? {
+        bucket: () => ({
+          file: () => ({
+            getSignedUrl: () => ["http://localhost:3000/mock-signed-url"],
+            makePublic: () => [{ bucket: "bucket", object: "object" }],
+            move: () => {},
+            exists: () => [true],
+            delete: () => {},
+          }),
+        }),
+      }
+    : getStorage(admin);

@@ -106,10 +106,7 @@ const CompanyModal: React.FC<ModalProps> = ({
         <SocialMediaCard href={website} icon={<Globe />} title="Webiste" />
       )}
     </ul>,
-    <div
-      className="flex h-full w-full items-center justify-center"
-      key={useId()}
-    >
+    <div className="flex size-full items-center justify-center" key={useId()}>
       <iframe
         className="max-w-full rounded-lg"
         width="560"
@@ -125,7 +122,7 @@ const CompanyModal: React.FC<ModalProps> = ({
   return !hidden ? (
     <div className="fixed inset-0 z-10 animate-fade-imm bg-gray-700/60 transition-opacity">
       <div className="fixed inset-0 my-auto flex h-[90%] items-center justify-center overflow-hidden rounded-lg outline-none focus:outline-none md:h-3/5">
-        <div className="scrollbar-medium scrollbar scrollbar-track-white scrollbar-thumb-slate-200 relative mx-auto h-full w-4/5 max-w-3xl overflow-y-scroll rounded-lg">
+        <div className="scrollbar-medium relative mx-auto h-full w-4/5 max-w-3xl overflow-y-scroll rounded-lg scrollbar scrollbar-track-white scrollbar-thumb-slate-200">
           <div className="min-h-full w-full flex-col rounded-lg border-0 bg-white shadow-lg outline-none focus:outline-none">
             <div className="flex w-full items-start justify-center rounded-t border-b border-solid border-slate-200 p-5">
               <h3 className="w-full text-center text-3xl font-semibold capitalize">
