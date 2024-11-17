@@ -57,6 +57,7 @@ export async function POST(req: NextRequest) {
 
   const student = await prisma.student.findUnique({
     where: { id: session.student?.id },
+    include: { talks: true },
   });
 
   if (!student)
