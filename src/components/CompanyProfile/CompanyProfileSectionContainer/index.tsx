@@ -15,11 +15,13 @@ interface CompanyProfileSectionContainerProps {
   globalStats: number[];
   totalStudents: number;
   history: SavedStudentWithSavedBy[];
+  interests: string[];
+  userId: number;
 }
 
 const CompanyProfileSectionContainer: React.FC<
   CompanyProfileSectionContainerProps
-> = ({ company, globalStats, totalStudents, history }) => {
+> = ({ company, globalStats, totalStudents, history, interests, userId }) => {
   const [activeTab, setActiveTab] = useState<"Sumário" | "Perfis Salvos">(
     "Sumário"
   );
@@ -77,6 +79,8 @@ const CompanyProfileSectionContainer: React.FC<
             stats={globalStats}
             students={totalStudents}
             history={history}
+            interests={interests}
+            userId={userId}
           />
         )}
         {activeTab === "Perfis Salvos" && (

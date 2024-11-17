@@ -37,11 +37,16 @@ export async function PATCH(req: NextRequest, props: StudentProps) {
     return NextResponse.json({ message: safeParse.error });
 
   const student = await prisma.student.update({
-    where: { code: params.code },
+    where: { code },
     data: {
       bio: body.bio?.trim(),
       linkedin: body.linkedin,
       github: body.github,
+    },
+  });
+  await prisma.user.update({
+    where: { id: session.id },
+    data: {
       interests: {
         set: body.interests.map((interest: string) => ({ name: interest })),
       },
@@ -55,7 +60,11 @@ export async function GET(req: NextRequest, props: StudentProps) {
   const student = await prisma.student.findUnique({
     where: { code: params.code },
     include: {
-      interests: true,
+      user: {
+        include: {
+          interests: true,
+        },
+      },
     },
   });
 
