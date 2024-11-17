@@ -8,9 +8,9 @@ import TalkQrCodeData from "@/components/TalkQrCodeData";
 import Custom404 from "../../not-found";
 
 interface TalkParams {
-  params: {
+  params: Promise<{
     name: string;
-  };
+  }>;
 }
 
 const Talk: React.FC<TalkParams> = async ({ params }) => {
