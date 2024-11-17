@@ -8,7 +8,11 @@ export async function getStudentInterests(student: Student) {
       id: student.id,
     },
     select: {
-      interests: true,
+      user: {
+        select: {
+          interests: true,
+        },
+      },
     },
   });
 }

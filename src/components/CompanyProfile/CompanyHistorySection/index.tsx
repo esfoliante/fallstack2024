@@ -100,14 +100,16 @@ const CompanySavesSection = ({ company }: HistorySectionProps) => {
                   className="truncate"
                   title="Aceda ao perfil para ver as informações completas."
                 >
-                  {!item.student.interests.length ? (
+                  {!item.student.user.interests.length ? (
                     <span className="text-gray-400">—</span>
                   ) : (
-                    shuffleArray<Interest>(item.student.interests).map(
+                    shuffleArray<Interest>(item.student.user.interests).map(
                       (interest, i) => (
                         <>
                           {interest.name}
-                          {i !== item.student.interests.length - 1 ? ", " : ""}
+                          {i !== item.student.user.interests.length - 1
+                            ? ", "
+                            : ""}
                         </>
                       )
                     )
