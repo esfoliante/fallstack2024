@@ -60,26 +60,26 @@ const UserImage: React.FC<UserImageProps> = ({
 
   if (!imageSrc && !editable)
     return (
-      <div className="relative my-2 flex h-24 w-24 flex-col items-center rounded-full md:h-52 md:w-52">
+      <div className="relative my-2 flex size-24 flex-col items-center rounded-full md:size-52">
         <Image
           width={328}
           height={328}
           src={config.defaultAvatar}
           alt="profile image"
-          className="h-full w-full rounded-full object-cover"
+          className="size-full rounded-full object-cover"
         />
       </div>
     );
 
   if (!editable)
     return (
-      <div className="relative my-2 flex h-24 w-24 flex-col items-center rounded-full md:h-52 md:w-52">
+      <div className="relative my-2 flex size-24 flex-col items-center rounded-full md:size-52">
         <Image
           width={328}
           height={328}
           src={imageSrc || config.defaultAvatar}
           alt="profile image"
-          className="h-full w-full rounded-full object-cover"
+          className="size-full rounded-full object-cover"
         />
       </div>
     );
@@ -88,32 +88,32 @@ const UserImage: React.FC<UserImageProps> = ({
     <motion.div
       initial="initial"
       whileHover="hover"
-      className="relative my-2 flex h-24 w-24 flex-col items-center rounded-full hover:cursor-pointer md:h-52 md:w-52"
+      className="relative my-2 flex size-24 flex-col items-center rounded-full hover:cursor-pointer md:size-52"
     >
       <Image
         width={328}
         height={328}
         src={imageSrc || config.defaultAvatar}
         alt="profile image"
-        className="h-full w-full rounded-full object-cover"
+        className="size-full rounded-full object-cover"
       />
-      <div className="absolute left-0 top-0 flex h-full w-full flex-col items-center justify-center rounded-full hover:bg-black/30">
+      <div className="absolute left-0 top-0 flex size-full flex-col items-center justify-center rounded-full hover:bg-black/30">
         <motion.div
           {...animation}
-          className="bg-primary/50 absolute left-0 top-0 h-full w-full rounded-full"
+          className="bg-primary/50 absolute left-0 top-0 size-full rounded-full"
         />
         <motion.input
           onChange={handleChange}
           accept="image/*"
           type="file"
-          className="absolute left-0 top-0 z-10 h-full w-full rounded-full opacity-0"
+          className="absolute left-0 top-0 z-10 size-full rounded-full opacity-0"
           whileHover={{ scale: 1.1 }}
           transition={{ duration: 0.2 }}
         ></motion.input>
         {!hidden && (
           <motion.div
             {...animation}
-            className="absolute left-0 top-0 flex h-full w-full flex-col items-center justify-center rounded-full"
+            className="absolute left-0 top-0 flex size-full flex-col items-center justify-center rounded-full"
           >
             <p className="text-2xl text-white">+</p>
             <p className="text-sm text-white">Adicionar</p>

@@ -17,7 +17,7 @@ const ImportCvSection: React.FC<ImportCvSectionProps> = ({
     <div className="my-4 flex flex-col space-y-2 text-black">
       <label className="text-lg text-slate-700">Curriculum Vitae</label>
       <div className="flex items-center space-x-2 hover:cursor-pointer hover:text-primary">
-        <ImportCv className="mb-2 h-6 w-6"></ImportCv>
+        <ImportCv className="mb-2 size-6"></ImportCv>
         <a
           onClick={() => document.getElementById("inputCv")?.click()}
           className="pl-2 underline"

@@ -12,7 +12,7 @@ const Sponsor: React.FC<SponsorProps> = ({ logoHref, name, website }) => {
     <a
       target="_blank"
       href={website}
-      className="mx-4 flex h-48 w-48 items-center justify-center transition duration-300 ease-in-out hover:scale-105"
+      className="mx-4 flex size-48 items-center justify-center transition duration-300 ease-in-out hover:scale-105"
       rel="noreferrer"
     >
       <Image

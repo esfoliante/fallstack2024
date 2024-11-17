@@ -30,8 +30,8 @@ const ModalTabs: React.FC<ModalTabsProps> = ({
           activeTabIndex === 0
             ? "md:translate-x-0"
             : activeTabIndex === 1
-            ? "md:translate-x-full"
-            : "md:translate-x-200"
+              ? "md:translate-x-full"
+              : "md:translate-x-200"
         }`}
         aria-hidden
       />

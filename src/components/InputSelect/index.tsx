@@ -35,7 +35,7 @@ const InputSelect: React.FC<InputSelectProps> = ({
         name={name}
         id={name}
         disabled={disabled}
-        placeholder={placeholder}
+        defaultValue={placeholder}
         ref={inputRef}
         className={`rounded-md border border-gray-400 bg-slate-200 px-4 py-1
          text-black focus:border-primary focus:ring-0 disabled:text-gray-600 ${className}`}

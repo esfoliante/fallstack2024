@@ -23,6 +23,17 @@ model User {
   interests Interest[]
 }
 
+model Talk {
+  id        Int      @id @default(autoincrement())
+  startTime DateTime
+  isLive    Boolean  @default(false)
+
+  company     Company  @relation(fields: [companyName], references: [name])
+  companyName String   @unique
+  Student     Student? @relation(fields: [studentId], references: [id])
+  studentId   Int?
+}
+
 model Student {
   id       Int            @id @default(autoincrement())
   user     User           @relation(fields: [userId], references: [id])
@@ -35,6 +46,7 @@ model Student {
   linkedin String?
   github   String?
   avatar   String?        @map("image")
+  talks    Talk[]
 
   userId Int @unique
 }
@@ -42,11 +54,12 @@ model Student {
 model Company {
   id     Int     @id @default(autoincrement())
   user   User    @relation(fields: [userId], references: [id])
-  name   String
+  name   String  @unique
   tier   Tier
   avatar String? @map("image")
 
-  userId Int @unique
+  userId Int    @unique
+  Talk   Talk[]
 }
 
 model Interest {

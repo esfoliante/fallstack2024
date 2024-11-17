@@ -33,8 +33,8 @@ const verifyJwt = (token: string) => {
   }
 };
 
-const setCookie = (token: string) => {
-  cookies().set({
+const setCookie = async (token: string) => {
+  (await cookies()).set({
     name: config.cookies.auth.name,
     maxAge: config.cookies.auth.maxAge,
     value: token,
@@ -46,10 +46,10 @@ const setCookie = (token: string) => {
 };
 
 export {
-  validatePassword,
-  signJwt,
-  hashPassword,
   comparePassword,
-  verifyJwt,
+  hashPassword,
   setCookie,
+  signJwt,
+  validatePassword,
+  verifyJwt,
 };

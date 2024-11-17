@@ -26,7 +26,7 @@ const Company: React.FC<CompanyProps> = ({
 }) => {
   return (
     <div
-      className={`${divClassName} flex h-4/6 min-h-[8rem] w-4/6 items-center justify-center justify-items-center transition duration-300 ease-in-out hover:scale-105 lg:min-h-[11rem]`}
+      className={`${divClassName} flex size-4/6 min-h-32 items-center justify-center justify-items-center transition duration-300 ease-in-out hover:scale-105 lg:min-h-44`}
     >
       <Link
         rel="noreferrer"

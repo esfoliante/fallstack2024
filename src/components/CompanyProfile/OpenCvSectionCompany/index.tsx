@@ -23,7 +23,7 @@ const OpenCvSectionCompany: React.FC<OpenCvProps> = ({ code, className }) => {
           onClick={() => handleCv(code)}
           className="cursor-pointer pl-2 underline"
         >
-          <OpenCv className="mb-1 h-5 w-5 text-primary"></OpenCv>
+          <OpenCv className="mb-1 size-5 text-primary"></OpenCv>
         </a>
       )}
     </div>

@@ -54,6 +54,7 @@ export const storage =
             makePublic: () => [{ bucket: "bucket", object: "object" }],
             move: () => {},
             exists: () => [true],
+            delete: () => {},
           }),
         }),
       }

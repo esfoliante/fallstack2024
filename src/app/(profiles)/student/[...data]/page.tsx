@@ -12,12 +12,13 @@ import PublicProfileSectionContainer from "@/components/Profile/PublicProfileSec
 import Custom404 from "@/app/not-found";
 
 interface ProfileProps {
-  params: {
+  params: Promise<{
     data: string[];
-  };
+  }>;
 }
 
-const StudentPage: React.FC<ProfileProps> = async ({ params }) => {
+const StudentPage: React.FC<ProfileProps> = async (props) => {
+  const params = await props.params;
   const session = await getServerSession();
 
   if (!session) return Custom404();
