@@ -16,7 +16,7 @@ const SponsorsContainer: React.FC<SponsorsContainerProps> = ({ sponsors }) => {
         theme === "light" ? "bg-gray-800/20" : "bg-white/20"
       }`}
     >
-      <div className="mx-auto flex w-full flex-wrap items-center justify-around md:w-[80%]">
+      <div className="mx-auto flex w-full flex-wrap items-center justify-around md:w-4/5">
         {sponsors.map(({ name, logoHref, website }) => (
           <Sponsor
             key={name}

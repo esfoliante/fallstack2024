@@ -49,10 +49,9 @@ const GiveawaySection: FunctionComponent<GiveawaySectionProps> = ({
       () => {
         Swal({
           title: "Parabéns!",
-          text: `O vencedor(a) foi ${students.find(
-            (student) => student.id === id
-          )?.name} 🎉 \n ${students.find((student) => student.id === id)?.user
-            .email}`,
+          text: `O vencedor(a) foi ${
+            students.find((student) => student.id === id)?.name
+          } 🎉 \n ${students.find((student) => student.id === id)?.user.email}`,
           icon: "success",
         });
       },

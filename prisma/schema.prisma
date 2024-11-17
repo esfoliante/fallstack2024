@@ -28,7 +28,7 @@ model Talk {
   isLive    Boolean  @default(false)
 
   company     Company  @relation(fields: [companyName], references: [name])
-  companyName String
+  companyName String   @unique
   Student     Student? @relation(fields: [studentId], references: [id])
   studentId   Int?
 }

@@ -58,8 +58,8 @@ const UserBioTextArea: React.FC<UserBioTextAreaProps> = ({
           value.length > limit - 10
             ? "text-red-600"
             : value.length > warningLimit
-            ? "text-yellow-500"
-            : "text-slate-700"
+              ? "text-yellow-500"
+              : "text-slate-700"
         }`}
       >
         {value?.length} / {limit} caracteres

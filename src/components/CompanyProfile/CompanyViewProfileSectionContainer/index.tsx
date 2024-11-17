@@ -43,9 +43,9 @@ const CompanyViewProfileSectionContainer: React.FC<
 
   return (
     <div
-      className={`mt-12 h-full w-full items-center justify-center bg-company md:my-14`}
+      className={`mt-12 size-full items-center justify-center bg-company md:my-14`}
     >
-      <div className="mb-12 mt-4 flex h-full w-full flex-col items-center bg-company">
+      <div className="mb-12 mt-4 flex size-full flex-col items-center bg-company">
         <motion.div
           transition={{ duration: 0.5 }}
           className="flex flex-col items-center justify-center pt-8"
@@ -67,7 +67,7 @@ const CompanyViewProfileSectionContainer: React.FC<
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Github className="h-10 w-10 md:h-8 md:w-8" />
+                <Github className="size-10 md:size-8" />
               </a>
             )}
             {student.linkedin && (
@@ -76,7 +76,7 @@ const CompanyViewProfileSectionContainer: React.FC<
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Linkedin className="h-10 w-10 md:h-8 md:w-8" />
+                <Linkedin className="size-10 md:size-8" />
               </a>
             )}
             {!isSavedStudent && (
@@ -90,7 +90,7 @@ const CompanyViewProfileSectionContainer: React.FC<
           </div>
         </motion.div>
       </div>
-      <section className="mx-auto flex h-full w-full max-w-4xl flex-col rounded-md bg-white py-4 md:w-5/6">
+      <section className="mx-auto flex size-full max-w-4xl flex-col rounded-md bg-white py-4 md:w-5/6">
         {student.bio && <BioSection bio={student.bio} />}
         <ContactSection email={student.user.email} />
         {student.cv && (

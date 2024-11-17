@@ -14,12 +14,13 @@ const schema = z.object({
 const schemaPartial = schema.partial();
 
 interface StudentProps {
-  params: {
+  params: Promise<{
     code: string;
-  };
+  }>;
 }
 
-export async function PATCH(req: NextRequest, { params }: StudentProps) {
+export async function PATCH(req: NextRequest, props: StudentProps) {
+  const params = await props.params;
   const session = await getServerSession();
   const { code } = params;
 
@@ -49,7 +50,8 @@ export async function PATCH(req: NextRequest, { params }: StudentProps) {
   return NextResponse.json(student);
 }
 
-export async function GET(req: NextRequest, { params }: StudentProps) {
+export async function GET(req: NextRequest, props: StudentProps) {
+  const params = await props.params;
   const student = await prisma.student.findUnique({
     where: { code: params.code },
     include: {

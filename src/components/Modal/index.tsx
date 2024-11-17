@@ -18,9 +18,9 @@ const Modal: React.FC<ModalProps> = ({
   if (!isVisible) return null;
 
   return (
-    <section className="fixed left-0 top-0 z-50 h-full w-full bg-black/60">
+    <section className="fixed left-0 top-0 z-50 size-full bg-black/60">
       <div
-        className="fixed h-full w-full"
+        className="fixed size-full"
         onClick={() => setIsVisible(false)}
       ></div>
       <main

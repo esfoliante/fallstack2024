@@ -16,8 +16,8 @@ const TalkQrCodeData: React.FC<TalkQrCodeDataProps> = ({ name }) => {
   useEffect(() => {
     const fetchQrCodeData = async () => {
       const res = await fetch(BASE_URL + `/talk/${name}`);
-      const { data } = await res.json();
-      setQrCodeData(data as string);
+      const { talk, qrCode } = await res.json();
+      setQrCodeData(qrCode as string);
     };
 
     fetchQrCodeData();
@@ -30,7 +30,7 @@ const TalkQrCodeData: React.FC<TalkQrCodeDataProps> = ({ name }) => {
     return () => clearInterval(interval);
   }, [name]);
 
-  return <div>{qrCodeData && <QRCode size={500} value={qrCodeData} />}</div>;
+  return <div>{qrCodeData && <QRCode size={480} value={qrCodeData} />}</div>;
 };
 
 export default TalkQrCodeData;
