@@ -23,6 +23,16 @@ model User {
   interests Interest[]
 }
 
+model Action {
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+  points      Int
+
+  Student   Student? @relation(fields: [studentId], references: [id])
+  studentId Int?
+}
+
 model Talk {
   id        Int      @id @default(autoincrement())
   startTime DateTime
@@ -47,6 +57,7 @@ model Student {
   github   String?
   avatar   String?        @map("image")
   talks    Talk[]
+  actions  Action[]
 
   userId Int @unique
 }
