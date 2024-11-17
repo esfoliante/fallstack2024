@@ -66,6 +66,14 @@ model Interest {
   name   String @id
   User   User?  @relation(fields: [userId], references: [id])
   userId Int?
+  userId Int @unique
+  Interest Interest[]
+}
+
+model Interest {
+  name       String    @id
+  interestOf Student[]
+  interestedIn Company[]
 }
 
 model SavedStudent {
