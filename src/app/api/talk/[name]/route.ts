@@ -47,6 +47,9 @@ export async function POST(req: NextRequest) {
   if (!talk)
     return NextResponse.json({ error: "Talk not found" }, { status: 404 });
 
+  if (!talk.isLive)
+    return NextResponse.json({ error: "Talk not live" }, { status: 400 });
+
   // check if timestamp is valid
   const now = Date.now();
   if (now - timestamp > config.constants.talkQrCodeRefreshRateMs)
