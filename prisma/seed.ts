@@ -37,7 +37,7 @@ async function seedInterests() {
   console.log("✅ Interests seeded");
 }
 
-async function seedUser() {
+async function seedAdmin() {
   const email = process.env.ADMIN_EMAIL as string;
   const user = await prisma.user.findUnique({
     where: {
@@ -61,6 +61,42 @@ async function seedUser() {
   });
 
   console.log("✅ User seeded");
+
+  return newUser;
+}
+
+async function seedStudent() {
+  const email = "student@test.pt";
+  const user = await prisma.user.findUnique({
+    where: {
+      email,
+    },
+  });
+  if (user) {
+    console.log("⚠️ Student already seeded");
+    return user;
+  }
+
+  const password = await hashPassword(process.env.ADMIN_PASSWORD as string);
+
+  const newUser = await prisma.user.create({
+    data: {
+      email,
+      password,
+      role: Role.STUDENT,
+    },
+  });
+
+  await prisma.student.create({
+    data: {
+      userId: newUser.id,
+      name: "Student",
+      year: "3",
+      code: "A123",
+    },
+  });
+
+  console.log("✅ Student seeded");
 
   return newUser;
 }
@@ -139,7 +175,8 @@ async function seedActions() {
 
 async function main() {
   await seedInterests();
-  const user = await seedUser();
+  await seedStudent();
+  const user = await seedAdmin();
   const company = await seedCompanies(user.id);
   await seedTalks(company.name);
   await seedActions();
