@@ -47,11 +47,13 @@ model Company {
   avatar String? @map("image")
 
   userId Int @unique
+  Interest Interest[]
 }
 
 model Interest {
   name       String    @id
   interestOf Student[]
+  interestedIn Company[]
 }
 
 model SavedStudent {
