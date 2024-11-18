@@ -49,4 +49,28 @@ export const FAQ: FaqProps[] = [
     answer:
       "Ao participares neste evento estás a dar a ti próprio uma prenda: um futuro académico e profissional mais promissor. No Fallstack terás a oportunidade de interagir com empresas de renome, reconhecidas pela sua excelência e profissionalismo, que irão estar presentes para ti, para te conhecerem e para encontrarem os talentos do amanhã. É uma oportunidade de ficares a conhecer melhor o que o teu futuro te reserva e o que faz desta área algo tão especial e única. Vemo-nos lá!",
   },
+  {
+    index: 8,
+    question: "As apresentações das empresas são gravadas?",
+    answer:
+      "Não, as apresentações das empresas não serão gravadas. A única oportunidade de assistires será presencialmente, no dia em que ocorrerem.",
+  },
+  {
+    index: 9,
+    question: "Existe algum custo associado ao evento?",
+    answer:
+      "Não, o Fallstack é um evento gratuito. Foi criado com o objetivo de ajudar estudantes a explorarem e definirem os seus próximos passos no percurso académico e profissional, garantindo acessibilidade a todos.",
+  },
+  {
+    index: 10,
+    question: "É necessário trazer qualquer tipo de material para o evento?",
+    answer:
+      "Para os inscritos no evento, é importante trazer um dispositivo com sessão iniciada no website oficial do Fallstack, para poderes aproveitar ao máximo todas as funcionalidades exclusivas. Para os não inscritos, não é necessário trazer material adicional, mas recomendamos que venham preparados para tirar notas ou registar contactos importantes.",
+  },
+  {
+    index: 11,
+    question: "É possível partilhar o LinkedIn em vez do CV?",
+    answer:
+      "Sim, o segundo dia do Fallstack - Connection's Train - é dedicado ao networking direto com as empresas. Durante as conversas, podes perguntar às empresas se preferem receber o teu LinkedIn ou o teu CV. No entanto, é sempre uma mais-valia ter um CV atualizado contigo.",
+  },
 ];

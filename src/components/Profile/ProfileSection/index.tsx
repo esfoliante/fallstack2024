@@ -1,8 +1,10 @@
 import { Student, User } from "@prisma/client";
 import Skeleton from "react-loading-skeleton";
 
+import { Action } from "@/types/Action";
 import { ProfileData } from "@/types/ProfileData";
 
+import ActionsSection from "../ActionsSection";
 import BioSection from "../BioSection";
 import InterestsSection from "../InterestsSection";
 import OpenCvSection from "../OpenCvSection";
@@ -11,11 +13,13 @@ interface ProfileSectionProps {
   student: Student & { user: User };
   interests: string[];
   profile: ProfileData;
+  actions: Action[];
 }
 
 const ProfileSection: React.FC<ProfileSectionProps> = ({
   student,
   profile,
+  actions,
 }) => {
   return (
     <section className="flex w-full flex-col rounded-t-3xl bg-white py-4 md:rounded-md">
@@ -37,15 +41,20 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({
           </p>
         </div>
       </div>
+
       {profile.bio && <BioSection bio={profile.bio} />}
+
       {student.cv && (
         <OpenCvSection student={student} text={"Abrir o meu CV"} />
       )}
-      {profile.interests.length > 0 ? (
+
+      {profile.interests !== undefined ? (
         <InterestsSection userInterests={profile.interests} />
       ) : (
         <Skeleton height={40} />
       )}
+
+      <ActionsSection actions={actions} />
     </section>
   );
 };

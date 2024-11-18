@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Student, User } from "@prisma/client";
 import { motion } from "framer-motion";
 
+import { Action } from "@/types/Action";
 import { ProfileData } from "@/types/ProfileData";
 import { SavedStudentWithSavedBy } from "@/types/SavedStudentWithSavedBy";
 import UserImage from "@/components/UserImage";
@@ -20,6 +21,7 @@ interface ProfileSectionContainerProps {
   todayStats: number;
   companiesLeft: number;
   historyData: SavedStudentWithSavedBy[];
+  actions: Action[];
 }
 
 const ProfileSectionContainer: React.FC<ProfileSectionContainerProps> = ({
@@ -29,6 +31,7 @@ const ProfileSectionContainer: React.FC<ProfileSectionContainerProps> = ({
   todayStats,
   companiesLeft,
   historyData,
+  actions,
 }) => {
   const [activeTab, setActiveTab] = useState<
     "Sumário" | "Perfil" | "Definições"
@@ -147,6 +150,7 @@ const ProfileSectionContainer: React.FC<ProfileSectionContainerProps> = ({
             student={student}
             interests={interests}
             profile={profile}
+            actions={actions}
           />
         )}
         {activeTab === "Definições" && (

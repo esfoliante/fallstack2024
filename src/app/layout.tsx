@@ -12,16 +12,15 @@ import { ToastContainer } from "react-toastify";
 import { AuthContextProvider } from "@/contexts/AuthContext";
 import { InstallableContextProvider } from "@/contexts/InstallableContext";
 import InstallPopUp from "@/components/InstallPopUp";
-import ThemeProvider from "@/components/Theme/ThemeProvider";
 import Topbar from "@/components/TopBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  applicationName: "Fallstack 2023",
-  title: "Fallstack 2023",
+  applicationName: "Fallstack 2024",
+  title: "Fallstack 2024",
   description:
-    "Website do evento Fallstack 2023. O evento decorrerá nos dias 28 e 29 de novembro no Instituto Superior de Engenharia do Porto. O evento é organizado pelo Núcleo de Estudantes de Informática do ISEP (NEI-ISEP).",
+    "Website do evento Fallstack 2024. O evento decorrerá nos dias 26 e 27 de novembro no Instituto Superior de Engenharia do Porto. O evento é organizado pelo Núcleo de Estudantes de Informática do ISEP (NEI-ISEP).",
   manifest: "/manifest.json",
 };
 
@@ -35,14 +34,12 @@ export default function RootLayout({
       <body className={inter.className}>
         <AuthContextProvider>
           <InstallableContextProvider>
-            <ThemeProvider>
-              <SkeletonTheme baseColor="#eaeaea" highlightColor="#bfbfbf">
-                <Topbar />
-                <main>{children}</main>
-                <ToastContainer position="bottom-right" />
-                <InstallPopUp />
-              </SkeletonTheme>
-            </ThemeProvider>
+            <SkeletonTheme baseColor="#eaeaea" highlightColor="#bfbfbf">
+              <Topbar />
+              <main>{children}</main>
+              <ToastContainer position="bottom-right" />
+              <InstallPopUp />
+            </SkeletonTheme>
           </InstallableContextProvider>
         </AuthContextProvider>
       </body>

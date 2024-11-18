@@ -23,14 +23,22 @@ const InterestsSection: React.FC<InterestsSectionProps> = ({
           Interesses
         </h3>
         <div className="mt-2 flex w-full flex-wrap items-center gap-x-6 gap-y-3">
-          {orderedInterests.map((interest) => (
-            <div
-              className="relative flex rounded-xl bg-slate-200 px-3 py-1 text-black"
-              key={interest}
-            >
-              {interest}
-            </div>
-          ))}
+          {orderedInterests.length === 0 ? (
+            <p className="text-center text-lg text-gray-500">
+              Ainda não definiste os teus interesses...
+            </p>
+          ) : (
+            <>
+              {orderedInterests.map((interest) => (
+                <div
+                  className="relative flex rounded-xl bg-slate-200 px-3 py-1 text-black"
+                  key={interest}
+                >
+                  {interest}
+                </div>
+              ))}
+            </>
+          )}
         </div>
       </div>
     </section>

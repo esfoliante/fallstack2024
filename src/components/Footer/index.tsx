@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent } from "react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { FaInfo } from "react-icons/fa6";
@@ -12,14 +12,9 @@ import {
 
 import InstallButton from "../InstallButton";
 
-import { useTheme } from "next-themes";
-
 interface FooterProps {
   lastEditionUrl: string;
-  neiLogoSrc: {
-    white: StaticImageData;
-    dark: StaticImageData;
-  };
+  neiLogoSrc: StaticImageData;
 }
 
 const Footer: FunctionComponent<FooterProps> = ({
@@ -28,19 +23,12 @@ const Footer: FunctionComponent<FooterProps> = ({
 }) => {
   const currentYear = new Date().getFullYear();
   const NEI_WEBSITE_URL = "https://nei-isep.org";
-  const [mounted, setMounted] = useState(false);
-  const { theme } = useTheme();
-
-  // If we don't wait for the theme to be loaded, the image will be broken -> always being false until the theme is changed
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   return (
     <footer className="w-full text-center">
       <div className="flex justify-center drop-shadow-lg hover:drop-shadow-xl lg:m-8">
         <a href={lastEditionUrl} target="_blank" rel="noreferrer">
-          <div className="my-6 rounded-2xl bg-secondary/40 px-8 py-4 font-poppins text-2xl font-bold transition-all duration-300 hover:scale-105 lg:text-4xl">
+          <div className="my-6 rounded-2xl bg-secondary/40 px-8 py-4  text-2xl font-bold transition-all duration-300 hover:scale-105 lg:text-4xl">
             Edição Anterior
           </div>
         </a>
@@ -51,11 +39,7 @@ const Footer: FunctionComponent<FooterProps> = ({
           <a href={NEI_WEBSITE_URL} target="_blank" rel="noreferrer">
             <Image
               className="mx-auto block h-auto max-w-full drop-shadow-xl transition-all duration-300 hover:drop-shadow-2xl"
-              src={
-                mounted && theme === "light"
-                  ? neiLogoSrc.dark
-                  : neiLogoSrc.white
-              }
+              src={neiLogoSrc}
               alt="Logo branco do Núcleo de Estudantes de Informática do ISEP (NEI)"
             />
           </a>

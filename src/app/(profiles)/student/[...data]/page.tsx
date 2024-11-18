@@ -1,7 +1,8 @@
 import { HttpError } from "@/types/HttpError";
 import { getCompanies } from "@/lib/companies";
+import { fetchActions } from "@/lib/fetchActions";
 import { getStats, getTodayStats } from "@/lib/fetchStats";
-import { getStudent } from "@/lib/fetchStudent";
+import { fetchStudent } from "@/lib/fetchStudent";
 import getStudentHistory from "@/lib/getStudentHistory";
 import { isSaved } from "@/lib/savedStudents";
 import { verifyJwt } from "@/services/authService";
@@ -35,9 +36,9 @@ const StudentPage: React.FC<ProfileProps> = async (props) => {
     const token = verifyJwt(code);
     if (!token) return Custom404();
     const { code: studentCode } = token as { code: string };
-    student = await getStudent(studentCode);
+    student = await fetchStudent(studentCode);
   } else {
-    student = await getStudent(code);
+    student = await fetchStudent(code);
   }
 
   if (!student) return Custom404();
@@ -65,6 +66,7 @@ const StudentPage: React.FC<ProfileProps> = async (props) => {
   const companies = await getCompanies();
 
   const history = await getStudentHistory(student.code);
+  const actions = await fetchActions(student.code);
 
   const totalCompanies = companies.length;
   let companiesLeft = totalCompanies;
@@ -101,6 +103,7 @@ const StudentPage: React.FC<ProfileProps> = async (props) => {
           todayStats={todayStats}
           companiesLeft={companiesLeft}
           historyData={history instanceof HttpError ? [] : history}
+          actions={actions}
         />
       )}
     </section>

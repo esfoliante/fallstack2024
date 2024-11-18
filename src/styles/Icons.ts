@@ -1,6 +1,7 @@
 import {
   FaArchive as Archive,
   FaChartPie as Chart,
+  FaRegCheckSquare as CheckSquare,
   FaClipboard as Clipboard,
   FaRegEnvelope as Email,
   FaGithub as Github,
@@ -8,6 +9,7 @@ import {
   FaLinkedin as Linkedin,
   FaTrophy as Trophy,
 } from "react-icons/fa";
+import { FaRegSquare as Square } from "react-icons/fa6";
 import { HiPencilSquare as Pencil } from "react-icons/hi2";
 import {
   MdDownload as DownloadIcon,
@@ -21,18 +23,20 @@ import {
 } from "react-icons/bs";
 
 export {
-  Pencil,
-  Github,
-  Linkedin,
-  Email,
-  OpenCv,
-  ImportCv,
   Archive,
-  Clipboard,
-  Trophy,
   Chart,
-  Leaf,
+  CheckSquare,
+  Clipboard,
+  DownloadIcon,
+  Email,
+  Github,
+  ImportCv,
   InstallPwaDesktop,
   InstallPwaMobile,
-  DownloadIcon,
+  Leaf,
+  Linkedin,
+  OpenCv,
+  Pencil,
+  Square,
+  Trophy,
 };

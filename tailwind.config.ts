@@ -9,7 +9,6 @@ const config: Config = {
     "./src/app/**/*.{ts,tsx}",
   ],
   theme: {
-    themeVariants: ["dark", "light"],
     extend: {
       backgroundImage: {
         company: "var(--company-bg)",
@@ -23,6 +22,7 @@ const config: Config = {
         accent: "var(--accent)",
         "accent-alternative": "var(--accent-alternative)",
         "company-secondary": "var(--company-secondary)",
+        "call-to-action": "var(--call-to-action)",
       },
       animation: {
         fade: "fade ease-out 1s 1.5s forwards",
@@ -41,11 +41,6 @@ const config: Config = {
           from: { opacity: "0" },
           to: { opacity: "1" },
         },
-      },
-      fontFamily: {
-        sans: ["Roboto", "Arial", "sans-serif"],
-        poppins: ["Poppins", "Arial", "sans-serif"],
-        archivo: ["Archivo", "Arial", "sans-serif"],
       },
       dropShadow: {
         "3xl": "2px 2px 0.5px rgba(0, 0, 0, 0.33)",
