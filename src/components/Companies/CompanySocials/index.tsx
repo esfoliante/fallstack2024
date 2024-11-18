@@ -2,7 +2,6 @@ import React from "react";
 
 import HeadingText from "@/components/HeadingText";
 import SocialMediaCard from "@/components/SocialMediaCard";
-
 import {
   Facebook,
   Globe,
@@ -10,7 +9,7 @@ import {
   Linkedin,
   Twitter,
   Youtube,
-} from "react-bootstrap-icons";
+} from "@/styles/Icons";
 
 interface CompanySocialsProps {
   twitterLink: string | undefined;

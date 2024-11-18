@@ -4,7 +4,7 @@ import { FunctionComponent } from "react";
 import Image, { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
 
-import { ChevronDown } from "react-bootstrap-icons";
+import { ChevronDown } from "@/styles/Icons";
 
 interface HeaderProps {
   logoSrc: StaticImageData;
@@ -57,19 +57,19 @@ const Hero: FunctionComponent<HeaderProps> = ({
             <span className="font-bold">começa aqui.</span>
           </p>
 
-          <a
+          {/* <a
             href="/signup"
             className="bg-call-to-action rounded-md px-5 py-3 font-bold uppercase"
           >
             Inscreve-te no Fallstack
-          </a>
+          </a> */}
         </motion.div>
       </motion.div>
       <a
         className="absolute bottom-6 flex animate-bounce cursor-pointer items-center justify-center text-center transition-all duration-200 hover:scale-105"
         onClick={() => contentRef.current?.scrollIntoView()}
       >
-        <ChevronDown className="size-6" />
+        <ChevronDown className="size-6 fill-white text-white" />
       </a>
     </section>
   );

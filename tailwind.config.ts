@@ -23,6 +23,7 @@ const config: Config = {
         "accent-alternative": "var(--accent-alternative)",
         "company-secondary": "var(--company-secondary)",
         "call-to-action": "var(--call-to-action)",
+        topbar: "var(--topbar)",
       },
       animation: {
         fade: "fade ease-out 1s 1.5s forwards",

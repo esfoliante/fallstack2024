@@ -1,9 +1,8 @@
 import { FunctionComponent } from "react";
 
-import HighlightInfoBit from "../HighlightInfoBit";
-import InfoBit from "../InfoBit";
+import { Alarm, CalendarEvent, GeoAlt } from "@/styles/Icons";
 
-import { Alarm, CalendarEvent, GeoAlt } from "react-bootstrap-icons";
+import InfoBit from "../InfoBit";
 
 interface EventInfosProps {
   days: number[];
@@ -24,10 +23,7 @@ const EventInfos: FunctionComponent<EventInfosProps> = ({
         icon={<CalendarEvent />}
         info={`${days.join(" e ")} de ${month}`}
       />
-      <InfoBit
-        icon={<Alarm />}
-        info={`${beginningTime} - ${endTime}`}
-      />
+      <InfoBit icon={<Alarm />} info={`${beginningTime} - ${endTime}`} />
       <InfoBit
         icon={<GeoAlt />}
         info={"Instituto Superior de Engenharia do Porto"}

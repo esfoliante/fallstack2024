@@ -6,7 +6,6 @@ import {
   FaRegEnvelope as Email,
   FaGithub as Github,
   FaLeaf as Leaf,
-  FaLinkedin as Linkedin,
   FaTrophy as Trophy,
 } from "react-icons/fa";
 import { FaRegSquare as Square } from "react-icons/fa6";
@@ -18,19 +17,37 @@ import {
 } from "react-icons/md";
 
 import {
+  BsAlarm as Alarm,
+  BsCalendarEvent as CalendarEvent,
+  BsChevronDown as ChevronDown,
+  BsFacebook as Facebook,
+  BsGeoAlt as GeoAlt,
+  BsGlobe as Globe,
   BsBoxArrowInDown as ImportCv,
+  BsInstagram as Instagram,
+  BsLinkedin as Linkedin,
   BsBoxArrowUpRight as OpenCv,
+  BsTwitter as Twitter,
+  BsX as X,
+  BsYoutube as Youtube,
 } from "react-icons/bs";
 
 export {
+  Alarm,
   Archive,
+  CalendarEvent,
   Chart,
   CheckSquare,
+  ChevronDown,
   Clipboard,
   DownloadIcon,
   Email,
+  Facebook,
+  GeoAlt,
   Github,
+  Globe,
   ImportCv,
+  Instagram,
   InstallPwaDesktop,
   InstallPwaMobile,
   Leaf,
@@ -39,4 +56,7 @@ export {
   Pencil,
   Square,
   Trophy,
+  Twitter,
+  X,
+  Youtube,
 };

@@ -13,7 +13,7 @@ const TopBar: React.FC = () => {
   return (
     <nav className={`fixed z-40 h-16 w-full overflow-hidden `}>
       <motion.div
-        className={`absolute left-0 top-0 flex h-16 w-screen items-center justify-between bg-secondary`}
+        className={`bg-topbar absolute left-0 top-0 flex h-16 w-screen items-center justify-between`}
         style={{
           opacity,
         }}

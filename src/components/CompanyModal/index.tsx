@@ -1,10 +1,5 @@
 import React, { useEffect, useId } from "react";
 
-import { useDisableBodyScroll } from "../../hooks/disableBackgroundMoving";
-import ModalProps from "../../types/ModalProps";
-import ModalTabs from "../ModalTabs";
-import SocialMediaCard from "../SocialMediaCard";
-
 import {
   Facebook,
   Globe,
@@ -13,7 +8,12 @@ import {
   Twitter,
   X,
   Youtube,
-} from "react-bootstrap-icons";
+} from "@/styles/Icons";
+
+import { useDisableBodyScroll } from "../../hooks/disableBackgroundMoving";
+import ModalProps from "../../types/ModalProps";
+import ModalTabs from "../ModalTabs";
+import SocialMediaCard from "../SocialMediaCard";
 
 const CompanyModal: React.FC<ModalProps> = ({
   hidden,

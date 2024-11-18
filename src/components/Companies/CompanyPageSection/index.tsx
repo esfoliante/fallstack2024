@@ -4,17 +4,10 @@ import Link from "next/link";
 import Skeleton from "react-loading-skeleton";
 
 import FactData from "@/types/FactData";
+import { Facebook, Globe, Instagram, Linkedin, Twitter } from "@/styles/Icons";
 
 import { CompanyProps } from "../Company";
 import CompanyInfo from "../CompanyInfo";
-
-import {
-  Facebook,
-  Globe,
-  Instagram,
-  Linkedin,
-  Twitter,
-} from "react-bootstrap-icons";
 
 interface CompanyPageSectionProps {
   company: {
