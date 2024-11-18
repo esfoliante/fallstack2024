@@ -1,32 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { IoIosLogIn } from "react-icons/io";
-
-import useSession from "@/hooks/useSession";
-import LogoutButton from "@/components/LogoutButton";
-import UserButton from "@/components/UserButton";
-
-import QRCodeButton from "../QRCodeButton";
-
-import { useTheme } from "next-themes";
 
 const TopBar: React.FC = () => {
   const { scrollYProgress } = useScroll();
-  const session = useSession();
+  // const session = useSession();
 
   const opacity = useTransform(() => scrollYProgress.get() * 2.2);
-
-  const [mounted, setMounted] = useState(false);
-  const { theme } = useTheme();
-
-  // If we don't wait for the theme to be loaded, the image will be broken -> always being false until the theme is changed
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   return (
     <nav className={`fixed z-40 h-16 w-full overflow-hidden `}>
@@ -45,11 +27,11 @@ const TopBar: React.FC = () => {
             height={32}
           />
         </Link>
-        <div className="flex items-center gap-x-4">
+        {/* <div className="flex items-center gap-x-4">
           {!session.user ? (
             <Link
               href="/login"
-              className="z-20 flex size-full items-center justify-center fill-black text-2xl transition-colors hover:text-primary dark:fill-white"
+              className="z-20 flex size-full items-center justify-center text-2xl transition-colors hover:text-primary fill-white"
             >
               <IoIosLogIn />
             </Link>
@@ -60,7 +42,7 @@ const TopBar: React.FC = () => {
               <LogoutButton />
             </>
           )}
-        </div>
+        </div> */}
       </div>
     </nav>
   );

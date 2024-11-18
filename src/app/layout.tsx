@@ -12,7 +12,6 @@ import { ToastContainer } from "react-toastify";
 import { AuthContextProvider } from "@/contexts/AuthContext";
 import { InstallableContextProvider } from "@/contexts/InstallableContext";
 import InstallPopUp from "@/components/InstallPopUp";
-import ThemeProvider from "@/components/Theme/ThemeProvider";
 import Topbar from "@/components/TopBar";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -35,14 +34,12 @@ export default function RootLayout({
       <body className={inter.className}>
         <AuthContextProvider>
           <InstallableContextProvider>
-            <ThemeProvider>
-              <SkeletonTheme baseColor="#eaeaea" highlightColor="#bfbfbf">
-                <Topbar />
-                <main>{children}</main>
-                <ToastContainer position="bottom-right" />
-                <InstallPopUp />
-              </SkeletonTheme>
-            </ThemeProvider>
+            <SkeletonTheme baseColor="#eaeaea" highlightColor="#bfbfbf">
+              <Topbar />
+              <main>{children}</main>
+              <ToastContainer position="bottom-right" />
+              <InstallPopUp />
+            </SkeletonTheme>
           </InstallableContextProvider>
         </AuthContextProvider>
       </body>

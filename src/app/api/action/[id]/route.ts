@@ -10,7 +10,8 @@ interface StudentParams {
 }
 export async function POST(req: NextRequest, props: StudentParams) {
   const session = await getServerSession();
-  if (!session) return { status: 401, json: { error: "Unauthorized" } };
+  if (!session)
+    return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
 
   const { id } = await props.params;
 
@@ -27,8 +28,5 @@ export async function POST(req: NextRequest, props: StudentParams) {
     },
   });
 
-  return NextResponse.json({
-    status: 200,
-    json: { message: "Action added" },
-  });
+  return NextResponse.json({ message: "Success" }, { status: 200 });
 }

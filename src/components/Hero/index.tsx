@@ -1,19 +1,13 @@
 "use client";
 
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent } from "react";
 import Image, { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
 
-import Highlight from "../Highlight";
-
-import { useTheme } from "next-themes";
 import { ChevronDown } from "react-bootstrap-icons";
 
 interface HeaderProps {
-  logoSrc: {
-    white: StaticImageData;
-    dark: StaticImageData;
-  };
+  logoSrc: StaticImageData;
   logoAlt: string;
   contentRef: React.RefObject<HTMLDivElement>;
 }
@@ -23,14 +17,6 @@ const Hero: FunctionComponent<HeaderProps> = ({
   logoAlt,
   contentRef,
 }) => {
-  const [mounted, setMounted] = useState(false);
-  const { theme } = useTheme();
-
-  // If we don't wait for the theme to be loaded, the image will be broken -> always being false until the theme is changed
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <section className="relative flex size-full min-h-screen flex-col items-center justify-center">
       <motion.div
@@ -48,8 +34,8 @@ const Hero: FunctionComponent<HeaderProps> = ({
         className="flex w-full flex-col items-center justify-center gap-28 md:px-14"
       >
         <Image
-          className="mt-12 max-h-[300px] w-1/3 object-contain drop-shadow-md md:mt-0 lg:max-h-[500px] lg:w-72"
-          src={mounted && theme === "light" ? logoSrc.dark : logoSrc.white}
+          className="mt-12 max-h-[420px] w-1/2 object-contain drop-shadow-md md:mt-0 lg:max-h-[620px] lg:w-96"
+          src={logoSrc}
           alt={logoAlt}
         />
         <motion.div
@@ -64,11 +50,19 @@ const Hero: FunctionComponent<HeaderProps> = ({
           viewport={{
             once: true,
           }}
-          className="flex w-full flex-col items-center justify-center gap-10 md:px-5 pb-10"
+          className="flex w-full flex-col items-center justify-center gap-10 pb-10 md:px-5"
         >
-          <p className="text-4xl text-center">O teu futuro <br/><span className="font-bold">começa aqui.</span></p>
+          <p className="text-center text-4xl md:text-6xl">
+            O teu futuro <br />
+            <span className="font-bold">começa aqui.</span>
+          </p>
 
-          <a href="/signup" className="bg-[#606C38] py-3 px-5 rounded-md font-bold uppercase">Inscreve-te no Fallstack</a>
+          <a
+            href="/signup"
+            className="bg-call-to-action rounded-md px-5 py-3 font-bold uppercase"
+          >
+            Inscreve-te no Fallstack
+          </a>
         </motion.div>
       </motion.div>
       <a

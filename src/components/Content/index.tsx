@@ -1,10 +1,8 @@
 import Connect from "../../../public/assets/images/connect.png";
 import Pitch from "../../../public/assets/images/pitch.png";
 import Activity from "../Activity";
-import CompaniesSection from "../Companies/CompaniesSection";
 import FaqSection from "../FaqSection";
 import InfoText from "../InfoText";
-import SponsorsSection from "../SponsorsSection";
 
 interface ContentProps {
   contentRef: React.RefObject<HTMLDivElement>;
@@ -25,15 +23,16 @@ const Content: React.FC<ContentProps> = ({ contentRef }) => {
 
       <section className="my-16 grid w-full grid-cols-1 justify-items-center gap-y-10 md:grid-rows-2 md:gap-y-14">
         <Activity logo={Pitch} title={"Apresentações das empresas"} day={26}>
-          O primeiro dia é dedicado aos{" "}
-          <span className="font-bold text-orange-600">pitches </span>
-          por parte das empresas presentes no evento.
+          O primeiro dia é dedicado às apresentações{" "}
+          <span className="font-bold text-orange-600">(pitches) </span>
+          das empresas participantes.
           <br />
-          Ao longo do dia terás a oportunidade de{" "}
+          Ao longo destas sessões terás a oportunidade de{" "}
           <span className="font-bold text-orange-600">conhecer </span>
-          melhor as empresas de forma a conseguires filtrar os teus
-          <span className="font-bold text-orange-600"> interesses</span> para o
-          próximo dia.
+          melhor cada empresa, os seus valores e oportunidades, ajudando-te a
+          identificar as que se alinham com os teus
+          <span className="font-bold text-orange-600"> interesses</span> para as
+          interações do segundo dia.
         </Activity>
         <Activity
           logo={Connect}
@@ -43,18 +42,20 @@ const Content: React.FC<ContentProps> = ({ contentRef }) => {
         >
           No segundo dia terás a oportunidade de{" "}
           <span className="font-bold text-orange-600">interagir </span>
-          diretamente com os representantes das empresas presentes de forma a
-          <span className="font-bold text-orange-600"> esclareceres</span> as
-          tuas dúvidas. Aproveita esta oportunidade para aumentares a tua rede
-          de contactos e receberes
-          <span className="font-bold text-orange-600"> feedback</span> por parte
-          das empresas do teu interesse.
+          diretamente com os representantes das empresas presentes,
+          permitindo-te
+          <span className="font-bold text-orange-600"> esclarecer</span>
+          dúvidas, expandir a tua rede de contactos e obter feedback valioso
+          sobre as empresas e as
+          <span className="font-bold text-orange-600"> oportunidades</span>{" "}
+          parte do teu interesse. Aproveita ao máximo este momento único para te
+          destacares!
         </Activity>
       </section>
 
-      <CompaniesSection />
+      {/* <CompaniesSection />
 
-      <SponsorsSection />
+      <SponsorsSection /> */}
 
       <FaqSection />
     </section>
