@@ -13,6 +13,7 @@ export const SilverCompanies: CompanyProps[] = [
     logoHref: glinttLogo,
     name: "glintt",
     websiteUrl: "https://www.glintt.com/",
+    className: "w-3/4",
   },
   {
     logoHref: AccentureLogo,

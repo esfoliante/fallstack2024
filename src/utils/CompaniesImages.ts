@@ -4,7 +4,7 @@ import DevscopeLogo from "../../public/assets/images/companies/diamond/devscope_
 import HitachiLogo from "../../public/assets/images/companies/gold/hitachi_logo.png";
 import AccentureLogo from "../../public/assets/images/companies/silver/accenture.png";
 import AkaLogo from "../../public/assets/images/companies/silver/akaPeople.webp";
-import glinttLogo from "../../public/assets/images/companies/silver/glintt.png";
+import glinttLogo from "../../public/assets/images/companies/silver/glintt.webp";
 import KonkLogo from "../../public/assets/images/companies/silver/konk.webp";
 import msgLifeIberiaLogo from "../../public/assets/images/companies/silver/msg.webp";
 import NatixisLogo from "../../public/assets/images/companies/silver/natixis.png";
