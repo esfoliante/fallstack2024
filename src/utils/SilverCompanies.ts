@@ -1,7 +1,9 @@
 import { CompanyProps } from "../components/Companies/Company";
 import {
   AccentureLogo,
+  AkaLogo,
   glinttLogo,
+  KonkLogo,
   msgLifeIberiaLogo,
   NatixisLogo,
 } from "./CompaniesImages";
@@ -18,9 +20,10 @@ export const SilverCompanies: CompanyProps[] = [
     websiteUrl: "https://www.accenture.com/",
   },
   {
-    logoHref: AccentureLogo,
+    logoHref: AkaLogo,
     name: "akapeople",
     websiteUrl: "https://www.akapeople.pt/",
+    className: "w-3/4",
   },
   {
     logoHref: NatixisLogo,
@@ -28,9 +31,14 @@ export const SilverCompanies: CompanyProps[] = [
     websiteUrl: "https://www.natixis.com/",
   },
   {
+    logoHref: KonkLogo,
+    name: "konk consulting",
+    websiteUrl: "https://www.konkconsulting.com/PT/",
+    className: "w-3/4",
+  },
+  {
     logoHref: msgLifeIberiaLogo,
     name: "msg insur:it",
     websiteUrl: "https://msg-insurit.com/pt-pt/",
-    className: "w-3/4",
   },
 ];
