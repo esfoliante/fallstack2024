@@ -18,13 +18,18 @@ export const SilverCompanies: CompanyProps[] = [
     websiteUrl: "https://www.accenture.com/",
   },
   {
+    logoHref: AccentureLogo,
+    name: "akapeople",
+    websiteUrl: "https://www.akapeople.pt/",
+  },
+  {
     logoHref: NatixisLogo,
     name: "natixis",
     websiteUrl: "https://www.natixis.com/",
   },
   {
     logoHref: msgLifeIberiaLogo,
-    name: "msg life iberia",
+    name: "msg insur:it",
     websiteUrl: "https://msg-insurit.com/pt-pt/",
     className: "w-3/4",
   },
