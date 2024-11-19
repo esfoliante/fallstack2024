@@ -1,9 +1,9 @@
 import Connect from "../../../public/assets/images/connect.png";
 import Pitch from "../../../public/assets/images/pitch.png";
 import Activity from "../Activity";
+import CompaniesSection from "../Companies/CompaniesSection";
 import FaqSection from "../FaqSection";
 import InfoText from "../InfoText";
-import CompaniesSection from "../Companies/CompaniesSection";
 
 interface ContentProps {
   contentRef: React.RefObject<HTMLDivElement>;
@@ -41,11 +41,11 @@ const Content: React.FC<ContentProps> = ({ contentRef }) => {
           day={27}
           location={"Sala de Eventos (Edificio H) do ISEP"}
         >
-         No segundo dia terás a oportunidade de{" "}
+          No segundo dia terás a oportunidade de{" "}
           <span className="font-bold text-orange-600">interagir </span>
           diretamente com os representantes das empresas presentes,
           permitindo-te
-          <span className="font-bold text-orange-600"> esclarecer</span>
+          <span className="font-bold text-orange-600"> esclarecer </span>
           dúvidas, expandir a tua rede de contactos e obter feedback valioso
           sobre as empresas e as
           <span className="font-bold text-orange-600"> oportunidades</span>{" "}
@@ -56,7 +56,7 @@ const Content: React.FC<ContentProps> = ({ contentRef }) => {
 
       <CompaniesSection />
 
-	  {/* <SponsorsSection /> */}
+      {/* <SponsorsSection /> */}
 
       <FaqSection />
     </section>
