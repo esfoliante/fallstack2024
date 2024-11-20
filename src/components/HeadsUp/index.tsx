@@ -7,9 +7,9 @@ const HeadsUp: React.FC = () => {
         Precisas de <span className="text-primary">ajuda</span>? Contacta-nos!
       </h1>
 
-      <p className="my-2 text-center text-lg">
+      <p className="my-2 text-center font-light text-lg">
         Envia-nos um email para{" "}
-        <Link href="mailto:support@nei-isep.org" className="text-primary">
+        <Link href="mailto:support@nei-isep.org" className="text-primary font-bold">
           support@nei-isep.org
         </Link>
       </p>

@@ -13,12 +13,12 @@ const Content: React.FC<ContentProps> = ({ contentRef }) => {
   return (
     <section
       ref={contentRef}
-      className="container mx-auto rounded-lg p-8 sm:w-3/4 lg:w-full lg:pt-14"
+      className="container font-light mx-auto rounded-lg p-8 sm:w-3/4 lg:w-full lg:pt-14"
     >
       <InfoText
         days={[26, 27]}
         month="Novembro"
-        beginningTime="9h00"
+        beginningTime="9:30h"
         endTime="17:30h"
       />
 

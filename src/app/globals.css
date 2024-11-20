@@ -19,19 +19,18 @@
     background-size: cover;
     background-position: center;
     color: var(--text);
+    font-family: Inter, sans-serif;
+    font-feature-settings: 'liga' 1, 'calt' 1, 'cv04' 1, 'cv05' 1;
   }
 
-  body {
-    font-family: "Inter", sans-serif;
+  @supports (font-variation-settings: normal) {
+    :root {
+      font-family: InterVariable, sans-serif;
+    }
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: "Inter", sans-serif;
+  body, h1, h2, h3, h4, h5, h6, p, b, div {
+    letter-spacing: -0.03em; /* -3% */
   }
 
   @media (max-width: 768px) {
