@@ -5,10 +5,44 @@ import {
   delloiteLogo,
   DevscopeLogo,
   niwLogo,
-  // TODO: Import APR logo.
+  aprLogo,
 } from "./CompaniesImages";
 
 export const GoldCompanies: CompanyProps[] = [
+  {
+    logoHref: aprLogo,
+    name: "apr",
+    interests: [
+      "Consulting",
+    ],
+    modalInformation: {
+      title: "APR",
+      bodyText: (
+        <>
+          <p>
+            Somos uma empresa tecnológica com mais de 30 anos de experiência, 
+            parceira da Microsoft. Ao longo destas três décadas, temos liderado a 
+            transformação digital de empresas em múltiplos setores, oferecendo 
+            soluções inovadoras em ERP Dynamics Business Central, Systems, CRM 
+            Solutions e Microsoft Power Platform. Com um portfólio robusto e 
+            diversificado, potenciamos o sucesso dos nossos clientes, adicionando 
+            valor com otimização de processos, aumentando a eficiência das operações 
+            e automatizando tarefas, sem descurar a segurança digital das organizações.
+          </p>
+          <br />
+          <p>
+            A nossa abordagem vai além da implementação de soluções tecnológicas. 
+            Na APR, também oferecemos serviços personalizados de suporte contínuo, 
+            consultoria estratégica e desenvolvimento aplicacional que se ajustam às 
+            necessidades específicas de cada negócio. Adotamos uma metodologia centrada
+            em cada cliente, o que nos permite responder rapidamente às mudanças do 
+            mercado e antecipar as tendências emergentes, preparando as empresas para 
+            o futuro digital.  
+          </p> 
+        </>
+      ),
+    },
+  },
   {
     logoHref: delloiteLogo,
     name: "deloitte",
@@ -160,16 +194,19 @@ export const GoldCompanies: CompanyProps[] = [
   {
     logoHref: niwLogo,
     name: "niw",
+    interests: [
+      "Consulting",
+    ],
     modalInformation: {
       title: "NiW",
       bodyText: (
         <p>
-          NiW é um novo capítulo para uma marca com uma longa e bem-sucedida história, 
-          a Rigor. Durante muitas décadas, a Rigor foi a consultora de confiança de 
-          todas as marcas do Grupo Salvador Caetano. Apesar de oferecer apoio em várias 
-          áreas, a TI sempre foi a nossa paixão. É o que nos move e nos mantém a evoluir 
-          e a inovar. Por isso, agora a Rigor é a NiW, o seu novo parceiro em TI, a oferecer 
-          soluções, apoio e monitorização que colocam o seu negócio no lado vencedor.
+          NiW is a fresh chapter for a brand with a long, successful history, Rigor. 
+          For many decades, Rigor has been the trusted consultant for all brands within 
+          Grupo Salvador Caetano. Despite offering support in a variety of areas, IT has 
+          always been our passion. It moves us and keeps us evolving and new. That's why 
+          now Rigor is NiW, your new IT partner, offering solutions, support and monitoring 
+          that switches your business to the winning side.
         </p>
       ),
       linkedinLink: "https://www.linkedin.com/company/niw-it-services-consulting/",

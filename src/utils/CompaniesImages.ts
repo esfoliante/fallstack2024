@@ -12,6 +12,7 @@ import mouraLogo from "../../public/assets/images/sponsors/moura.png";
 import telepizzaLogo from "../../public/assets/images/sponsors/telepizza.png";
 import vitalisLogo from "../../public/assets/images/sponsors/vitalis.png";
 import niwLogo from "../../public/assets/images/companies/gold/niw_logo.png";
+import aprLogo from "../../public/assets/images/companies/gold/apr_logo.png";
 // TODO: Get and export APR logo.
 
 export {
@@ -29,4 +30,5 @@ export {
   vitalisLogo,
   aeisepLogo,
   niwLogo,
+  aprLogo,
 };
