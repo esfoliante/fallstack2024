@@ -3,6 +3,7 @@ import Pitch from "../../../public/assets/images/pitch.png";
 import Activity from "../Activity";
 import FaqSection from "../FaqSection";
 import InfoText from "../InfoText";
+import CompaniesSection from "../Companies/CompaniesSection";
 
 interface ContentProps {
   contentRef: React.RefObject<HTMLDivElement>;
@@ -53,9 +54,9 @@ const Content: React.FC<ContentProps> = ({ contentRef }) => {
         </Activity>
       </section>
 
-      {/* <CompaniesSection />
+      <CompaniesSection />
 
-      <SponsorsSection /> */}
+      {/* <SponsorsSection /> */}
 
       <FaqSection />
     </section>
