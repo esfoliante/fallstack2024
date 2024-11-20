@@ -12,9 +12,13 @@ export const GoldCompanies: CompanyProps[] = [
   {
     logoHref: aprLogo,
     name: "apr",
-    interests: ["Consulting"],
+    interests: ["Cloud Computing", "Infrastructure", "Security"],
     modalInformation: {
       title: "APR",
+      linkedinLink:
+        "https://www.linkedin.com/company/apr-technology-solutions/",
+      instagramLink: "https://www.instagram.com/aprtechnologysolutions/",
+      facebookLink: "https://www.facebook.com/aprtechnologysolutions/",
       bodyText: (
         <>
           <p>
@@ -127,8 +131,6 @@ export const GoldCompanies: CompanyProps[] = [
       instagramLink: "https://www.instagram.com/deloitteportugal/",
       linkedinLink: "https://www.linkedin.com/company/deloitte-portugal/",
       website: "https://www2.deloitte.com/pt/pt.html",
-      videoHref: "https://www.youtube.com/embed/ShwtDNMJ4eM",
-      videoTitle: "Vídeo promocional",
       facts: [
         {
           iconSrc: Trophy,
@@ -165,8 +167,6 @@ export const GoldCompanies: CompanyProps[] = [
           duradouros.
         </p>
       ),
-      videoTitle: "Vídeo promocional",
-      videoHref: "https://www.youtube.com/embed/WL1pRbjUs6c",
       facebookLink: "https://www.facebook.com/devscope/",
       youtubeLink: "https://www.youtube.com/devscope",
       twitterLink: "https://twitter.com/devscope",
@@ -195,7 +195,12 @@ export const GoldCompanies: CompanyProps[] = [
   {
     logoHref: niwLogo,
     name: "niw",
-    interests: ["Consulting"],
+    interests: [
+      "Infrastructure",
+      "Devops",
+      "Artificial Intelligence",
+      "Analytics",
+    ],
     modalInformation: {
       title: "NiW",
       bodyText: (
