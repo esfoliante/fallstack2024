@@ -1,6 +1,6 @@
 import armisLogo from "../../public/assets/images/companies/diamond/armis_logo.png";
-import delloiteLogo from "../../public/assets/images/companies/diamond/delloite.png";
-import DevscopeLogo from "../../public/assets/images/companies/diamond/devscope_logo.png";
+import delloiteLogo from "../../public/assets/images/companies/gold/delloite.png";
+import DevscopeLogo from "../../public/assets/images/companies/gold/devscope_logo.png";
 import FabamaqLogo from "../../public/assets/images/companies/gold/fabamaq_logo.png";
 import HitachiLogo from "../../public/assets/images/companies/gold/hitachi_logo.png";
 import randstadLogo from "../../public/assets/images/companies/gold/randstad_logo.png";
@@ -15,6 +15,8 @@ import divinalLogo from "../../public/assets/images/sponsors/divinal.png";
 import mouraLogo from "../../public/assets/images/sponsors/moura.png";
 import telepizzaLogo from "../../public/assets/images/sponsors/telepizza.png";
 import vitalisLogo from "../../public/assets/images/sponsors/vitalis.png";
+import niwLogo from "../../public/assets/images/companies/gold/niw_logo.png";
+// TODO: Get and export APR logo.
 
 export {
   DevscopeLogo,
@@ -34,4 +36,5 @@ export {
   telepizzaLogo,
   vitalisLogo,
   aeisepLogo,
+  niwLogo,
 };

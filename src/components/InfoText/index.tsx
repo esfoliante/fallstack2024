@@ -43,7 +43,7 @@ const InfoText: React.FC<InfoTextProps> = ({
           }}
           className="flex flex-col space-y-2 text-center leading-7 md:text-left md:text-xl md:leading-8 lg:px-10"
         >
-          <p>
+          <p className="font-light">
             O <span className="font-bold text-orange-600">Fallstack</span>{" "}
             aproxima, todos os anos, estudantes do curso de Engenharia
             Informática do
@@ -54,7 +54,7 @@ const InfoText: React.FC<InfoTextProps> = ({
             de empresas que atuam no setor informático.
           </p>
 
-          <p className="mt-6">
+          <p className="mt-6 font-light">
             Graças a este evento, os estudantes têm uma oportunidade única de
             <span className="font-bold text-orange-600"> interagir</span> com
             empresas diretamente ao longo de dois dias de evento repletos de

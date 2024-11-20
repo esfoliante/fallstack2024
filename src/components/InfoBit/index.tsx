@@ -9,7 +9,7 @@ const InfoBit: FunctionComponent<InfoBitProps> = ({ icon, info }) => {
   return (
     <span className="flex items-center gap-x-6 lg:w-auto">
       <span className="text-3xl">{icon}</span>
-      <b className="w-[20ch] ">{info}</b>
+      <p className="w-[20ch] ">{info}</p>
     </span>
   );
 };

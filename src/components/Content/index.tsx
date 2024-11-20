@@ -12,7 +12,7 @@ const Content: React.FC<ContentProps> = ({ contentRef }) => {
   return (
     <section
       ref={contentRef}
-      className="container mx-auto rounded-lg p-8 sm:w-3/4 lg:w-full lg:pt-14"
+      className="container font-light mx-auto rounded-lg p-8 sm:w-3/4 lg:w-full lg:pt-14"
     >
       <InfoText
         days={[26, 27]}
@@ -44,7 +44,7 @@ const Content: React.FC<ContentProps> = ({ contentRef }) => {
           <span className="font-bold text-orange-600">interagir </span>
           diretamente com os representantes das empresas presentes,
           permitindo-te
-          <span className="font-bold text-orange-600"> esclarecer</span>
+          <span className="font-bold text-orange-600"> esclarecer </span>
           dúvidas, expandir a tua rede de contactos e obter feedback valioso
           sobre as empresas e as
           <span className="font-bold text-orange-600"> oportunidades</span>{" "}

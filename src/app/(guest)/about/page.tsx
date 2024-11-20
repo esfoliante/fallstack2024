@@ -32,11 +32,11 @@ const about: React.FC = () => {
       </div>
 
       <div className="flex flex-col items-center justify-center">
-        <h1 className="text-center text-xl sm:text-2xl md:text-3xl">
+        <h1 className="text-center font-bold text-xl sm:text-2xl md:text-3xl">
           Precisas de ajuda? Contacta-nos!
         </h1>
 
-        <p className="my-2 text-center text-lg">
+        <p className="my-2 text-center font-light text-lg">
           Envia-nos um email para{" "}
           <Link
             href="mailto:support@nei-isep.org"

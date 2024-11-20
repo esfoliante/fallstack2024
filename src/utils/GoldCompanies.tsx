@@ -2,172 +2,178 @@ import { Archive, Chart, Leaf, Trophy } from "@/styles/Icons";
 
 import { CompanyProps } from "../components/Companies/Company";
 import {
-  FabamaqLogo,
-  HitachiLogo,
-  randstadLogo,
-  WeezieLogo,
+  delloiteLogo,
+  DevscopeLogo,
+  niwLogo,
+  // TODO: Import APR logo.
 } from "./CompaniesImages";
 
 export const GoldCompanies: CompanyProps[] = [
   {
-    logoHref: HitachiLogo,
-    name: "hitachi",
-    interests: ["Backend", "Cloud Computing", "Data Analysis"],
-    modalInformation: {
-      title: "Hitachi Solutions",
-      bodyText: (
-        <p>
-          A Hitachi Solutions compreende o que é necessário para transformar
-          digitalmente as organizações, aproveitando o poder das mais recentes
-          tecnologias e integrando-as de forma transparente nas empresas. Como
-          uma empresa de consultoria global que atua nos setores privado e
-          público, especializamo-nos em aplicações empresariais amigáveis
-          baseadas na Microsoft cloud. O excelente trabalho que realizamos atrai
-          algumas das mentes mais brilhantes lá fora. Eles compõem equipas
-          diversas com perspectivas e experiências diferentes, que impulsionam a
-          inovação e permitem uma ligação mais próxima com os nossos clientes.
-          Junta-te a nós e faz o teu melhor trabalho de sempre numa cultura
-          diversificada e recompensadora que está constantemente a impulsionar a
-          inovação para um futuro melhor.
-        </p>
-      ),
-      instagramLink: "https://www.instagram.com/hitachisolutions.portugal/",
-      linkedinLink:
-        "https://www.linkedin.com/company/hitachi-solutions-portugal/",
-      website: "https://global.hitachi-solutions.com/",
-      facts: [
-        {
-          iconSrc: Archive,
-          description: "Empresa de consultoria global",
-        },
-        {
-          iconSrc: Leaf,
-          description: "Cultura diversificada e recompensadora",
-        },
-        {
-          iconSrc: Chart,
-          description:
-            "Especializados em aplicações empresariais amigáveis baseadas na Microsoft cloud",
-        },
-      ],
-    },
-  },
-  {
-    logoHref: FabamaqLogo,
-    name: "fabamaq",
+    logoHref: delloiteLogo,
+    name: "deloitte",
     interests: [
-      "Backend",
-      "Devops",
-      "Game Development",
+      "Outsystems",
+      "Network Administration",
       "Software Engineering",
-    ],
-    modalInformation: {
-      title: "FABAMAQ",
-      bodyText: (
-        <p>
-          A Fabamaq é uma software house baseada no Porto, que desenvolve jogos
-          para casinos físicos e online espalhados por todo o mundo. A cultura
-          centrada nas pessoas que se vive na empresa tem como valores
-          orientadores a Proximidade, a Audácia, a Partilha, a Adaptabilidade e
-          o Compromisso.
-        </p>
-      ),
-      instagramLink: "https://www.instagram.com/fabamaq/",
-      linkedinLink: "https://www.linkedin.com/company/fabamaq/",
-      website: "https://www.fabamaq.com",
-      facts: [
-        {
-          iconSrc: Trophy,
-          description: "Empresa vencedora do prémio “Healthy Workplaces”",
-        },
-        {
-          iconSrc: Archive,
-          description: "Regime de trabalho híbrido",
-        },
-      ],
-    },
-  },
-  {
-    logoHref: WeezieLogo,
-    name: "weezie",
-    interests: [
-      "Backend",
       "Cloud Computing",
       "Data Analysis",
       "Data Science",
-      "Network Administration",
+      "UI/UX Design",
     ],
     modalInformation: {
-      title: "Weezie",
+      title: "Deloitte",
       bodyText: (
-        <p>
-          A Weezie é uma startup de software portuguesa, com sede no Porto, que
-          oferece soluções de gestão de redes de fibra ótica, focada na
-          automação e digitalização dos processos associados ao desenvolvimento
-          de uma rede de telecomunicação. A Weezie oferece uma solução que
-          integra num só ecossistema digital a equipa de planeamento, execução,
-          controlo e gestão, a fim de oferecer a melhor experiência ao cliente
-          final. Com apenas 6 anos, a Weezie está presente em 5 países e já
-          ajudou os clientes a levar a fibra ótica a 60 milhões de casas em todo
-          o mundo.
-        </p>
+        <>
+          <p className="font-bold">You will never work alone</p>
+          <br />
+          <p>
+            Acreditamos que o impacto que criamos se multiplica quando
+            trabalhamos em equipa. Juntos podemos mudar o mundo – torná-lo mais
+            humano, eficiente e tecnológico. Mas isso só é possível se
+            conectarmos o teu talento ao de outras pessoas como tu.
+          </p>
+          <br />
+          <p>
+            Na Deloitte, nunca trabalharás sozinho. Vais integrar os mais
+            variados e desafiantes projetos e fazer parte do nosso Global
+            Solutions Center, onde poderás colaborar de forma integrada com
+            outras equipas da rede global Deloitte. Terás sempre alguém ao teu
+            lado para te inspirar, ajudar e desafiar a expandir os teus
+            horizontes, enquanto exploras soluções tecnológicas diferenciadoras.
+            Aqui, ao encontrares um ambiente dinâmico, colaborativo e humano,
+            terás a oportunidade de desenvolver a tua melhor versão.
+          </p>
+          <br />
+          <p>
+            Além disso, as nossas equipas em Portugal têm projeção
+            internacional, o que demonstra a nossa forte liderança global em low
+            code/no code, em engenharia de redes de telecomunicações, em
+            plataformas tecnológicas de transformação organizacional (ServiceNow
+            e Apptio) e na indústria de serviços financeiros (Finastra, TIA e
+            Guidewire).
+          </p>
+          <br />
+          <p>
+            Se tens interesse em explorar e desenvolver as tuas competências
+            nalguma destas áreas em soluções tecnológicas – engenharia de
+            software, cloud, integração de sistemas, data analytics & data
+            science, cyber risk, engenharia de redes telecomunicações, UX design
+            - e gostarias de trabalhar com tecnologias como AWS, Google, Oracle,
+            Salesforce, SAP, Mulesoft, Feedzai e SAS, entre outras, então estás
+            no lugar certo!
+          </p>
+          <br />
+          <p>
+            Orgulhamo-nos das nossas provas dadas de sucesso e resiliência ao
+            longo de mais de 175 anos de história. Registamos um crescimento
+            notório nas áreas tecnológicas e somos líderes na prestação dos
+            nossos serviços, aos quais recorrem quatro em cada cinco empresas da
+            Fortune Global 500®, através da nossa rede global de firmas membro,
+            com mais de 415 mil pessoas.
+          </p>
+          <br />
+          <p>
+            Somos mais de 5500 pessoas em Portugal, das quais mais de 2600
+            trabalham em áreas tecnológicas, a partir de escritórios e Digital
+            Studios em Lisboa e no Porto, e de polos tecnológicos em Braga,
+            Viseu, Coimbra, Setúbal, Leiria e Faro.
+          </p>
+          <br />
+          <p>
+            A Deloitte é uma das empresas mais atrativas para trabalhar no
+            mundo, segundo o ranking da Universum. Em 2023, fomos distinguidos
+            com dois prémios nos Human Resources Awards e fazemos parte do Top5
+            das 25 melhores empresas para trabalhar e desenvolver carreira em
+            Portugal.
+          </p>
+        </>
       ),
-      instagramLink: "https://www.instagram.com/weezieofficial/",
-      linkedinLink: "https://www.linkedin.com/company/weezie-io/",
-      facebookLink: "https://www.facebook.com/weeziesoftware/",
-      twitterLink: "https://twitter.com/weeziesoftware",
-      website: "https://weezie.io/",
+      instagramLink: "https://www.instagram.com/deloitteportugal/",
+      linkedinLink: "https://www.linkedin.com/company/deloitte-portugal/",
+      website: "https://www2.deloitte.com/pt/pt.html",
+      videoHref: "https://www.youtube.com/embed/ShwtDNMJ4eM",
+      videoTitle: "Vídeo promocional",
       facts: [
         {
-          iconSrc: Chart,
+          iconSrc: Trophy,
           description:
-            "Levou fibra ótica a 60 milhões de casas em todo o mundo",
+            "Uma das 25 melhores empresas para trabalhar e desenvolver carreira em Portugal",
         },
         {
           iconSrc: Archive,
-          description: "Presente em 5 países",
+          description: "Mais de 5500 pessoas em Portugal",
+        },
+        {
+          iconSrc: Leaf,
+          description: "Ambiente dinâmico, colaborativo e humano",
         },
       ],
     },
   },
   {
-    logoHref: randstadLogo,
-    name: "randstad",
-    interests: [
-      "Data Analysis",
-      "IT Management",
-      "Network Administration",
-      "Software Development",
-    ],
+    logoHref: DevscopeLogo,
+    name: "devScope",
+    interests: ["AI", "Software Development", "Frontend"],
     modalInformation: {
-      title: "Randstad",
+      title: "DevScope",
       bodyText: (
         <p>
-          A Randstad é a maior prestadora de serviços de RH a nível nacional e
-          internacional, e tem como objetivo tornar-se o parceiro de vida
-          profissional mais valorizado pelos talentos a nível mundial, apoiando
-          o maior número possível de pessoa na realização do seu verdadeiro
-          potencial ao longo da sua carreira. Ajudamos as pessoas a obter
-          empregos gratificantes e a manterem-se relevantes no mundo do trabalho
-          em constante mudança.
+          A DevScope é especialista em dar às organizações as ferramentas e o
+          conhecimento necessários para se manterem competitivas e um dos mais
+          distinguidos parceiros Microsoft Portugal, tendo sido premiados
+          Analytics Partner of the Year 2021, Power Platform Partner of the Year
+          2022 e Low Code Partner of the Year 2023. Ao longo de 20 anos, temos
+          desenvolvido e implementado soluções dentro e fora de Portugal nas
+          mais variadas áreas de atividade, do retalho à saúde, passando pelo
+          imobiliário ou o sector público, produzindo sempre resultados
+          duradouros.
         </p>
       ),
-      instagramLink: "https://www.instagram.com/randstadportugal/",
-      linkedinLink: "https://www.linkedin.com/company/randstad-portugal/",
-      facebookLink: "https://www.facebook.com/RandstadPortugal",
-      twitterLink: "https://twitter.com/randstadpt",
-      website: "https://www.randstad.pt/",
+      videoTitle: "Vídeo promocional",
+      videoHref: "https://www.youtube.com/embed/WL1pRbjUs6c",
+      facebookLink: "https://www.facebook.com/devscope/",
+      youtubeLink: "https://www.youtube.com/devscope",
+      twitterLink: "https://twitter.com/devscope",
+      linkedinLink: "https://www.linkedin.com/company/devscope/",
+      website: "https://devscope.net",
       facts: [
         {
-          iconSrc: Archive,
-          description: "+ 1000 vagas de emprego",
+          iconSrc: Trophy,
+          description: "Analytics Partner of the Year 2021",
         },
         {
           iconSrc: Trophy,
-          description:
-            "Maior prestadora de serviços de RH a nível nacional e internacional",
+          description: "Power Platform Partner of the Year 2022",
+        },
+        {
+          iconSrc: Trophy,
+          description: "Low Code Partner of the Year 2023",
+        },
+        {
+          iconSrc: Archive,
+          description: "Empresa multinacional presente há 20 anos no mercado",
         },
       ],
+    },
+  },
+  {
+    logoHref: niwLogo,
+    name: "niw",
+    modalInformation: {
+      title: "NiW",
+      bodyText: (
+        <p>
+          NiW é um novo capítulo para uma marca com uma longa e bem-sucedida história, 
+          a Rigor. Durante muitas décadas, a Rigor foi a consultora de confiança de 
+          todas as marcas do Grupo Salvador Caetano. Apesar de oferecer apoio em várias 
+          áreas, a TI sempre foi a nossa paixão. É o que nos move e nos mantém a evoluir 
+          e a inovar. Por isso, agora a Rigor é a NiW, o seu novo parceiro em TI, a oferecer 
+          soluções, apoio e monitorização que colocam o seu negócio no lado vencedor.
+        </p>
+      ),
+      linkedinLink: "https://www.linkedin.com/company/niw-it-services-consulting/",
+      website: "https://www.niw.pt/",
     },
   },
 ];
