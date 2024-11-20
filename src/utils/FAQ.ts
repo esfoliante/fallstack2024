@@ -11,7 +11,7 @@ export const FAQ: FaqProps[] = [
     index: 1,
     question: "Como me inscrevo no evento?",
     answer:
-      "Começando este ano (2023), o processo de inscrição é realizado a partir da nossa plataforma oficial do evento. Basta seguires os passos indicados para a criação de uma conta e ficas automaticamente registado para o evento.",
+      "Começando no ano de 2023, o processo de inscrição é realizado a partir da nossa plataforma oficial do evento. Basta seguires os passos indicados para a criação de uma conta e ficas automaticamente registado para o evento.",
   },
   {
     index: 2,
