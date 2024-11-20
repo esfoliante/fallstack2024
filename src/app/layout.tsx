@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 
 import "react-loading-skeleton/dist/skeleton.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -14,7 +13,6 @@ import { InstallableContextProvider } from "@/contexts/InstallableContext";
 import InstallPopUp from "@/components/InstallPopUp";
 import Topbar from "@/components/TopBar";
 
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   applicationName: "Fallstack 2024",
@@ -31,7 +29,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="h-svh">
-      <body className={inter.className}>
+      <head>
+        <link rel="preconnect" href="https://rsms.me/" />
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+      </head>
+      <body>
         <AuthContextProvider>
           <InstallableContextProvider>
             <SkeletonTheme baseColor="#eaeaea" highlightColor="#bfbfbf">

@@ -37,7 +37,7 @@ const Activity: FunctionComponent<ActivityProps> = ({
       className="my-12 flex flex-col items-left justify-center"
     >
       <div className="flex flex-col space-y-5">
-        <h5 className="w-full text-center  text-4xl font-bold md:text-left md:text-5xl lg:col-span-2">
+        <h5 className="w-full text-center text-4xl font-bold md:text-left md:text-5xl lg:col-span-2">
           Dia {day} - {title}
         </h5>
         <p className="mt-5 text-2xl">{location}</p>
