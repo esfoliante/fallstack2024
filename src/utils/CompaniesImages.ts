@@ -1,7 +1,6 @@
 import armisLogo from "../../public/assets/images/companies/diamond/armis_logo.png";
 import delloiteLogo from "../../public/assets/images/companies/gold/delloite.png";
 import DevscopeLogo from "../../public/assets/images/companies/gold/devscope_logo.png";
-import HitachiLogo from "../../public/assets/images/companies/gold/hitachi_logo.png";
 
 import AccentureLogo from "../../public/assets/images/companies/silver/accenture.png";
 import AkaLogo from "../../public/assets/images/companies/silver/akaPeople.webp";
@@ -20,17 +19,13 @@ import aprLogo from "../../public/assets/images/companies/gold/apr_logo.png";
 
 export {
   DevscopeLogo,
-  glinttLogo,
-  armisLogo,
   AccentureLogo,
-  aeisepLogo,
   AkaLogo,
   armisLogo,
   artipolLogo,
   delloiteLogo,
   divinalLogo,
   glinttLogo,
-  HitachiLogo,
   KonkLogo,
   mouraLogo,
   msgLifeIberiaLogo,

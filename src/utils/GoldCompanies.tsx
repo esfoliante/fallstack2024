@@ -1,4 +1,4 @@
-import { Archive, Chart, Leaf } from "@/styles/Icons";
+import { Archive, Trophy, Leaf } from "@/styles/Icons";
 
 import { CompanyProps } from "../components/Companies/Company";
 import {
@@ -21,25 +21,25 @@ export const GoldCompanies: CompanyProps[] = [
       bodyText: (
         <>
           <p>
-            Somos uma empresa tecnológica com mais de 30 anos de experiência, 
-            parceira da Microsoft. Ao longo destas três décadas, temos liderado a 
-            transformação digital de empresas em múltiplos setores, oferecendo 
-            soluções inovadoras em ERP Dynamics Business Central, Systems, CRM 
-            Solutions e Microsoft Power Platform. Com um portfólio robusto e 
-            diversificado, potenciamos o sucesso dos nossos clientes, adicionando 
-            valor com otimização de processos, aumentando a eficiência das operações 
+            Somos uma empresa tecnológica com mais de 30 anos de experiência,
+            parceira da Microsoft. Ao longo destas três décadas, temos liderado a
+            transformação digital de empresas em múltiplos setores, oferecendo
+            soluções inovadoras em ERP Dynamics Business Central, Systems, CRM
+            Solutions e Microsoft Power Platform. Com um portfólio robusto e
+            diversificado, potenciamos o sucesso dos nossos clientes, adicionando
+            valor com otimização de processos, aumentando a eficiência das operações
             e automatizando tarefas, sem descurar a segurança digital das organizações.
           </p>
           <br />
           <p>
-            A nossa abordagem vai além da implementação de soluções tecnológicas. 
-            Na APR, também oferecemos serviços personalizados de suporte contínuo, 
-            consultoria estratégica e desenvolvimento aplicacional que se ajustam às 
+            A nossa abordagem vai além da implementação de soluções tecnológicas.
+            Na APR, também oferecemos serviços personalizados de suporte contínuo,
+            consultoria estratégica e desenvolvimento aplicacional que se ajustam às
             necessidades específicas de cada negócio. Adotamos uma metodologia centrada
-            em cada cliente, o que nos permite responder rapidamente às mudanças do 
-            mercado e antecipar as tendências emergentes, preparando as empresas para 
-            o futuro digital.  
-          </p> 
+            em cada cliente, o que nos permite responder rapidamente às mudanças do
+            mercado e antecipar as tendências emergentes, preparando as empresas para
+            o futuro digital.
+          </p>
         </>
       ),
     },
@@ -202,11 +202,11 @@ export const GoldCompanies: CompanyProps[] = [
       title: "NiW",
       bodyText: (
         <p>
-          NiW is a fresh chapter for a brand with a long, successful history, Rigor. 
-          For many decades, Rigor has been the trusted consultant for all brands within 
-          Grupo Salvador Caetano. Despite offering support in a variety of areas, IT has 
-          always been our passion. It moves us and keeps us evolving and new. That's why 
-          now Rigor is NiW, your new IT partner, offering solutions, support and monitoring 
+          NiW is a fresh chapter for a brand with a long, successful history, Rigor.
+          For many decades, Rigor has been the trusted consultant for all brands within
+          Grupo Salvador Caetano. Despite offering support in a variety of areas, IT has
+          always been our passion. It moves us and keeps us evolving and new. That's why
+          now Rigor is NiW, your new IT partner, offering solutions, support and monitoring
           that switches your business to the winning side.
         </p>
       ),

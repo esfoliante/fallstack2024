@@ -15,7 +15,7 @@ const CompaniesSection: FunctionComponent = () => {
       <HeadingText text="Empresas" />
       {/* <CompaniesContainer companies={DiamondCompanies} tier="Diamond" /> */}
       <CompaniesContainer companies={GoldCompanies} tier="Gold" />
-      <CompaniesContainer companies={SilverCompanies} tier="Silver" /
+      <CompaniesContainer companies={SilverCompanies} tier="Silver" />
     </section>
   );
 };

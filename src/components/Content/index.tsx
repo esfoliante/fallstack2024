@@ -4,7 +4,6 @@ import Activity from "../Activity";
 import CompaniesSection from "../Companies/CompaniesSection";
 import FaqSection from "../FaqSection";
 import InfoText from "../InfoText";
-import CompaniesSection from "../Companies/CompaniesSection";
 
 interface ContentProps {
   contentRef: React.RefObject<HTMLDivElement>;
@@ -19,7 +18,7 @@ const Content: React.FC<ContentProps> = ({ contentRef }) => {
       <InfoText
         days={[26, 27]}
         month="Novembro"
-        beginningTime="9h00"
+        beginningTime="9:30h"
         endTime="17:30h"
       />
 
