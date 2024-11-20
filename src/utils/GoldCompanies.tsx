@@ -1,4 +1,4 @@
-import { Archive, Chart, Leaf, Trophy } from "@/styles/Icons";
+import { Archive, Chart, Leaf } from "@/styles/Icons";
 
 import { CompanyProps } from "../components/Companies/Company";
 import {
@@ -7,6 +7,7 @@ import {
   niwLogo,
   aprLogo,
 } from "./CompaniesImages";
+
 
 export const GoldCompanies: CompanyProps[] = [
   {

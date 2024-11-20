@@ -1,8 +1,11 @@
 import { FunctionComponent } from "react";
 
+{/*
 import { DiamondCompanies } from "@/utils/DiamondCompanies";
+*/}
 import { GoldCompanies } from "@/utils/GoldCompanies";
-import { SilverCompanies } from "../../../utils/SilverCompanies";
+import { SilverCompanies } from "@/utils/SilverCompanies";
+
 import HeadingText from "../../HeadingText";
 import CompaniesContainer from "../CompaniesContainer";
 
@@ -12,7 +15,7 @@ const CompaniesSection: FunctionComponent = () => {
       <HeadingText text="Empresas" />
       {/* <CompaniesContainer companies={DiamondCompanies} tier="Diamond" /> */}
       <CompaniesContainer companies={GoldCompanies} tier="Gold" />
-      {/* <CompaniesContainer companies={SilverCompanies} tier="Silver" /> */}
+      <CompaniesContainer companies={SilverCompanies} tier="Silver" /
     </section>
   );
 };
