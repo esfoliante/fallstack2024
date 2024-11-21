@@ -82,6 +82,21 @@ export const DiamondCompanies: CompanyProps[] = [
       instagramLink: "https://www.instagram.com/convatecostomiaportugal/?hl=pt",
       linkedinLink: "https://www.linkedin.com/company/convatec/?trk=public_profile_topcard-current-company&originalSubdomain=pt",
       videoHref: "https://www.youtube.com/watch?v=_KY96eNgrZ8",
+      facts: [
+        {
+          iconSrc: Trophy,
+          description:
+            "Está listada na London Stock Exchange",
+        },
+        {
+          iconSrc: Archive,
+          description: "Fundada em 1978",
+        },
+        {
+          iconSrc: Chart,
+          description: "Produtos e serviços vendidos em mais de 100 países",
+        },
+      ],
     }
   },
   {
