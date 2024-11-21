@@ -22,7 +22,7 @@ export const DiamondCompanies: CompanyProps[] = [
         </p>
       ),
       instagramLink: "https://www.instagram.com/armisgroup/",
-      linkedinLink: "https://www.linkedin.com/company/armisgroup/",
+      linkedinLink: "https://www.linkedin.com/company/armis/",
       facebookLink: "https://www.facebook.com/grupoarmis/",
       youtubeLink: "https://www.youtube.com/@armisgroup",
       website: "https://www.armis.pt",
@@ -44,7 +44,7 @@ export const DiamondCompanies: CompanyProps[] = [
         },
       ],
     },
-    className: "w-4/6",
+    className: "w-3/4",
     interests: ["AI", "Mobile", "Software Development", "Backend"],
   },
   {
@@ -56,23 +56,23 @@ export const DiamondCompanies: CompanyProps[] = [
       bodyText: (
         <>
           <p>
-            A ConvaTec é uma companhia global de tecnologias e produtos médicos, 
-            com posições de liderança de mercado no tratamento de feridas, cuidados 
-            em ostomia, continência e cuidado intensivo, além de atuar com 
+            A ConvaTec é uma companhia global de tecnologias e produtos médicos,
+            com posições de liderança de mercado no tratamento de feridas, cuidados
+            em ostomia, continência e cuidado intensivo, além de atuar com
             dispositivos de infusão.
           </p>
           <br />
           <p>
             Nossos produtos oferecem uma gama de benefícios clínicos e econômicos,
-            incluindo a prevenção de infecções, proteção de uma pele em risco, 
-            melhora de resultados de pacientes e redução de custos totais de tratamento. 
-            Nossas marcas incluem os modernos curativos AQUACEL®, que formam um gel 
-            quando em contato com o exsudato da ferida, criando um ambiente úmido 
+            incluindo a prevenção de infecções, proteção de uma pele em risco,
+            melhora de resultados de pacientes e redução de custos totais de tratamento.
+            Nossas marcas incluem os modernos curativos AQUACEL®, que formam um gel
+            quando em contato com o exsudato da ferida, criando um ambiente úmido
             para cicatrização da ferida.
           </p>
           <br />
           <p>
-            A ConvaTec possui mais de 8.000 funcionários, com 11 unidades de fabricação 
+            A ConvaTec possui mais de 8.000 funcionários, com 11 unidades de fabricação
             em oito países, operando em mais de 100 países.
           </p>
         </>
