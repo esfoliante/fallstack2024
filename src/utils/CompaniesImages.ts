@@ -1,7 +1,7 @@
-import armisLogo from "../../public/assets/images/companies/diamond/armis_logo.png";
+import armisLogo from "../../public/assets/images/companies/diamond/armis_logo.webp";
 import delloiteLogo from "../../public/assets/images/companies/gold/delloite.webp";
 import DevscopeLogo from "../../public/assets/images/companies/gold/devscope_logo.webp";
-
+import hitachiLogo from "../../public/assets/images/companies/diamond/hitachi_logo.webp";
 import AccentureLogo from "../../public/assets/images/companies/silver/accenture.png";
 import AkaLogo from "../../public/assets/images/companies/silver/akaPeople.webp";
 import glinttLogo from "../../public/assets/images/companies/silver/glintt.webp";
@@ -16,8 +16,10 @@ import telepizzaLogo from "../../public/assets/images/sponsors/telepizza.png";
 import vitalisLogo from "../../public/assets/images/sponsors/vitalis.png";
 import niwLogo from "../../public/assets/images/companies/gold/niw_logo.webp";
 import aprLogo from "../../public/assets/images/companies/gold/apr_logo.webp";
+import convatecLogo from "../../public/assets/images/companies/diamond/convatec_logo.webp";
 
 export {
+  hitachiLogo,
   DevscopeLogo,
   AccentureLogo,
   AkaLogo,
@@ -35,4 +37,5 @@ export {
   aeisepLogo,
   niwLogo,
   aprLogo,
+  convatecLogo,
 };
