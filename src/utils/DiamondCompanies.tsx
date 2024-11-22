@@ -27,7 +27,7 @@ export const DiamondCompanies: CompanyProps[] = [
       youtubeLink: "https://www.youtube.com/@armisgroup",
       website: "https://www.armis.pt",
       videoTitle: "Vídeo promocional",
-      videoHref: "https://www.youtube.com/watch?v=QkeMa02JqD4",
+      videoHref: "https://www.youtube.com/embed/QkeMa02JqD4?si=xNaIvpGCvDycJz4A",
       facts: [
         {
           iconSrc: Trophy,
@@ -81,7 +81,7 @@ export const DiamondCompanies: CompanyProps[] = [
       website: "https://www.convatec.pt",
       instagramLink: "https://www.instagram.com/convatecostomiaportugal/?hl=pt",
       linkedinLink: "https://www.linkedin.com/company/convatec/?trk=public_profile_topcard-current-company&originalSubdomain=pt",
-      videoHref: "https://www.youtube.com/watch?v=_KY96eNgrZ8",
+      videoHref: "https://www.youtube.com/embed/_KY96eNgrZ8?si=irw5378pUNvFgJaE",
       facts: [
         {
           iconSrc: Trophy,
@@ -125,7 +125,7 @@ export const DiamondCompanies: CompanyProps[] = [
       linkedinLink: "https://www.linkedin.com/company/hitachi-solutions-portugal/",
       website: "https://hitachi-solutions.pt/",
       videoTitle: "Vídeo promocional",
-      videoHref: "https://www.youtube.com/watch?v=I4RyT-u2aIw",
+      videoHref: "https://www.youtube.com/embed/I4RyT-u2aIw?si=aAfGMCR3zVnAaHJp",
       facts: [
         {
           iconSrc: Archive,
