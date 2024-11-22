@@ -44,7 +44,7 @@ export const DiamondCompanies: CompanyProps[] = [
         },
       ],
     },
-    className: "w-3/4",
+    className: "w-42",
     interests: ["AI", "Mobile", "Software Development", "Backend"],
   },
   {

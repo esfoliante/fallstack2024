@@ -23,15 +23,15 @@ export const GoldCompanies: CompanyProps[] = [
       facts: [
         {
           iconSrc: Archive,
-          description: "2 sedes nacionais",
+          description: "Presença em várias zonas do país",
         },
         {
           iconSrc: Trophy,
-          description: "Rápida adoção de tecnologias AI",
+          description: "Rápida adaptação a tecnologias AI",
         },
         {
           iconSrc: Leaf,
-          description: "Bastante presente no mercado nacional",
+          description: "Grande presença no mercado nacional",
         },
       ],
       bodyText: (
