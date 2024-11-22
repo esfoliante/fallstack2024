@@ -54,21 +54,23 @@ const CompanyInfo: React.FC<CompanyInfoProps> = ({
           </div>
         </div>
       )}
-      <div className="px-10">
-        <h1 className="mb-4 mt-8 text-left text-lg font-bold uppercase text-black sm:text-lg md:text-xl lg:text-2xl">
-          Interesses
-        </h1>
-        <div className="flex w-full flex-wrap gap-4">
-          {interests?.map((interest) => (
-            <div
-              key={interest}
-              className="relative rounded-xl bg-slate-200 px-3 py-1 text-black"
-            >
-              {interest}
-            </div>
-          ))}
-        </div>
-      </div>
+	  {(interests == undefined || interests?.length > 0) && (
+		<div className="px-10">
+        	<h1 className="mb-4 mt-8 text-left text-lg font-bold uppercase text-black sm:text-lg md:text-xl lg:text-2xl">
+				Interesses
+        	</h1>
+        	<div className="flex w-full flex-wrap gap-4">
+          		{interests?.map((interest) => (
+            		<div
+              			key={interest}
+              			className="relative rounded-xl bg-slate-200 px-3 py-1 text-black"
+            		>
+              			{interest}
+            		</div>
+          		))}
+        	</div>
+		</div>
+	  )}
     </section>
   );
 };

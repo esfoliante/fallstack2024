@@ -19,6 +19,21 @@ export const GoldCompanies: CompanyProps[] = [
         "https://www.linkedin.com/company/apr-technology-solutions/",
       instagramLink: "https://www.instagram.com/aprtechnologysolutions/",
       facebookLink: "https://www.facebook.com/aprtechnologysolutions/",
+      website: "https://apr.pt",
+      facts: [
+        {
+          iconSrc: Archive,
+          description: "2 sedes nacionais",
+        },
+        {
+          iconSrc: Trophy,
+          description: "Rápida adoção de tecnologias AI",
+        },
+        {
+          iconSrc: Leaf,
+          description: "Bastante presente no mercado nacional",
+        },
+      ],
       bodyText: (
         <>
           <p>
@@ -217,6 +232,16 @@ export const GoldCompanies: CompanyProps[] = [
       linkedinLink:
         "https://www.linkedin.com/company/niw-it-services-consulting/",
       website: "https://www.niw.pt/",
+      facts: [
+        {
+          iconSrc: Archive,
+          description: "Antes conhecida como Rigor",
+        },
+        {
+          iconSrc: Trophy,
+          description: "+ 200 funcionários",
+        },
+      ],
     },
     className: "w-3/4",
   },
