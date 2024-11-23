@@ -24,16 +24,25 @@ model User {
 }
 
 model Action {
-  id          Int       @id @default(autoincrement())
+  id          Int     @id @default(autoincrement())
   name        String
   description String
   points      Int
   altText     String?
-  isVisible   Boolean   @default(true)
-  completedAt DateTime?
-  parentId    Int?
+  isVisible   Boolean @default(true)
 
-  Students Student[]
+  ActionCompletion ActionCompletion[]
+}
+
+model ActionCompletion {
+  id          Int      @id @default(autoincrement())
+  completedAt DateTime @default(now())
+
+  action  Action  @relation(fields: [actionId], references: [id])
+  student Student @relation(fields: [studentId], references: [id])
+
+  actionId  Int
+  studentId Int
 }
 
 model Student {
@@ -48,9 +57,10 @@ model Student {
   linkedin String?
   github   String?
   avatar   String?        @map("image")
-  actions  Action[]
 
   userId Int @unique
+
+  ActionCompletion ActionCompletion[]
 }
 
 model Company {

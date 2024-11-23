@@ -14,7 +14,11 @@ export async function fetchActions(
     return [];
   }
 
-  const actions = await prisma.action.findMany();
+  const actions = await prisma.action.findMany({
+    where: {
+      isVisible: true,
+    },
+  });
 
   return actions.map((action) => {
     if (student.actions.some((a) => a.id === action.id)) {

@@ -30,10 +30,12 @@ const ActionsSection: React.FC<ActionsSectionProps> = ({ actions }) => {
                   >
                     <div>
                       <h4 className="text-lg font-semibold text-gray-800">
-                        {action.altText ? action.altText : action.name}
+                        {action.altText && !action.completedAt
+                          ? action.altText
+                          : action.name}
                       </h4>
                       <p className="text-sm text-gray-600">
-                        {action.altText
+                        {action.altText && !action.completedAt
                           ? "?".repeat(action.description.length)
                           : action.description}
                       </p>
