@@ -15,18 +15,10 @@ export async function POST(req: NextRequest, props: StudentParams) {
 
   const { id } = await props.params;
 
-  await prisma.student.update({
-    where: {
-      userId: session.id,
-    },
+  await prisma.actionCompletion.create({
     data: {
-      actions: {
-        connect: {
-          id: parseInt(id),
-        },
-      },
+      studentId: session.id,
+      actionId: parseInt(id),
     },
   });
-
-  return NextResponse.json({ message: "Success" }, { status: 200 });
 }
