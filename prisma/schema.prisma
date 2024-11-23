@@ -24,23 +24,14 @@ model User {
 }
 
 model Action {
-  id          Int     @id @default(autoincrement())
+  id          Int       @id @default(autoincrement())
   name        String
   description String
   points      Int
   altText     String?
-  isRevealed  Boolean @default(false)
-
-  Students Student[]
-}
-
-model Talk {
-  id        Int      @id @default(autoincrement())
-  startTime DateTime
-  isLive    Boolean  @default(false)
-
-  company     Company @relation(fields: [companyName], references: [name])
-  companyName String  @unique
+  isVisible   Boolean   @default(true)
+  completedAt DateTime?
+  parentId    Int?
 
   Students Student[]
 }
@@ -57,7 +48,6 @@ model Student {
   linkedin String?
   github   String?
   avatar   String?        @map("image")
-  talks    Talk[]
   actions  Action[]
 
   userId Int @unique
@@ -70,8 +60,7 @@ model Company {
   tier   Tier
   avatar String? @map("image")
 
-  userId Int    @unique
-  Talk   Talk[]
+  userId Int @unique
 }
 
 model Interest {
