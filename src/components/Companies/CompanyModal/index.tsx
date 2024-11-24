@@ -1,5 +1,9 @@
 import React, { useEffect, useId } from "react";
 
+import ModalProps from "@/types/ModalProps";
+import { useDisableBodyScroll } from "@/hooks/disableBackgroundMoving";
+import ModalTabs from "@/components/Profile/ModalTabs";
+import SocialMediaCard from "@/components/SocialMediaCard";
 import {
   Facebook,
   Globe,
@@ -9,11 +13,6 @@ import {
   X,
   Youtube,
 } from "@/styles/Icons";
-
-import { useDisableBodyScroll } from "../../hooks/disableBackgroundMoving";
-import ModalProps from "../../types/ModalProps";
-import ModalTabs from "../ModalTabs";
-import SocialMediaCard from "../SocialMediaCard";
 
 const CompanyModal: React.FC<ModalProps> = ({
   hidden,
@@ -143,7 +142,7 @@ const CompanyModal: React.FC<ModalProps> = ({
               hasDetailsSection={!!bodyText}
               hasVideoSection={!!videoHref}
             />
-            <div className="h-min-fit relative z-30 h-full flex-auto px-8 py-6 md:px-12">
+            <div className="relative z-30 h-full min-h-fit flex-auto px-8 py-6 md:px-12">
               {tabs[activeTabIndex]}
             </div>
           </div>

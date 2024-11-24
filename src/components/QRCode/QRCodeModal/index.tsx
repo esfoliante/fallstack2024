@@ -5,7 +5,7 @@ import React from "react";
 import { UserWithProfile } from "@/types/UserWithProfile";
 import useIsMobile from "@/hooks/useIsMobile";
 
-import { useDisableBodyScroll } from "../../hooks/disableBackgroundMoving";
+import { useDisableBodyScroll } from "../../../hooks/disableBackgroundMoving";
 import QRCodeTab from "../QRCodeTab";
 import CompanyTab from "../QRCodeTab/CompanyTab";
 import ProfileTab from "../QRCodeTab/ProfileTab";

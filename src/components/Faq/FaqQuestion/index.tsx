@@ -8,7 +8,7 @@ export interface FaqProps {
   index: number;
 }
 
-const Faq: React.FC<FaqProps> = ({ question, answer, index }) => {
+const FaqQuestion: React.FC<FaqProps> = ({ question, answer, index }) => {
   return (
     <motion.div
       initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
@@ -32,4 +32,4 @@ const Faq: React.FC<FaqProps> = ({ question, answer, index }) => {
   );
 };
 
-export default Faq;
+export default FaqQuestion;

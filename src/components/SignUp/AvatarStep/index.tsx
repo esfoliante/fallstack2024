@@ -11,9 +11,9 @@ import { StudentSignUpData } from "@/types/StudentSignUpData";
 import { signUp } from "@/lib/auth";
 import { getSignedUrl, uploadToBucket } from "@/lib/upload";
 import useSession from "@/hooks/useSession";
-import AvatarCropper from "@/components/AvatarCropper";
 import PrimaryButton from "@/components/PrimaryButton";
 import PrivacyPolicyModal from "@/components/PrivacyPolicyModal/page";
+import AvatarCropper from "@/components/Profile/AvatarCropper";
 import { getCroppedImg } from "@/utils/canvas";
 
 interface AvatarStepProps {

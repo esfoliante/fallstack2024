@@ -7,7 +7,7 @@ import getStudentHistory from "@/lib/getStudentHistory";
 import { isSaved } from "@/lib/savedStudents";
 import { verifyJwt } from "@/services/authService";
 import getServerSession from "@/services/getServerSession";
-import CompanyViewProfileSectionContainer from "@/components/CompanyProfile/CompanyViewProfileSectionContainer";
+import CompanyViewProfileSectionContainer from "@/components/Companies/CompanyProfile/CompanyViewProfileSectionContainer";
 import ProfileSectionContainer from "@/components/Profile/ProfileSectionContainer";
 import PublicProfileSectionContainer from "@/components/Profile/PublicProfileSectionContainer";
 import Custom404 from "@/app/not-found";

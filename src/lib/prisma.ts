@@ -14,10 +14,15 @@ function exclude<T extends object, K extends keyof T>(
 }
 
 const prismaClientSingleton = () => {
-  return new PrismaClient().$extends({
+  return new PrismaClient({
+    log:
+      process.env.NODE_ENV !== "production"
+        ? ["query", "info", "warn", "error"]
+        : [],
+  }).$extends({
     model: {
       user: {
-        async findUserWithProfile(id: number) {
+        async findUserWithProfile(id: string) {
           try {
             const user = await prisma.user.findUnique({
               where: { id },

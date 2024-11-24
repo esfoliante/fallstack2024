@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 import { FaRegSquare as Square } from "react-icons/fa6";
 import { HiPencilSquare as Pencil } from "react-icons/hi2";
+import { IoIosLogIn as LogIn } from "react-icons/io";
 import {
   MdDownload as DownloadIcon,
   MdInstallDesktop as InstallPwaDesktop,
@@ -52,6 +53,7 @@ export {
   InstallPwaMobile,
   Leaf,
   Linkedin,
+  LogIn,
   OpenCv,
   Pencil,
   Square,

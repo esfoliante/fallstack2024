@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 import { ProfileData } from "@/types/ProfileData";
 import { SavedStudentWithSavedBy } from "@/types/SavedStudentWithSavedBy";
-import UserImage from "@/components/UserImage";
+import UserImage from "@/components/Profile/UserImage";
 import { Github, Linkedin } from "@/styles/Icons";
 
 import ProfileSection from "../ProfileSection";
@@ -50,7 +50,7 @@ const ProfileSectionContainer: React.FC<ProfileSectionContainerProps> = ({
       <div
         className={`flex w-full flex-col items-center ${
           activeTab === "Definições" ? "pt-12" : "pt-4"
-        } mb-12 h-full bg-secondary`}
+        } mb-12 h-full bg-company-secondary`}
       >
         <motion.div
           animate={{

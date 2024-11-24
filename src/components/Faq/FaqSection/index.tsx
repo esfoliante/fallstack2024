@@ -1,8 +1,9 @@
 import { FunctionComponent } from "react";
 
-import { FAQ } from "../../utils/FAQ";
+import HeadingText from "@/components/HeadingText";
+import { FAQ } from "@/utils/FAQ";
+
 import FaqContainer from "../FaqContainer";
-import HeadingText from "../HeadingText";
 
 const FaqSection: FunctionComponent = () => {
   return (

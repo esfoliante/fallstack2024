@@ -5,13 +5,12 @@ import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 
 import { BASE_URL } from "@/services/api";
-import UserImage from "@/components/UserImage";
+import BioSection from "@/components/Profile/BioSection";
+import ContactSection from "@/components/Profile/ContactSection";
+import InterestsSection from "@/components/Profile/InterestsSection";
+import OpenCvSection from "@/components/Profile/OpenCvSection";
+import UserImage from "@/components/Profile/UserImage";
 import { Github, Linkedin } from "@/styles/Icons";
-
-import BioSection from "../../Profile/BioSection";
-import ContactSection from "../../Profile/ContactSection";
-import InterestsSection from "../../Profile/InterestsSection";
-import OpenCvSection from "../../Profile/OpenCvSection";
 
 interface CompanyViewProfileSectionContainerProps {
   student: Student & { user: User };

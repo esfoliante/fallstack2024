@@ -11,9 +11,9 @@ import swal from "sweetalert";
 import { ProfileData } from "@/types/ProfileData";
 import { getSignedUrl, setTarget, uploadToBucket } from "@/lib/upload";
 import { BASE_URL } from "@/services/api";
-import AvatarCropper from "@/components/AvatarCropper";
 import PrimaryButton from "@/components/PrimaryButton";
-import UserImage from "@/components/UserImage";
+import AvatarCropper from "@/components/Profile/AvatarCropper";
+import UserImage from "@/components/Profile/UserImage";
 import { getCroppedImg } from "@/utils/canvas";
 
 import Modal from "../../Modal";

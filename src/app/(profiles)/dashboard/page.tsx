@@ -3,7 +3,7 @@ import { getCompanyStats } from "@/lib/fetchStats";
 import getCompanyHistory from "@/lib/getCompanyHistory";
 import { getStudents } from "@/lib/students";
 import getServerSession from "@/services/getServerSession";
-import CompanyProfileSectionContainer from "@/components/CompanyProfile/CompanyProfileSectionContainer";
+import CompanyProfileSectionContainer from "@/components/Companies/CompanyProfile/CompanyProfileSectionContainer";
 import Custom404 from "@/app/not-found";
 
 const Dashboard: React.FC = async () => {
@@ -27,7 +27,6 @@ const Dashboard: React.FC = async () => {
         totalStudents={totalStudents}
         history={history instanceof HttpError ? [] : history}
         interests={session.interests.map((interest) => interest.name)}
-        userId={session.id}
       />
     </section>
   );

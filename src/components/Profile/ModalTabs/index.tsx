@@ -1,6 +1,6 @@
 import React from "react";
 
-import useTabWidth from "../../hooks/useTabWidth";
+import useTabWidth from "@/hooks/useTabWidth";
 
 interface ModalTabsProps {
   activeTabIndex: number;

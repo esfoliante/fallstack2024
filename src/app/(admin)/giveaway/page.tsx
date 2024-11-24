@@ -3,8 +3,7 @@ import React from "react";
 import { getStudents } from "@/lib/students";
 import getServerSession from "@/services/getServerSession";
 import GiveawaySection from "@/components/GiveawaySection";
-
-import Custom404 from "../not-found";
+import Custom404 from "@/app/not-found";
 
 const giveaway: React.FC = async () => {
   const session = await getServerSession();

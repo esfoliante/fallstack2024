@@ -1,4 +1,4 @@
-import { FaqProps } from "../components/Faq";
+import { FaqProps } from "../components/Faq/FaqQuestion";
 
 export const FAQ: FaqProps[] = [
   {

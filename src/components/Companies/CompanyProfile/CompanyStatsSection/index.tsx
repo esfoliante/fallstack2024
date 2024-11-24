@@ -5,17 +5,15 @@ import { useRouter } from "next/navigation";
 
 import { SavedStudentWithSavedBy } from "@/types/SavedStudentWithSavedBy";
 import { BASE_URL } from "@/services/api";
+import HistorySection from "@/components/HistorySection";
 import PrimaryButton from "@/components/PrimaryButton";
 import InterestSelector from "@/components/Profile/InterestSelector";
-
-import HistorySection from "../../HistorySection";
 
 interface StatsProps {
   stats: number[];
   students: number;
   history: SavedStudentWithSavedBy[];
   interests: string[];
-  userId: number;
 }
 
 const CompanyStatsSection: React.FC<StatsProps> = ({
@@ -23,7 +21,6 @@ const CompanyStatsSection: React.FC<StatsProps> = ({
   students,
   history,
   interests,
-  userId,
 }) => {
   const totalScans = stats[0];
   const totalSaves = stats[1];
@@ -76,7 +73,7 @@ const CompanyStatsSection: React.FC<StatsProps> = ({
           </h2>
         </div>
       </div>
-      <h1 className="font-poppins mx-auto my-6 w-1/2 text-center text-2xl font-extrabold uppercase text-black md:my-2 md:mb-4">
+      <h1 className="mx-auto my-6 w-1/2 text-center text-2xl font-extrabold uppercase text-black md:my-2 md:mb-4">
         Interesses
       </h1>
       <InterestSelector

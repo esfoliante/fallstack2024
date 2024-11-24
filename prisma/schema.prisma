@@ -32,6 +32,7 @@ model Action {
   points      Int
   altText     String?
   isLive      Boolean @default(false)
+  isVisible   Boolean @default(true)
 
   ActionCompletion ActionCompletion[]
 }
@@ -40,11 +41,11 @@ model ActionCompletion {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   completedAt DateTime @default(now())
 
-  action  Action   @relation(fields: [actionId], references: [id])
-  Student Student? @relation(fields: [studentId], references: [id])
+  action  Action  @relation(fields: [actionId], references: [id])
+  Student Student @relation(fields: [studentCode], references: [code])
 
-  actionId  String  @db.ObjectId
-  studentId String? @db.ObjectId
+  actionId    String @db.ObjectId
+  studentCode String
 }
 
 model Student {
@@ -98,8 +99,9 @@ model SavedStudent {
 
 model PasswordResetToken {
   id    String @id @default(auto()) @map("_id") @db.ObjectId
-  token String
-  user  User   @relation(fields: [userId], references: [id])
+  token String @unique
+
+  user User @relation(fields: [userId], references: [id])
 
   userId String @db.ObjectId
 }

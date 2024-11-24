@@ -4,9 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 
+import useSession from "@/hooks/useSession";
+import { LogIn } from "@/styles/Icons";
+
+import LogoutButton from "../LogoutButton";
+import UserButton from "../Profile/UserButton";
+import QRCodeButton from "../QRCode/QRCodeButton";
+
 const TopBar: React.FC = () => {
   const { scrollYProgress } = useScroll();
-  // const session = useSession();
+  const session = useSession();
 
   const opacity = useTransform(() => scrollYProgress.get() * 2.2);
 
@@ -27,13 +34,13 @@ const TopBar: React.FC = () => {
             height={32}
           />
         </Link>
-        {/* <div className="flex items-center gap-x-4">
+        <div className="flex items-center gap-x-4">
           {!session.user ? (
             <Link
               href="/login"
-              className="z-20 flex size-full items-center justify-center text-2xl transition-colors hover:text-primary fill-white"
+              className="z-20 flex size-full items-center justify-center fill-white text-2xl transition-colors hover:text-primary"
             >
-              <IoIosLogIn />
+              <LogIn />
             </Link>
           ) : (
             <>
@@ -42,7 +49,7 @@ const TopBar: React.FC = () => {
               <LogoutButton />
             </>
           )}
-        </div> */}
+        </div>
       </div>
     </nav>
   );

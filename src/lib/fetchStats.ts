@@ -27,7 +27,7 @@ export async function getStats(code: string): Promise<number[]> {
   return counts;
 }
 
-export async function getTodayStats(id: number): Promise<number> {
+export async function getTodayStats(id: string): Promise<number> {
   const today = new Date();
   const startOfDay = new Date(
     today.getFullYear(),
@@ -62,7 +62,7 @@ export async function getTodayStats(id: number): Promise<number> {
   return counts[1];
 }
 
-export async function getCompanyStats(id: number): Promise<number[]> {
+export async function getCompanyStats(id: string): Promise<number[]> {
   const result = await prisma.savedStudent.groupBy({
     where: {
       savedById: id,

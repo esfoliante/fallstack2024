@@ -4,7 +4,7 @@ import { Student, User } from "@prisma/client";
 import { motion } from "framer-motion";
 import Skeleton from "react-loading-skeleton";
 
-import UserImage from "@/components/UserImage";
+import UserImage from "@/components/Profile/UserImage";
 import { Github, Linkedin } from "@/styles/Icons";
 
 import BioSection from "../BioSection";

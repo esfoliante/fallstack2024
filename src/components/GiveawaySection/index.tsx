@@ -18,7 +18,7 @@ const GiveawaySection: FunctionComponent<GiveawaySectionProps> = ({
   numberOfRandomizedStudents,
   tableRows,
 }) => {
-  const [selectedStudentId, setSelectedStudentId] = useState<number>();
+  const [selectedStudentId, setSelectedStudentId] = useState<string>();
   const [isConfettiVisible, setIsConfettiVisible] = useState<boolean>(false);
   const [isRandomizing, setIsRandomizing] = useState<boolean>(false);
 
@@ -33,7 +33,7 @@ const GiveawaySection: FunctionComponent<GiveawaySectionProps> = ({
     setIsRandomizing(true);
     const timeoutTimer = 100;
 
-    let id: number = 0;
+    let id: string = "";
     for (let i = 0; i < numberOfRandomStudents; i++) {
       setTimeout(() => {
         id = generateRandomStudentId();

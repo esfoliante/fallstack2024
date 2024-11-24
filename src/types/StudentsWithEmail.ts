@@ -2,7 +2,7 @@ export interface StudentsWithEmail {
   user: {
     email: string;
   };
-  id: number;
+  id: string;
   code: string;
   name: string;
   bio: string | null;

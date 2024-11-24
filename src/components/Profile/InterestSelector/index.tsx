@@ -18,14 +18,16 @@ const InterestSelector: React.FC<InterestSelectorProps> = ({
   scrollable = false,
 }) => {
   const [interests, setInterests] = useState<Interest[]>([]);
-
-  async function fetchInterests() {
-    const res = await fetch(BASE_URL + "/interests");
-    const json = await res.json();
-    setInterests(json);
-  }
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    async function fetchInterests() {
+      const res = await fetch(BASE_URL + "/interests");
+      const json = await res.json();
+      setInterests(json);
+      setLoading(false);
+    }
+
     fetchInterests();
   }, []);
 
@@ -35,7 +37,7 @@ const InterestSelector: React.FC<InterestSelectorProps> = ({
     return 0;
   });
 
-  return (
+  return !loading ? (
     <Reorder.Group
       axis="x"
       values={orderedInterests}
@@ -77,6 +79,10 @@ const InterestSelector: React.FC<InterestSelectorProps> = ({
         </Reorder.Item>
       ))}
     </Reorder.Group>
+  ) : (
+    <div className="my-8 flex w-full items-center justify-center">
+      <p className="text-xl font-bold text-black">Loading...</p>
+    </div>
   );
 };
 
