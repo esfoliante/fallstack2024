@@ -24,7 +24,7 @@ const ActionQrCodeData: React.FC<ActionQrCodeDataProps> = ({ id }) => {
 
     const interval = setInterval(
       fetchQrCodeData,
-      config.constants.talkQrCodeRefreshRateMs
+      config.constants.actionQrCodeRefreshRateMs
     );
 
     return () => clearInterval(interval);

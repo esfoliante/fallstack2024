@@ -24,10 +24,10 @@ const ScanTab: React.FC<ScanTabProps> = ({ setHidden }) => {
     } else window.open(data, "_self");
   }
 
-  async function handleTalkScan(data: string) {
-    const talkId = data.split("-")[1];
+  async function handleActionScan(data: string) {
+    const actionId = data.split("-")[1];
 
-    await fetch(BASE_URL + `/talk/${talkId}`, {
+    await fetch(BASE_URL + `/actions/${actionId}`, {
       method: "POST",
       body: JSON.stringify({ data }),
     });
@@ -45,8 +45,8 @@ const ScanTab: React.FC<ScanTabProps> = ({ setHidden }) => {
         return;
       }
 
-      if (data.match("^talk-.*")) {
-        await handleTalkScan(data);
+      if (data.match("^action-.*")) {
+        await handleActionScan(data);
         return;
       }
 

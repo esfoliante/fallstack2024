@@ -2,15 +2,18 @@
 
 import PrimaryButton from "../../PrimaryButton";
 
-interface CloseTalkButtonProps {
+interface CloseActionButtonProps {
   id: string;
   action: {
     isLive: boolean;
   };
 }
 
-const CloseTalkButton: React.FC<CloseTalkButtonProps> = ({ id, action }) => {
-  const handleToggleIsTalkLive = async () => {
+const CloseActionButton: React.FC<CloseActionButtonProps> = ({
+  id,
+  action,
+}) => {
+  const handleToggleIsActionLive = async () => {
     await fetch(`/api/actions/${id}`, {
       method: "PATCH",
     });
@@ -20,7 +23,7 @@ const CloseTalkButton: React.FC<CloseTalkButtonProps> = ({ id, action }) => {
 
   return (
     <PrimaryButton
-      onClick={handleToggleIsTalkLive}
+      onClick={handleToggleIsActionLive}
       className={`absolute right-8 top-24 h-12 w-64 text-xl font-bold ${
         action.isLive ? "bg-red-500" : "bg-green-500"
       }`}
@@ -30,4 +33,4 @@ const CloseTalkButton: React.FC<CloseTalkButtonProps> = ({ id, action }) => {
   );
 };
 
-export default CloseTalkButton;
+export default CloseActionButton;

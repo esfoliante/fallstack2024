@@ -14,16 +14,21 @@ interface ActionParams {
 export async function GET(req: NextRequest, props: ActionParams) {
   const { id } = await props.params;
 
-  // round timestamp to the nearest talkQrCodeRefreshRate seconds
+  // round timestamp to the nearest actionQrCodeRefreshRate seconds
   const timestamp =
-    Math.round(Date.now() / config.constants.talkQrCodeRefreshRateMs) *
-    config.constants.talkQrCodeRefreshRateMs;
+    Math.round(Date.now() / config.constants.actionQrCodeRefreshRateMs) *
+    config.constants.actionQrCodeRefreshRateMs;
 
   const action = await prisma.action.findUnique({
     where: { id },
   });
 
-  const qrCode = "action-" + signJwt({ id, timestamp }, { expiresIn: 10 * 60 }); //expires in 10 minutes
+  const qrCode =
+    "action-" +
+    signJwt(
+      { id, timestamp },
+      { expiresIn: config.constants.actionQrCodeRefreshRateMs * 2 }
+    );
   console.log({ qrCode });
 
   return NextResponse.json({ action, qrCode });
@@ -50,11 +55,11 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Action not found" }, { status: 404 });
 
   if (!action.isLive)
-    return NextResponse.json({ error: "Talk not live" }, { status: 400 });
+    return NextResponse.json({ error: "Action not live" }, { status: 400 });
 
   // check if timestamp is valid
   const now = Date.now();
-  if (now - timestamp > config.constants.talkQrCodeRefreshRateMs)
+  if (now - timestamp > config.constants.actionQrCodeRefreshRateMs)
     return NextResponse.json({ error: "Invalid timestamp" }, { status: 400 });
 
   const student = await prisma.student.findUnique({

@@ -24,7 +24,7 @@ const config = {
   },
 
   constants: {
-    talkQrCodeRefreshRateMs: 15 * 1000, // 15 seconds
+    actionQrCodeRefreshRateMs: 15 * 1000, // 15 seconds
   },
 };
 
