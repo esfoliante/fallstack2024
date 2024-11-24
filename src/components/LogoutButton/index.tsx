@@ -16,6 +16,7 @@ const LogoutButton: React.FC = () => {
       title: "Terminar sessão",
       icon: "warning",
       dangerMode: true,
+      timer: 5000,
     }).then(async (value) => {
       if (value) {
         const res = await fetch(BASE_URL + "/auth/logout", { method: "POST" });
