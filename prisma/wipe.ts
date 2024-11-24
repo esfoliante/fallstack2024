@@ -4,7 +4,6 @@ const prisma = new PrismaClient();
 
 async function wipeDatabase(): Promise<void> {
   try {
-    // List of models from your Prisma schema
     const models = [
       "savedStudent",
       "actionCompletion",
@@ -31,7 +30,6 @@ async function wipeDatabase(): Promise<void> {
   }
 }
 
-// Ensure the script runs in development mode only
 if (process.env.NODE_ENV !== "development") {
   console.error("This script should only be run in development!");
   process.exit(1);
