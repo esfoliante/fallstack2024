@@ -11,13 +11,17 @@ export async function getSignedUrl(target: string, contentType: string) {
 }
 
 export async function uploadToBucket(signed: UploadResponse, blob: Blob) {
-  const res = await fetch(signed.url, {
-    body: blob,
-    method: "PUT",
-    headers: signed.headers,
-  });
-
-  return res;
+  try {
+    const res = await fetch(signed.url, {
+      body: blob,
+      method: "PUT",
+      headers: signed.headers,
+    });
+    return res;
+  } catch (error) {
+    console.log(error);
+    return { status: 500 };
+  }
 }
 
 export async function setTarget(code: string, signed: UploadResponse) {

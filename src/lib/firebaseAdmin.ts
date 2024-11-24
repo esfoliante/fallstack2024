@@ -24,7 +24,6 @@ const createAdminApp = () => {
     const app = initializeApp(options);
 
     if (process.env.NODE_ENV !== "production") {
-      // initial cors config
       getStorage(app)
         .bucket()
         .setCorsConfiguration([
@@ -45,17 +44,4 @@ const createAdminApp = () => {
 };
 
 const admin = createAdminApp();
-export const storage =
-  process.env.NODE_DEV !== "production"
-    ? {
-        bucket: () => ({
-          file: () => ({
-            getSignedUrl: () => ["http://localhost:3000/mock-signed-url"],
-            makePublic: () => [{ bucket: "bucket", object: "object" }],
-            move: () => {},
-            exists: () => [true],
-            delete: () => {},
-          }),
-        }),
-      }
-    : getStorage(admin);
+export const storage = getStorage(admin);

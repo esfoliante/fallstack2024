@@ -133,7 +133,7 @@ importers:
         specifier: ^3.17.5
         version: 3.17.5(tailwindcss@3.4.15(ts-node@10.9.2(@types/node@20.17.6)(typescript@5.6.3)))
       firebase-admin:
-        specifier: ^11.11.1
+        specifier: ^11.11.0
         version: 11.11.1
       lodash:
         specifier: ^4.17.21
