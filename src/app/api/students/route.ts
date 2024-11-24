@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { ZodError } from "zod";
 
+import config from "@/config";
+import { completeAction } from "@/lib/completeAction";
 import { storage } from "@/lib/firebaseAdmin";
 import prisma from "@/lib/prisma";
 import getServerSession from "@/services/getServerSession";
@@ -79,6 +81,8 @@ export async function POST(req: Request) {
       );
     }
 
+    await completeAction(code, config.constants.actionNames.createProfile);
+
     let avatarUrl = null;
     if (avatar) {
       const uploaded = `uploaded/avatar/${avatar}`;
@@ -114,6 +118,8 @@ export async function POST(req: Request) {
       // move to distribution
       const distribution = `distribution/cv/${cv}`;
       await storage.bucket().file(uploaded).move(distribution);
+
+      await completeAction(code, config.constants.actionNames.uploadCv);
     }
 
     await prisma.student.update({
