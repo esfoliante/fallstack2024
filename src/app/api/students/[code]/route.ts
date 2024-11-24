@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
+import config from "@/config";
+import { completeAction } from "@/lib/completeAction";
 import prisma from "@/lib/prisma";
 import getServerSession from "@/services/getServerSession";
 
@@ -17,6 +19,22 @@ interface StudentProps {
   params: Promise<{
     code: string;
   }>;
+}
+
+export async function GET(req: NextRequest, props: StudentProps) {
+  const params = await props.params;
+  const student = await prisma.student.findUnique({
+    where: { code: params.code },
+    include: {
+      user: {
+        include: {
+          interests: true,
+        },
+      },
+    },
+  });
+
+  return NextResponse.json(student);
 }
 
 export async function PATCH(req: NextRequest, props: StudentProps) {
@@ -44,26 +62,19 @@ export async function PATCH(req: NextRequest, props: StudentProps) {
       github: body.github,
     },
   });
+
+  if (student.linkedin) {
+    await completeAction(
+      student.code,
+      config.constants.actionNames.updateLinkedin
+    );
+  }
+
   await prisma.user.update({
     where: { id: session.id },
     data: {
       interests: {
         set: body.interests.map((interest: string) => ({ name: interest })),
-      },
-    },
-  });
-  return NextResponse.json(student);
-}
-
-export async function GET(req: NextRequest, props: StudentProps) {
-  const params = await props.params;
-  const student = await prisma.student.findUnique({
-    where: { code: params.code },
-    include: {
-      user: {
-        include: {
-          interests: true,
-        },
       },
     },
   });

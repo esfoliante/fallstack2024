@@ -1,5 +1,7 @@
 import { PrismaClient, Role, Tier } from "@prisma/client";
 
+import config from "@/config";
+
 import { hashPassword } from "../src/services/authService";
 
 const prisma = new PrismaClient();
@@ -194,9 +196,19 @@ async function seedActions() {
   await prisma.action.createMany({
     data: [
       {
-        name: "Upload CV",
-        description: "Faz o upload do teu CV",
+        name: config.constants.actionNames.createProfile,
+        description: "Cria o teu perfil",
+        points: 1,
+      },
+      {
+        name: config.constants.actionNames.updateLinkedin,
+        description: "Associa o teu LinkedIn",
         points: 2,
+      },
+      {
+        name: config.constants.actionNames.uploadCv,
+        description: "Faz o upload do teu CV",
+        points: 3,
       },
       {
         name: "Palestra 1",

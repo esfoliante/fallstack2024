@@ -25,6 +25,12 @@ const config = {
 
   constants: {
     actionQrCodeRefreshRateMs: 15 * 1000, // 15 seconds
+
+    actionNames: {
+      createProfile: "Cria o teu Perfil",
+      uploadCv: "Faz o Upload do teu CV",
+      updateLinkedin: "Associa o teu LinkedIn",
+    },
   },
 };
 

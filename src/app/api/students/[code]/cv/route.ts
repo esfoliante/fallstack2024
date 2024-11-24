@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
+import config from "@/config";
+import { completeAction } from "@/lib/completeAction";
 import { storage } from "@/lib/firebaseAdmin";
 import prisma from "@/lib/prisma";
 import getServerSession from "@/services/getServerSession";
@@ -86,6 +88,11 @@ export async function POST(req: NextRequest, props: StudentParams) {
     where: { code },
     data: { cv: uploadId },
   });
+
+  await completeAction(
+    session.student.code,
+    config.constants.actionNames.uploadCv
+  );
 
   return NextResponse.json({ uploadId });
 }
