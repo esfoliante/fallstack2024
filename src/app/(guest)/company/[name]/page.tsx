@@ -1,6 +1,5 @@
 import React from "react";
 
-import { fetchInterestsByCompanyName } from "@/lib/fetchInterestsByCompanyName";
 import CompanyPageSection from "@/components/Companies/CompanyPageSection";
 import Custom404 from "@/app/not-found";
 import findCompanyByName from "@/utils/CompanyByName";
@@ -22,7 +21,8 @@ const CompanyPage: React.FC<CompanySearchProps> = async (props0) => {
 
   if (modalInformation === undefined) return Custom404();
 
-  const interests = await fetchInterestsByCompanyName(company.props.name);
+  //  const interests = await fetchInterestsByCompanyName(company.props.name);
+  const interests = company.props.interests!;
 
   return (
     <section className="flex size-full flex-col items-center">

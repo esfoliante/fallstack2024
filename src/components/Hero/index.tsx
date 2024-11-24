@@ -57,12 +57,12 @@ const Hero: FunctionComponent<HeaderProps> = ({
             <span className="font-bold">começa aqui.</span>
           </p>
 
-          <a
+          {/* <a
             href="/signup"
             className="rounded-md bg-call-to-action px-5 py-3 font-bold uppercase"
           >
             Inscreve-te no Fallstack
-          </a>
+          </a> */}
         </motion.div>
       </motion.div>
       <a
