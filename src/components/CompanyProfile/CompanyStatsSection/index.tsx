@@ -76,7 +76,7 @@ const CompanyStatsSection: React.FC<StatsProps> = ({
           </h2>
         </div>
       </div>
-      <h1 className="mx-auto my-6 w-1/2 text-center font-poppins text-2xl font-extrabold uppercase text-black md:my-2 md:mb-4">
+      <h1 className="font-poppins mx-auto my-6 w-1/2 text-center text-2xl font-extrabold uppercase text-black md:my-2 md:mb-4">
         Interesses
       </h1>
       <InterestSelector

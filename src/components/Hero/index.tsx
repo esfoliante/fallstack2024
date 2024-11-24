@@ -52,7 +52,7 @@ const Hero: FunctionComponent<HeaderProps> = ({
           }}
           className="flex w-full flex-col items-center justify-center gap-10 pb-10 md:px-5"
         >
-          <p className="text-center text-4xl md:text-6xl font-light">
+          <p className="text-center text-4xl font-light md:text-6xl">
             O teu futuro <br />
             <span className="font-bold">começa aqui.</span>
           </p>

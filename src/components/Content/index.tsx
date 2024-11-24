@@ -13,7 +13,7 @@ const Content: React.FC<ContentProps> = ({ contentRef }) => {
   return (
     <section
       ref={contentRef}
-      className="container font-light mx-auto rounded-lg p-8 sm:w-3/4 lg:w-full lg:pt-14"
+      className="container mx-auto rounded-lg p-8 font-light sm:w-3/4 lg:w-full lg:pt-14"
     >
       <InfoText
         days={[26, 27]}

@@ -42,12 +42,12 @@ pnpm dev
 docker compose up -d
 ```
 
-## Migrations
+## Sync database schema
 
-To apply your Prisma schema changes, create a migration with
+To apply your Prisma schema changes, sync the database schema with the following command:
 
 ```bash
-pnpm migrate
+pnpm prisma db push
 ```
 
 ## Seeding

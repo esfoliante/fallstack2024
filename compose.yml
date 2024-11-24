@@ -1,14 +1,15 @@
+version: "3.1"
 services:
-  mysql:
-    image: mysql:8.0
-    container_name: fallstack24-mysql
-    # restart: always
+  mongo:
+    image: mongo
+    container_name: "fallstack2024-mongo"
+    restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: docker
-      MYSQL_DATABASE: fallstack24
-    ports:
-      - 3306:3306
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: docker
     volumes:
-      - mysql:/var/lib/mysql
+      - "mongodb:/data/db"
+    ports:
+      - 27017:27017
 volumes:
-  mysql:
+  mongodb:

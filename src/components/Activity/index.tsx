@@ -20,7 +20,6 @@ const Activity: FunctionComponent<ActivityProps> = ({
   location = "Auditório Magno (Edifício A) do ISEP",
   children,
 }) => {
-
   return (
     <motion.section
       initial={{
@@ -34,7 +33,7 @@ const Activity: FunctionComponent<ActivityProps> = ({
       viewport={{
         once: true,
       }}
-      className="my-12 flex flex-col items-left justify-center"
+      className="items-left my-12 flex flex-col justify-center"
     >
       <div className="flex flex-col space-y-5">
         <h5 className="w-full text-center text-4xl font-bold md:text-left md:text-5xl lg:col-span-2">
@@ -42,8 +41,8 @@ const Activity: FunctionComponent<ActivityProps> = ({
         </h5>
         <p className="mt-5 text-2xl">{location}</p>
       </div>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 mt-10 items-center ">
+
+      <div className="mt-10 grid grid-cols-1 items-center md:grid-cols-2 ">
         <div className="mx-auto w-full text-center text-xl leading-7 md:text-justify md:leading-8 lg:text-2xl">
           {children}
         </div>
