@@ -175,7 +175,7 @@ const Schedule: React.FC<Props> = ({
                 <td
                   className={
                     "p-4 " +
-                    (entry.activity == "Coffee Break" ? "font-bold" : "")
+                    (entry.activity == "Coffee Break" ? "font-semibold" : "")
                   }
                 >
                   {entry.hour}
@@ -183,7 +183,7 @@ const Schedule: React.FC<Props> = ({
                 <td
                   className={
                     "py-4 pr-4 " +
-                    (entry.activity == "Coffee Break" ? "font-bold" : "")
+                    (entry.activity == "Coffee Break" ? "font-semibold" : "")
                   }
                 >
                   {entry.activity}
