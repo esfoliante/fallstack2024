@@ -101,7 +101,7 @@ async function seedStudent() {
   return newUser;
 }
 
-async function seedCompanies(userId: number) {
+async function seedCompanies(userId: string) {
   const companies = await prisma.company.findMany();
   if (companies.length > 0) {
     console.log("⚠️ Companies already seeded");
@@ -119,23 +119,6 @@ async function seedCompanies(userId: number) {
   console.log("✅ Company seeded");
 
   return company;
-}
-
-async function seedTalks(companyName: string) {
-  const talks = await prisma.talk.findMany();
-  if (talks.length > 0) {
-    console.log("️⚠️ Talks already seeded");
-    return;
-  }
-
-  await prisma.talk.create({
-    data: {
-      startTime: new Date(),
-      companyName,
-    },
-  });
-
-  console.log("✅ Talk seeded");
 }
 
 async function seedActions() {
@@ -183,8 +166,7 @@ async function main() {
   await seedInterests();
   await seedStudent();
   const user = await seedAdmin();
-  const company = await seedCompanies(user.id);
-  await seedTalks(company.name);
+  await seedCompanies(user.id);
   await seedActions();
 }
 
