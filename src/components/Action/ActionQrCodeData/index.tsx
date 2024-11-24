@@ -10,12 +10,12 @@ interface ActionQrCodeDataProps {
   id: string;
 }
 
-const TalkQrCodeData: React.FC<ActionQrCodeDataProps> = ({ id }) => {
+const ActionQrCodeData: React.FC<ActionQrCodeDataProps> = ({ id }) => {
   const [qrCodeData, setQrCodeData] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchQrCodeData = async () => {
-      const res = await fetch(BASE_URL + `/action/${id}`);
+      const res = await fetch(BASE_URL + `/actions/${id}`);
       const { qrCode } = await res.json();
       setQrCodeData(qrCode as string);
     };
@@ -33,4 +33,4 @@ const TalkQrCodeData: React.FC<ActionQrCodeDataProps> = ({ id }) => {
   return <div>{qrCodeData && <QRCode size={520} value={qrCodeData} />}</div>;
 };
 
-export default TalkQrCodeData;
+export default ActionQrCodeData;

@@ -5,13 +5,13 @@ import prisma from "@/lib/prisma";
 import { signJwt, verifyJwt } from "@/services/authService";
 import getServerSession from "@/services/getServerSession";
 
-interface TalkParams {
+interface ActionParams {
   params: Promise<{
     id: string;
   }>;
 }
 
-export async function GET(req: NextRequest, props: TalkParams) {
+export async function GET(req: NextRequest, props: ActionParams) {
   const { id } = await props.params;
 
   // round timestamp to the nearest talkQrCodeRefreshRate seconds
@@ -19,14 +19,14 @@ export async function GET(req: NextRequest, props: TalkParams) {
     Math.round(Date.now() / config.constants.talkQrCodeRefreshRateMs) *
     config.constants.talkQrCodeRefreshRateMs;
 
-  const talk = await prisma.action.findUnique({
+  const action = await prisma.action.findUnique({
     where: { id },
   });
 
-  const qrCode = "talk-" + signJwt({ name, timestamp }, { expiresIn: 10 * 60 }); //expires in 10 minutes
+  const qrCode = "action-" + signJwt({ id, timestamp }, { expiresIn: 10 * 60 }); //expires in 10 minutes
   console.log({ qrCode });
 
-  return NextResponse.json({ talk, qrCode });
+  return NextResponse.json({ action, qrCode });
 }
 
 export async function POST(req: NextRequest) {
@@ -58,7 +58,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid timestamp" }, { status: 400 });
 
   const student = await prisma.student.findUnique({
-    where: { id: session.student?.id },
+    where: { id: session.student.id },
   });
 
   if (!student)
@@ -66,8 +66,28 @@ export async function POST(req: NextRequest) {
 
   await prisma.actionCompletion.create({
     data: {
-      studentCode: session.student?.code,
+      studentCode: session.student.code,
       actionId: id,
     },
   });
+}
+
+export async function PATCH(request: NextRequest, props: ActionParams) {
+  const { id } = await props.params;
+
+  const action = await prisma.action.findUnique({
+    where: { id },
+  });
+
+  if (!action)
+    return NextResponse.json({ error: "Action not found" }, { status: 404 });
+
+  await prisma.action.update({
+    where: { id },
+    data: {
+      isLive: !action.isLive,
+    },
+  });
+
+  return NextResponse.json({ message: "Action updated" });
 }

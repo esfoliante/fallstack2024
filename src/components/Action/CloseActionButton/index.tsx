@@ -11,7 +11,7 @@ interface CloseTalkButtonProps {
 
 const CloseTalkButton: React.FC<CloseTalkButtonProps> = ({ id, action }) => {
   const handleToggleIsTalkLive = async () => {
-    await fetch(`/api/action/${id}`, {
+    await fetch(`/api/actions/${id}`, {
       method: "PATCH",
     });
 

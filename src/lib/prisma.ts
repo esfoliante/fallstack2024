@@ -15,10 +15,7 @@ function exclude<T extends object, K extends keyof T>(
 
 const prismaClientSingleton = () => {
   return new PrismaClient({
-    log:
-      process.env.NODE_ENV !== "production"
-        ? ["query", "info", "warn", "error"]
-        : [],
+    log: process.env.NODE_ENV !== "production" ? ["info", "warn", "error"] : [],
   }).$extends({
     model: {
       user: {

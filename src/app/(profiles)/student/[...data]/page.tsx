@@ -1,8 +1,8 @@
 import { HttpError } from "@/types/HttpError";
 import { getCompanies } from "@/lib/companies";
-import { fetchActions } from "@/lib/fetchActions";
 import { getStats, getTodayStats } from "@/lib/fetchStats";
 import { fetchStudent } from "@/lib/fetchStudent";
+import { fetchStudentActions } from "@/lib/fetchStudentActions";
 import getStudentHistory from "@/lib/getStudentHistory";
 import { isSaved } from "@/lib/savedStudents";
 import { verifyJwt } from "@/services/authService";
@@ -66,7 +66,7 @@ const StudentPage: React.FC<ProfileProps> = async (props) => {
   const companies = await getCompanies();
 
   const history = await getStudentHistory(student.code);
-  const actions = await fetchActions(student.code);
+  const actions = await fetchStudentActions(student.code);
 
   const totalCompanies = companies.length;
   let companiesLeft = totalCompanies;
