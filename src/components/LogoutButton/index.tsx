@@ -11,12 +11,21 @@ const LogoutButton: React.FC = () => {
   const router = useRouter();
 
   const handleClick = async () => {
-    const res = await fetch(BASE_URL + "/auth/logout", { method: "POST" });
-    if (res.status === 200) {
-      session.clear();
-      router.refresh();
-      router.push("/");
-    }
+    swal("Queres mesmo mesmo sair?", {
+      buttons: ["Cancelar", "Sair"],
+      title: "Terminar sessão",
+      icon: "warning",
+      dangerMode: true,
+    }).then(async (value) => {
+      if (value) {
+        const res = await fetch(BASE_URL + "/auth/logout", { method: "POST" });
+        if (res.status === 200) {
+          session.clear();
+          swal("Logout", "Sessão terminada com sucesso", "success");
+          router.push("/");
+        }
+      }
+    });
   };
 
   return (
