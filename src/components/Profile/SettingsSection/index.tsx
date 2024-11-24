@@ -122,47 +122,48 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({
       setIsLoading(false);
       swal("Perfil atualizado com sucesso!");
       setActiveTab("Perfil");
+      router.refresh();
     } else {
       setIsLoading(false);
       swal("Ocorreu um erro ao atualizar o teu perfil...");
     }
-
-    router.refresh();
   };
 
   const handleConfirmAvatar = async () => {
     setIsAvatarLoading(true);
 
-    if (imageSrc && croppedAreaPixels) {
-      const image = await getCroppedImg(imageSrc, croppedAreaPixels);
-      if (!image) return setIsAvatarLoading(false);
+    if (!imageSrc || !croppedAreaPixels) return;
 
-      const signed = await getSignedUrl("avatar", image.type);
-      if (!signed) {
-        toast.error("Ocorreu um erro.");
-        return setIsAvatarLoading(false);
-      }
+    const image = await getCroppedImg(imageSrc, croppedAreaPixels);
+    if (!image) return setIsAvatarLoading(false);
 
-      if (image.size > signed.maxSize) {
-        const maxMb = Math.round(signed.maxSize / Math.pow(1024, 2));
-        toast.error(`A imagem excede o tamanho máximo de ${maxMb} MB.`);
-        return setIsAvatarLoading(false);
-      }
-
-      const upload = await uploadToBucket(signed, image);
-      if (upload.status !== 200) {
-        toast.error("Não foi possível dar upload à imagem.");
-        return setIsAvatarLoading(false);
-      }
-
-      setIsAvatarLoading(false);
-      setIsModalVisible(false);
-
-      const croppedUrl = URL.createObjectURL(image);
-      setUserImage(croppedUrl);
-
-      setProfile({ ...profile, avatar: signed.id });
+    const signed = await getSignedUrl("avatar", image.type);
+    if (!signed) {
+      toast.error("Ocorreu um erro.");
+      return setIsAvatarLoading(false);
     }
+
+    console.log(signed);
+
+    if (image.size > signed.maxSize) {
+      const maxMb = Math.round(signed.maxSize / Math.pow(1024, 2));
+      toast.error(`A imagem excede o tamanho máximo de ${maxMb} MB.`);
+      return setIsAvatarLoading(false);
+    }
+
+    const upload = await uploadToBucket(signed, image);
+    if (upload.status !== 200) {
+      toast.error("Não foi possível dar upload à imagem.");
+      return setIsAvatarLoading(false);
+    }
+
+    setIsAvatarLoading(false);
+    setIsModalVisible(false);
+
+    const croppedUrl = URL.createObjectURL(image);
+    setUserImage(croppedUrl);
+
+    setProfile({ ...profile, avatar: signed.id });
   };
 
   return (
@@ -248,7 +249,7 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({
         setIsVisible={setIsModalVisible}
         className="flex flex-col items-center justify-center gap-8"
       >
-        <h1 className="text-3xl font-bold">Mudar Avatar</h1>
+        <h1 className="text-3xl font-bold">Altera o teu Avatar</h1>
         <AvatarCropper {...{ imageSrc, setImageSrc, setCroppedAreaPixels }} />
         <PrimaryButton
           className="w-full py-2 text-xl"

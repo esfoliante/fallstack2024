@@ -5,5 +5,10 @@ export async function getCompanies() {
     include: {
       user: true,
     },
+    where: {
+      user: {
+        isAdmin: false,
+      },
+    },
   });
 }

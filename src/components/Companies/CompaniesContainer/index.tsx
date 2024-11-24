@@ -43,7 +43,7 @@ const CompaniesContainer: FunctionComponent<CompaniesContainerProps> = ({
             <Company
               key={company.name}
               {...company}
-              divClassName={
+              className={
                 companies.length % 2 !== 0 &&
                 companies.findIndex((c) => c.name === company.name) ===
                   companies.length - 1

@@ -45,17 +45,6 @@ const UserImage: React.FC<UserImageProps> = ({
     if (!imageDataUrl) return;
 
     if (onChange !== undefined) onChange(imageDataUrl);
-
-    // const uploadPost = await getSignedUrl("avatar", file.type);
-
-    // if (!uploadPost) swal("Erro ao fazer upload da imagem!");
-
-    // const uploadPut = await uploadToBucket(uploadPost, file);
-    // if (!uploadPut.ok) swal("Erro ao fazer upload da imagem!");
-
-    // const res = await setTarget(student.code, uploadPost);
-
-    // if (!res) swal("Erro ao fazer upload da imagem!");
   };
 
   if (!imageSrc && !editable)

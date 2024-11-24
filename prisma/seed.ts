@@ -1,8 +1,40 @@
 import { PrismaClient, Role, Tier } from "@prisma/client";
 
+import config from "@/config";
+
 import { hashPassword } from "../src/services/authService";
 
 const prisma = new PrismaClient();
+
+const INTERESTS = [
+  "Artificial Intelligence",
+  "Data Science",
+  "Mobile Development",
+  "Web Development",
+  "Devops",
+  "Cyber Security",
+  "Game Development",
+  "Cloud Computing",
+  "Machine Learning",
+  "Blockchain",
+  "Internet of Things",
+  "Quantum Computing",
+  "Augmented Reality",
+  "Virtual Reality",
+  "Big Data",
+  "Robotics",
+  "Networking",
+  "Database Management",
+  "Software Development",
+];
+
+const COMPANIES = [
+  {
+    name: "armis",
+    tier: Tier.DIAMOND,
+    interests: ["Cyber Security", "Networking"],
+  },
+];
 
 async function seedInterests() {
   const interests = await prisma.interest.findMany();
@@ -11,28 +43,10 @@ async function seedInterests() {
     return;
   }
 
+  const data = INTERESTS.map((name) => ({ name }));
+
   await prisma.interest.createMany({
-    data: [
-      { name: "Artificial Intelligence" },
-      { name: "Data Science" },
-      { name: "Mobile Development" },
-      { name: "Web Development" },
-      { name: "Devops" },
-      { name: "Cyber Security" },
-      { name: "Game Development" },
-      { name: "Cloud Computing" },
-      { name: "Machine Learning" },
-      { name: "Blockchain" },
-      { name: "Internet of Things" },
-      { name: "Quantum Computing" },
-      { name: "Augmented Reality" },
-      { name: "Virtual Reality" },
-      { name: "Big Data" },
-      { name: "Robotics" },
-      { name: "Networking" },
-      { name: "Database Management" },
-      { name: "Software Development" },
-    ],
+    data,
   });
   console.log("✅ Interests seeded");
 }
@@ -101,24 +115,75 @@ async function seedStudent() {
   return newUser;
 }
 
-async function seedCompanies(userId: string) {
-  const companies = await prisma.company.findMany();
-  if (companies.length > 0) {
-    console.log("⚠️ Companies already seeded");
-    return companies[0];
+async function seedNei(userId: string) {
+  const existingCompany = await prisma.company.findUnique({
+    where: {
+      userId,
+    },
+  });
+  if (existingCompany !== null) {
+    console.log("⚠️ NEI already seeded");
+    return existingCompany;
   }
 
   const company = await prisma.company.create({
     data: {
-      name: "Company1",
+      name: "NEI",
       userId: userId,
       tier: Tier.DIAMOND,
     },
   });
 
-  console.log("✅ Company seeded");
+  console.log("✅ NEI seeded");
 
   return company;
+}
+
+async function seedCompanies() {
+  const companies = await prisma.company.findMany();
+  if (companies.length > 1) {
+    console.log("⚠️ Companies already seeded");
+    return;
+  }
+
+  const interests = await prisma.interest.findMany();
+
+  const password = await hashPassword(process.env.ADMIN_PASSWORD as string);
+  const data = COMPANIES.map((company) => ({
+    email: `${company.name.toLowerCase()}@test.pt`,
+    role: Role.COMPANY,
+    password,
+    interestId: interests
+      .filter((interest) => company.interests.includes(interest.name))
+      .map((interest) => interest.id),
+  }));
+
+  await prisma.user.createMany({
+    data,
+  });
+
+  const companyData = [];
+
+  for (let i = 0; i < COMPANIES.length; i++) {
+    const company = COMPANIES[i];
+    const user = await prisma.user.findFirst({
+      where: {
+        email: `${company.name.toLowerCase()}@test.pt`,
+      },
+    });
+
+    companyData.push({
+      name: company.name,
+      userId: user!.id,
+      tier: company.tier,
+    });
+  }
+
+  await prisma.company.createMany({
+    data: companyData,
+  });
+
+  console.log("✅ Companies seeded");
 }
 
 async function seedActions() {
@@ -131,9 +196,19 @@ async function seedActions() {
   await prisma.action.createMany({
     data: [
       {
-        name: "Upload CV",
-        description: "Faz o upload do teu CV",
+        name: config.constants.actionNames.createProfile,
+        description: "Cria o teu perfil",
+        points: 1,
+      },
+      {
+        name: config.constants.actionNames.updateLinkedin,
+        description: "Associa o teu LinkedIn",
         points: 2,
+      },
+      {
+        name: config.constants.actionNames.uploadCv,
+        description: "Faz o upload do teu CV",
+        points: 3,
       },
       {
         name: "Palestra 1",
@@ -166,7 +241,8 @@ async function main() {
   await seedInterests();
   await seedStudent();
   const user = await seedAdmin();
-  await seedCompanies(user.id);
+  await seedNei(user.id);
+  await seedCompanies();
   await seedActions();
 }
 

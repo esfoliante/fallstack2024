@@ -27,11 +27,13 @@ interface CompanyPageSectionProps {
     website?: string;
     facts?: FactData[];
   };
+  interests: string[];
 }
 
 const CompanyPageSection: React.FC<CompanyPageSectionProps> = ({
   company,
   modalInformation,
+  interests,
 }) => {
   return (
     <div className="mt-12 size-full items-center justify-center md:my-14">
@@ -110,8 +112,8 @@ const CompanyPageSection: React.FC<CompanyPageSectionProps> = ({
         videoTitle={modalInformation.videoTitle}
         tier={company.tier}
         facts={modalInformation.facts}
-        interests={company.props.interests}
-      ></CompanyInfo>
+        interests={interests}
+      />
     </div>
   );
 };
