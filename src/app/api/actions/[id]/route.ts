@@ -42,10 +42,18 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
 
   const { data } = await req.json();
-  const { id, timestamp } = verifyJwt(data) as {
+  const decoded = verifyJwt(data) as {
     id: string;
     timestamp: number;
   };
+
+  if (!decoded)
+    return NextResponse.json({ error: "Invalid data" }, { status: 400 });
+
+  const { id, timestamp } = decoded;
+
+  if (!id || !timestamp)
+    return NextResponse.json({ error: "Invalid data" }, { status: 400 });
 
   const action = await prisma.action.findUnique({
     where: { id },
@@ -75,6 +83,8 @@ export async function POST(req: NextRequest) {
       actionId: id,
     },
   });
+
+  return NextResponse.json({ message: "Action completed" });
 }
 
 export async function PATCH(request: NextRequest, props: ActionParams) {

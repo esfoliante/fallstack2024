@@ -46,6 +46,8 @@ model ActionCompletion {
 
   actionId    String @db.ObjectId
   studentCode String
+
+  @@unique([actionId, studentCode])
 }
 
 model Student {

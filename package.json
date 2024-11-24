@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "seed": "prisma db seed",
+    "wipe": "tsx prisma/wipe.ts",
     "generate": "prisma generate",
     "postinstall": "prisma generate"
   },

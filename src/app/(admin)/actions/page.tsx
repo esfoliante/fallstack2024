@@ -18,6 +18,7 @@ const actions: React.FC = async () => {
         <table className="min-w-full table-auto border-collapse">
           <thead className="bg-gray-200 text-sm uppercase text-gray-700">
             <tr>
+              <th className="px-6 py-3 text-left">Id</th>
               <th className="px-6 py-3 text-left">Name</th>
               <th className="px-6 py-3 text-left">Points</th>
               <th className="px-6 py-3 text-left">Alt Text</th>
@@ -32,6 +33,7 @@ const actions: React.FC = async () => {
                 key={action.id}
                 className="border-b transition-colors hover:bg-gray-100"
               >
+                <td className="px-6 py-4">{action.id}</td>
                 <td className="px-6 py-4">{action.name}</td>
                 <td className="px-6 py-4">{action.points}</td>
                 <td className="px-6 py-4">{action.altText || "N/A"}</td>
