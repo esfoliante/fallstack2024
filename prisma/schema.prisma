@@ -25,11 +25,16 @@ model User {
 }
 
 model Action {
+<<<<<<< HEAD
   id          String  @id @default(auto()) @map("_id") @db.ObjectId
+=======
+  id          Int     @id @default(autoincrement())
+>>>>>>> dev
   name        String
   description String
   points      Int
   altText     String?
+<<<<<<< HEAD
   isRevealed  Boolean @default(false)
 
   StudentIds String[] @db.ObjectId
@@ -40,12 +45,27 @@ model Talk {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   startTime DateTime
   isLive    Boolean  @default(false)
+=======
+  isVisible   Boolean @default(true)
 
-  company     Company @relation(fields: [companyName], references: [name])
-  companyName String  @unique
+  ActionCompletion ActionCompletion[]
+}
 
+model ActionCompletion {
+  id          Int      @id @default(autoincrement())
+  completedAt DateTime @default(now())
+>>>>>>> dev
+
+  action  Action  @relation(fields: [actionId], references: [id])
+  student Student @relation(fields: [studentId], references: [id])
+
+<<<<<<< HEAD
   StudentIds String[] @db.ObjectId
   Students Student[] @relation(fields: [StudentIds], references: [id])
+=======
+  actionId  Int
+  studentId Int
+>>>>>>> dev
 }
 
 model Student {
@@ -61,6 +81,7 @@ model Student {
   github   String?
   avatar   String?        @map("image")
 
+<<<<<<< HEAD
   talkIds  String[]		  @db.ObjectId
   talks    Talk[]		  @relation(fields: [talkIds], references: [id])
 
@@ -68,6 +89,11 @@ model Student {
   actions  Action[] 	  @relation(fields: [actionIds], references: [id])
 
   userId   String         @db.ObjectId @unique
+=======
+  userId Int @unique
+
+  ActionCompletion ActionCompletion[]
+>>>>>>> dev
 }
 
 model Company {
@@ -77,8 +103,12 @@ model Company {
   tier   Tier
   avatar String? @map("image")
 
+<<<<<<< HEAD
   userId String  @db.ObjectId @unique
   Talk   Talk[]
+=======
+  userId Int @unique
+>>>>>>> dev
 }
 
 model Interest {

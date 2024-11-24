@@ -1,8 +1,10 @@
-import { Action } from "@/types/Action";
+import { Action } from "@prisma/client";
 
 import prisma from "./prisma";
 
-export async function fetchActions(studentCode: string): Promise<Action[]> {
+export async function fetchActions(
+  studentCode: string
+): Promise<(Action & { done: boolean })[]> {
   const student = await prisma.student.findUnique({
     where: { code: studentCode },
     include: { actions: true },
@@ -12,7 +14,11 @@ export async function fetchActions(studentCode: string): Promise<Action[]> {
     return [];
   }
 
-  const actions = await prisma.action.findMany();
+  const actions = await prisma.action.findMany({
+    where: {
+      isVisible: true,
+    },
+  });
 
   return actions.map((action) => {
     if (student.actions.some((a) => a.id === action.id)) {

@@ -23,20 +23,20 @@ const about: React.FC = () => {
         </h1>
         <p className="my-4 text-center text-lg">
           <Link
-            href="https://github.com/Nucleo-Estudantes-Informatica-ISEP/fallstack2023"
+            href="https://github.com/Nucleo-Estudantes-Informatica-ISEP/fallstack2024"
             className="font-normal text-primary"
           >
-            https://github.com/Nucleo-Estudantes-Informatica-ISEP/fallstack2023
+            https://github.com/Nucleo-Estudantes-Informatica-ISEP/fallstack2024
           </Link>
         </p>
       </div>
 
       <div className="flex flex-col items-center justify-center">
-        <h1 className="text-center font-bold text-xl sm:text-2xl md:text-3xl">
+        <h1 className="text-center text-xl font-bold sm:text-2xl md:text-3xl">
           Precisas de ajuda? Contacta-nos!
         </h1>
 
-        <p className="my-2 text-center font-light text-lg">
+        <p className="my-2 text-center text-lg font-light">
           Envia-nos um email para{" "}
           <Link
             href="mailto:support@nei-isep.org"
