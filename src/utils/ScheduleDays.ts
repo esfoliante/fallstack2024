@@ -3,23 +3,19 @@ import { ScheduleDay as ScheduleDaysProps } from "../components/Schedule";
 export const ScheduleDays: Array<ScheduleDaysProps[]> = [
   [
     {
-      hour: "10.00h - 10.15h",
+      hour: "09.45h - 10.00h",
       activity: "Abertura do Evento",
     },
     {
-      hour: "10.15h - 10.30h",
-      activity: "Sessão de Apresentação AIESEC - FEP",
-    },
-    {
-      hour: "10.30h - 11.00h",
+      hour: "10.00h - 10.30h",
       activity: "Pitch das Empresas Participantes",
     },
     {
-      hour: "11.00h - 11.30h",
+      hour: "10.30h - 11.00h",
       activity: "Coffee Break",
     },
     {
-      hour: "11.30h - 12.30h",
+      hour: "11.00h - 12.30h",
       activity: "Pitch das Empresas Participantes",
     },
     {
@@ -27,11 +23,11 @@ export const ScheduleDays: Array<ScheduleDaysProps[]> = [
       activity: "Pausa para Almoço",
     },
     {
-      hour: "14.30h - 15.00h",
+      hour: "14.30h - 14.50h",
       activity: "Sessão de Esclarecimento com a Prof. Elsa Ferreira Gomes",
     },
     {
-      hour: "15.00h - 15.30h",
+      hour: "14.50h - 15.30h",
       activity: "Pitch das Empresas Participantes",
     },
     {
