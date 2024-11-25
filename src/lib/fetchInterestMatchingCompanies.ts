@@ -13,6 +13,11 @@ export async function fetchInterestMatchingCompanies(
         },
       },
     },
+    where: {
+      user: {
+        isAdmin: false,
+      },
+    },
   });
 
   const userInterests = await prisma.interest.findMany({
