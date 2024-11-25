@@ -6,6 +6,11 @@ const nextConfig = {
         protocol: "https",
         hostname: "*.storage.googleapis.com",
       },
+      {
+        protocol: "https",
+        hostname: "storage.googleapis.com",
+        pathname: "/fallstack-2024.firebasestorage.app/**",
+      },
     ],
   },
 };

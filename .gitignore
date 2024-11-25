@@ -42,3 +42,5 @@ next-env.d.ts
 /public/workbox-*.js
 /public/workbox-*.js.map
 certificates
+
+prisma/seed.prod.ts
