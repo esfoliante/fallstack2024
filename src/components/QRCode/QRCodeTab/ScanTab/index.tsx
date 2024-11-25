@@ -26,10 +26,10 @@ const ScanTab: React.FC<ScanTabProps> = ({ setHidden }) => {
 
   async function handleActionScan(data: string) {
     const actionId = data.split("-")[1];
+    console.log(actionId);
 
     const res = await fetch(BASE_URL + `/actions/${actionId}`, {
       method: "POST",
-      body: JSON.stringify({ data }),
     });
 
     if (!res.ok) {

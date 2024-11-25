@@ -74,7 +74,7 @@ const AvatarStep: FunctionComponent<AvatarStepProps> = ({ data }) => {
       }
 
       if (!signup) {
-        toast.error("Ocorreu um erro ao criar a conta.");
+        swal("Erro", "Ocorreu um erro ao criar a conta.", "error");
         return setLoading(false);
       }
 

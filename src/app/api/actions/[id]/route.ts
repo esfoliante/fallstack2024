@@ -33,14 +33,14 @@ export async function GET(req: NextRequest, props: ActionParams) {
   return NextResponse.json({ action, qrCode });
 }
 
-export async function POST(req: NextRequest) {
+export async function POST(req: NextRequest, { params }: ActionParams) {
   const session = await getServerSession();
   if (!session)
     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
   if (!session.student)
     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
 
-  const data = await req.json();
+  const { id: data } = await params;
   const decoded = verifyJwt(data) as {
     id: string;
     timestamp: number;

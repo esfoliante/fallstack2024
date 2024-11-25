@@ -21,6 +21,7 @@ const getStudentHistory = async (code: string) => {
         select: {
           company: true,
           student: true,
+          isAdmin: true,
         },
       },
     },
