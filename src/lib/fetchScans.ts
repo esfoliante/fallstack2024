@@ -7,6 +7,7 @@ export async function fetchScans() {
       id: true,
       studentId: true,
       createdAt: true,
+	  isSaved: true,
       student: {
         select: {
           name: true,
