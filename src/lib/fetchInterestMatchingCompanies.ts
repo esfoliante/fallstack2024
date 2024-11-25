@@ -40,8 +40,6 @@ export async function fetchInterestMatchingCompanies(
         userInterests.some((userInterest) => userInterest.id === interest.id)
       );
 
-      console.log(company.name, matchingInterests);
-
       return {
         company,
         matchingInterests,

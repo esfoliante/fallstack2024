@@ -22,11 +22,8 @@ const InterestMatchingSection: React.FC<InterestMatchingSectionProps> = ({
         return;
       }
 
-      console.log(data);
-
       const interestingCompanies = await data.json();
 
-      console.log(interestingCompanies);
       setCompanies(interestingCompanies);
     }
 
@@ -80,7 +77,7 @@ const InterestMatchingSection: React.FC<InterestMatchingSectionProps> = ({
         </ul>
       ) : (
         <p className="text-center text-gray-600">
-          No matching companies found.
+          Não encontramos empresas com interesses em comum.
         </p>
       )}
     </section>
