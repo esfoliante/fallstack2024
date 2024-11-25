@@ -1,9 +1,11 @@
 import Connect from "../../../public/assets/images/connect.png";
 import Pitch from "../../../public/assets/images/pitch.png";
+import { ScheduleDays } from "../../utils/ScheduleDays";
 import Activity from "../Activity";
 import CompaniesSection from "../Companies/CompaniesSection";
 import FaqSection from "../Faq/FaqSection";
 import InfoText from "../InfoText";
+import Schedule from "../Schedule";
 
 interface ContentProps {
   contentRef: React.RefObject<HTMLDivElement>;
@@ -52,6 +54,12 @@ const Content: React.FC<ContentProps> = ({ contentRef }) => {
           parte do teu interesse. Aproveita ao máximo este momento único para te
           destacares!
         </Activity>
+        <hr />
+        <Schedule
+          firstDayTitle="Terça-Feira - Auditório Magno"
+          secondDayTitle="Quarta-Feira - Sala de Eventos"
+          scheduleEvents={ScheduleDays}
+        />{" "}
       </section>
 
       <CompaniesSection />

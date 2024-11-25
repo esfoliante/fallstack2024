@@ -172,8 +172,22 @@ const Schedule: React.FC<Props> = ({
                 viewport={{ once: true }}
                 transition={{ duration: 0.1 * index }}
               >
-                <td className="p-4">{entry.hour}</td>
-                <td className="py-4 pr-4">{entry.activity}</td>
+                <td
+                  className={
+                    "p-4 " +
+                    (entry.activity == "Coffee Break" ? "font-semibold" : "")
+                  }
+                >
+                  {entry.hour}
+                </td>
+                <td
+                  className={
+                    "py-4 pr-4 " +
+                    (entry.activity == "Coffee Break" ? "font-semibold" : "")
+                  }
+                >
+                  {entry.activity}
+                </td>
               </motion.tr>
             ))}
           </motion.tbody>

@@ -42,7 +42,7 @@ export async function POST(req: NextRequest, props: StudentParams) {
   const [meta] = await storage.bucket().file(distribution).makePublic();
 
   const { bucket, object } = meta;
-  const url = `https://${bucket}.storage.googleapis.com/${object}`;
+  const url = `https://storage.googleapis.com/${bucket}/${object}`;
 
   // remove old avatar if existent
   if (session.student.avatar) {

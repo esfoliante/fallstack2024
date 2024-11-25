@@ -47,7 +47,6 @@ export async function POST(req: NextRequest) {
     expires,
     contentType, // restrict file type
     extensionHeaders: headers,
-    virtualHostedStyle: true,
   });
 
   return NextResponse.json({
