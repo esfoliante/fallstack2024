@@ -26,6 +26,10 @@ const INTERESTS = [
   "Networking",
   "Database Management",
   "Software Development",
+	"Outsystems",
+	"Data Analysis",
+	"UI/UX Design",
+	"Infrastructure"
 ];
 
 const COMPANIES = [
@@ -38,6 +42,7 @@ const COMPANIES = [
 
 async function seedInterests() {
   const interests = await prisma.interest.findMany();
+
   if (interests.length > 0) {
     console.log("⚠️ Interests already seeded");
     return;
@@ -53,11 +58,13 @@ async function seedInterests() {
 
 async function seedAdmin() {
   const email = process.env.ADMIN_EMAIL as string;
-  const user = await prisma.user.findUnique({
+
+	const user = await prisma.user.findUnique({
     where: {
       email,
     },
   });
+
   if (user) {
     console.log("⚠️ User already seeded");
     return user;

@@ -29,7 +29,7 @@ const createAdminApp = () => {
         .setCorsConfiguration([
           {
             origin: ["*"],
-            method: ["PUT"],
+            method: ["GET", "POST", "PUT", "DELETE"],
             responseHeader: ["*"],
             maxAgeSeconds: 3600,
           },
