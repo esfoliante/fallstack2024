@@ -7,9 +7,22 @@ import Spinner from "../Spinner";
 
 import download from "downloadjs";
 
+interface SavedStudent {
+  id: string;
+  studentId: string;
+  isSaved: boolean;
+  createdAt: Date;
+  student: {
+    name: string;
+    user: {
+      email: string;
+    };
+  };
+}
+
 interface ExcelButtonProps {
   className?: string;
-  data: any[];
+  data: SavedStudent[];
 }
 
 const ExcelButton: React.FC<ExcelButtonProps> = ({
@@ -20,7 +33,7 @@ const ExcelButton: React.FC<ExcelButtonProps> = ({
   const handleDownload = async () => {
     if (isLoading) return;
     setIsLoading(true);
-    data = data.map((scan) => {
+    const dataJSON = data.map((scan) => {
       return {
         id: scan.id,
         studentId: scan.studentId,
@@ -29,7 +42,7 @@ const ExcelButton: React.FC<ExcelButtonProps> = ({
         createdAt: scan.createdAt.toLocaleString(),
       };
     });
-    const worksheet = XLSX.utils.json_to_sheet(data);
+    const worksheet = XLSX.utils.json_to_sheet(dataJSON);
 
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
