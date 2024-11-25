@@ -95,8 +95,6 @@ model SavedStudent {
 
   studentId String @db.ObjectId
   savedById String @db.ObjectId
-
-  @@unique([studentId, savedById, isSaved])
 }
 
 model PasswordResetToken {

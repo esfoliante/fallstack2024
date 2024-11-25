@@ -39,7 +39,9 @@ const HistorySection = ({ historyData, isCompany }: HistorySectionProps) => {
                     ? item.student.name
                     : item.savedBy.company
                       ? item.savedBy.company.name
-                      : item.savedBy.student?.name}
+                      : item.savedBy.isAdmin
+                        ? "NEI-ISEP"
+                        : item.savedBy.student?.name}
                 </span>
               </div>
               <div className="flex w-1/3 justify-center px-1 max-md:w-4/12">

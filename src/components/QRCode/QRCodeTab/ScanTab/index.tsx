@@ -34,6 +34,7 @@ const ScanTab: React.FC<ScanTabProps> = ({ setHidden }) => {
 
     if (!res.ok) {
       swal("Erro", "Ocorreu um erro a dar scan no QR Code da ação...", "error");
+      console.log(await res.json());
       return;
     }
 

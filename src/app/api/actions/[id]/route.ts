@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {
   if (!session.student)
     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
 
-  const { data } = await req.json();
+  const data = await req.json();
   const decoded = verifyJwt(data) as {
     id: string;
     timestamp: number;

@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
     where: { studentId: student.id, savedById: session.id },
   });
 
-  if (history)
+  if (history && !session.isAdmin)
     return NextResponse.json(
       { error: "Student already scanned" },
       { status: 200 }
