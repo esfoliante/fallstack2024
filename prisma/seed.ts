@@ -26,10 +26,10 @@ const INTERESTS = [
   "Networking",
   "Database Management",
   "Software Development",
-	"Outsystems",
-	"Data Analysis",
-	"UI/UX Design",
-	"Infrastructure"
+  "Outsystems",
+  "Data Analysis",
+  "UI/UX Design",
+  "Infrastructure",
 ];
 
 const COMPANIES = [
@@ -59,7 +59,7 @@ async function seedInterests() {
 async function seedAdmin() {
   const email = process.env.ADMIN_EMAIL as string;
 
-	const user = await prisma.user.findUnique({
+  const user = await prisma.user.findUnique({
     where: {
       email,
     },
@@ -245,6 +245,10 @@ async function seedActions() {
 }
 
 async function main() {
+  if (process.env.NODE_ENV === "production") {
+    console.log("⚠️ Seeding is disabled in production");
+    return;
+  }
   await seedInterests();
   await seedStudent();
   const user = await seedAdmin();
