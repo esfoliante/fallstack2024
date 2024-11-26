@@ -31,7 +31,7 @@ const ChangePasswordForm: React.FC = () => {
         Email
       </label>
       <input
-        type="email"
+        type="text"
         name="email"
         id="email"
         className="mb-4 border border-gray-300 p-2 text-blue-800"
