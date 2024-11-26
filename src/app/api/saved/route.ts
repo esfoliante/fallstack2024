@@ -79,8 +79,7 @@ export async function POST(req: NextRequest) {
   switch (company.name) {
     case "akapeople":
     case "AkaPeople":
-      await completeAction(student.code, config.constants.actionNames.akaPeopleBooth1);
-      await completeAction(student.code, config.constants.actionNames.akaPeopleBooth2);
+      await completeAction(student.code, config.constants.actionNames.akaPeopleBooth);
       break;
     case "natixis":
       await completeAction(student.code, config.constants.actionNames.natixisBooth);
