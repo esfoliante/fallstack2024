@@ -3,12 +3,12 @@
 import { FunctionComponent, useState } from "react";
 import Swal from "sweetalert";
 
-import { StudentsWithEmail } from "@/types/StudentsWithEmail";
+import { StudentsForGiveaway } from "@/lib/students";
 
 import ConfettiEffect from "../ConfettiEffect";
 
 interface GiveawaySectionProps {
-  students: StudentsWithEmail[];
+  students: StudentsForGiveaway[];
   numberOfRandomizedStudents: number;
   tableRows: number;
 }
@@ -25,46 +25,56 @@ const GiveawaySection: FunctionComponent<GiveawaySectionProps> = ({
   const numRows = Math.ceil(students.length / tableRows);
 
   const generateRandomStudentId = () => {
-    const randomStudent = Math.floor(Math.random() * students.length);
-    return students[randomStudent].id;
+    const weightedStudents: string[] = [];
+    students.forEach((student) => {
+      for (let i = 0; i < student.numberOfTotalPoints; i++) {
+        weightedStudents.push(student.id);
+      }
+    });
+
+    const randomIndex = Math.floor(Math.random() * weightedStudents.length);
+    return weightedStudents[randomIndex];
   };
 
   const handleGiveaway = (numberOfRandomStudents: number): void => {
     setIsRandomizing(true);
     const timeoutTimer = 100;
+    let finalId: string = "";
 
-    let id: string = "";
+    // Generate all IDs first
+    const randomIds: string[] = [];
     for (let i = 0; i < numberOfRandomStudents; i++) {
-      setTimeout(() => {
-        id = generateRandomStudentId();
-        setSelectedStudentId(id);
-      }, timeoutTimer * i);
+      randomIds.push(generateRandomStudentId());
     }
 
-    setTimeout(() => {
-      setIsConfettiVisible(true);
-    }, timeoutTimer * numberOfRandomStudents);
+    // Animate through the IDs
+    randomIds.forEach((id, index) => {
+      setTimeout(() => {
+        setSelectedStudentId(id);
+        if (index === randomIds.length - 1) {
+          finalId = id;
+          const winner = students.find((student) => student.id === finalId);
 
-    setTimeout(
-      () => {
-        Swal({
-          title: "Parabéns!",
-          text: `O vencedor(a) foi ${
-            students.find((student) => student.id === id)?.name
-          } 🎉 \n ${students.find((student) => student.id === id)?.user.email}`,
-          icon: "success",
-        });
-      },
-      timeoutTimer * numberOfRandomStudents + 500
-    );
+          // Show confetti
+          setIsConfettiVisible(true);
 
-    setTimeout(
-      () => {
-        setIsConfettiVisible(false);
-        setIsRandomizing(false);
-      },
-      timeoutTimer * numberOfRandomStudents + 3000
-    );
+          // Show winner alert
+          setTimeout(() => {
+            Swal({
+              title: "Parabéns!",
+              text: `O vencedor(a) foi ${winner?.name} (${winner?.numberOfTotalPoints} pontos) 🎉\n${winner?.user.email}`,
+              icon: "success",
+            });
+          }, 500);
+
+          // Cleanup
+          setTimeout(() => {
+            setIsConfettiVisible(false);
+            setIsRandomizing(false);
+          }, 3000);
+        }
+      }, timeoutTimer * index);
+    });
   };
 
   return (
@@ -76,24 +86,23 @@ const GiveawaySection: FunctionComponent<GiveawaySectionProps> = ({
         {Array.from({ length: numRows }, (_, rowIndex) => {
           return students
             .slice(rowIndex * tableRows, (rowIndex + 1) * tableRows)
-            .map((student, colIndex) => {
-              return (
-                <div
-                  key={colIndex}
-                  className={`flex items-center justify-center border px-4 py-2 text-center font-semibold text-primary ${
-                    student.id === selectedStudentId && "bg-primary text-white"
-                  }`}
-                >
-                  {student.name}
+            .map((student, colIndex) => (
+              <div
+                key={colIndex}
+                className={`flex flex-col items-center justify-center border px-4 py-2 text-center font-semibold text-primary ${
+                  student.id === selectedStudentId && "bg-primary text-white"
+                }`}
+              >
+                <div>{student.name}</div>
+                <div className="text-sm text-gray-500">
+                  {student.numberOfTotalPoints} pts
                 </div>
-              );
-            });
+              </div>
+            ));
         })}
       </div>
       <button
-        onClick={() => {
-          handleGiveaway(numberOfRandomizedStudents);
-        }}
+        onClick={() => handleGiveaway(numberOfRandomizedStudents)}
         disabled={isRandomizing}
         className="rounded-xl bg-[#D9D9D9] px-8 py-4 text-lg font-semibold text-black transition-colors duration-200 ease-in-out hover:bg-[#BFBFBF] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-[#D9D9D9]"
       >
