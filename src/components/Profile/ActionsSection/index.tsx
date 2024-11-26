@@ -30,11 +30,17 @@ const ActionsSection: React.FC<ActionsSectionProps> = ({ actions }) => {
                   >
                     <div>
                       <h4 className="text-lg font-semibold text-gray-800">
-                        {action.altText ? action.altText : action.name}
+                        {action.altText && !action.done
+                          ? action.altText
+                          : action.name}
                       </h4>
                       <p className="text-sm text-gray-600">
-                        {action.altText
-                          ? "?".repeat(action.description.length)
+                        {action.altText && !action.done
+                          ? // switch characters with ? and add spacs
+                            action.description
+                              .split(" ")
+                              .map((word) => "?".repeat(word.length))
+                              .join(" ")
                           : action.description}
                       </p>
                     </div>

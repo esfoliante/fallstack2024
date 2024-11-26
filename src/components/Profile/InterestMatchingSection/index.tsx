@@ -45,9 +45,11 @@ const InterestMatchingSection: React.FC<InterestMatchingSectionProps> = ({
               <div className="mr-4 shrink-0">
                 {company.avatar ? (
                   <Image
-                    src={company.avatar}
+                    src={company.avatar.trimEnd()}
                     alt={`${company.name} logo`}
                     className="size-12 rounded-full object-cover"
+                    width={48}
+                    height={48}
                   />
                 ) : (
                   <div className="flex size-12 items-center justify-center rounded-full bg-gray-300 text-sm text-gray-600">
