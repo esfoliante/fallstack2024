@@ -33,7 +33,7 @@ const ActionQrCodeData: React.FC<ActionQrCodeDataProps> = ({ id }) => {
   }, [id]);
 
   return (
-    <div className="bg-white p-2">
+    <div className="bg-white p-16">
       {qrCodeData && (
         <QRCode
           size={innerWidth ? Math.min(innerWidth / 2, 520) : 320}

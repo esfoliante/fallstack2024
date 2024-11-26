@@ -26,7 +26,6 @@ const ScanTab: React.FC<ScanTabProps> = ({ setHidden }) => {
 
   async function handleActionScan(data: string) {
     const actionId = data.split("-")[1];
-    console.log(actionId);
 
     const res = await fetch(BASE_URL + `/actions/${actionId}`, {
       method: "POST",
@@ -34,7 +33,9 @@ const ScanTab: React.FC<ScanTabProps> = ({ setHidden }) => {
 
     if (!res.ok) {
       swal("Erro", "Ocorreu um erro a dar scan no QR Code da ação...", "error");
-      console.log(await res.json());
+      console.log((await res.json()).error);
+      setHidden(true);
+      setProcessing(false);
       return;
     }
 

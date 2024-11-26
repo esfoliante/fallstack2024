@@ -27,7 +27,10 @@ export async function GET(req: NextRequest, props: ActionParams) {
     "action-" +
     signJwt(
       { id, timestamp },
-      { expiresIn: config.constants.actionQrCodeRefreshRateMs * 2 }
+      {
+        algorithm: "HS256",
+        expiresIn: config.constants.actionQrCodeRefreshRateMs * 2,
+      }
     );
 
   return NextResponse.json({ action, qrCode });
@@ -41,10 +44,14 @@ export async function POST(req: NextRequest, { params }: ActionParams) {
     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
 
   const { id: data } = await params;
-  const decoded = verifyJwt(data) as {
+  const decoded = verifyJwt(data, {
+    algorithm: "HS256",
+  }) as {
     id: string;
     timestamp: number;
   };
+
+  console.log(decoded);
 
   if (!decoded)
     return NextResponse.json({ error: "Invalid data" }, { status: 400 });
@@ -65,9 +72,9 @@ export async function POST(req: NextRequest, { params }: ActionParams) {
     return NextResponse.json({ error: "Action not live" }, { status: 400 });
 
   // check if timestamp is valid
-  const now = Date.now();
-  if (now - timestamp > config.constants.actionQrCodeRefreshRateMs)
-    return NextResponse.json({ error: "Invalid timestamp" }, { status: 400 });
+  // const now = Date.now();
+  // if (now - timestamp > config.constants.actionQrCodeRefreshRateMs)
+  //   return NextResponse.json({ error: "Invalid timestamp" }, { status: 400 });
 
   const student = await prisma.student.findUnique({
     where: { id: session.student.id },

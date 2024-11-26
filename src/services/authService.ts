@@ -25,9 +25,9 @@ const comparePassword = async (password: string, hashedPassword: string) => {
   return await bcrypt.compare(password, hashedPassword);
 };
 
-const verifyJwt = (token: string) => {
+const verifyJwt = (token: string, options?: jwt.SignOptions) => {
   try {
-    return jwt.verify(token, process.env.JWT_SECRET as string);
+    return jwt.verify(token, process.env.JWT_SECRET as string, options);
   } catch (err) {
     return null;
   }
