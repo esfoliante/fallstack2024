@@ -1,6 +1,6 @@
 import React from "react";
 
-import { getStudents } from "@/lib/students";
+import { getStudentsForGiveaway } from "@/lib/students";
 import getServerSession from "@/services/getServerSession";
 import GiveawaySection from "@/components/GiveawaySection";
 import Custom404 from "@/app/not-found";
@@ -12,7 +12,7 @@ const giveaway: React.FC = async () => {
     return Custom404();
   }
 
-  const students = await getStudents();
+  const students = await getStudentsForGiveaway();
 
   const tableRows = 10;
   const numberOfRandomizedStudents = 50;
