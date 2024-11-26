@@ -30,7 +30,7 @@ const HistorySection = ({ historyData, isCompany }: HistorySectionProps) => {
         ) : (
           historyData.map((item) => (
             <div
-              key={`${item.studentId}-${item.isSaved}`}
+              key={`${item.studentId}-${item.isSaved}-${item.createdAt}`}
               className="flex flex-row items-center border-t-2 py-4 first:border-0"
             >
               <div className="flex w-1/3 justify-center px-1 text-center font-bold max-md:w-5/12">
@@ -39,7 +39,9 @@ const HistorySection = ({ historyData, isCompany }: HistorySectionProps) => {
                     ? item.student.name
                     : item.savedBy.company
                       ? item.savedBy.company.name
-                      : item.savedBy.student?.name}
+                      : item.savedBy.isAdmin
+                        ? "NEI-ISEP"
+                        : item.savedBy.student?.name}
                 </span>
               </div>
               <div className="flex w-1/3 justify-center px-1 max-md:w-4/12">

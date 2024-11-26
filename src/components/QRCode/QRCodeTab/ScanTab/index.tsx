@@ -27,10 +27,19 @@ const ScanTab: React.FC<ScanTabProps> = ({ setHidden }) => {
   async function handleActionScan(data: string) {
     const actionId = data.split("-")[1];
 
-    await fetch(BASE_URL + `/actions/${actionId}`, {
+    const res = await fetch(BASE_URL + `/actions/${actionId}`, {
       method: "POST",
-      body: JSON.stringify({ data }),
     });
+
+    if (!res.ok) {
+      const error = (await res.json()).error;
+      swal("Erro", error, "error");
+      setHidden(true);
+      setProcessing(false);
+      return;
+    }
+
+    swal("Sucesso", "Os teus pontos foram adicionados com sucesso!", "success");
 
     setHidden(true);
     setProcessing(false);

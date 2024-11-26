@@ -143,8 +143,6 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({
       return setIsAvatarLoading(false);
     }
 
-    console.log(signed);
-
     if (image.size > signed.maxSize) {
       const maxMb = Math.round(signed.maxSize / Math.pow(1024, 2));
       toast.error(`A imagem excede o tamanho máximo de ${maxMb} MB.`);

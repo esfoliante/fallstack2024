@@ -16,7 +16,7 @@ export async function POST(req: Request) {
     // check if email is already being used
     const emailExists = await prisma.user.findUnique({
       where: {
-        email: email,
+        email,
       },
     });
 
