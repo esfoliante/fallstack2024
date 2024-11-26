@@ -4,7 +4,8 @@ import {
 	divinalLogo,
 	deiLogo,
 	melhorCroissantLogo,
-	dominosLogo
+	dominosLogo,
+	bocaDoceLogo
 } from "./CompaniesImages";
 
 export const Sponsors: SponsorProps[] = [
@@ -32,5 +33,10 @@ export const Sponsors: SponsorProps[] = [
 		name: "Dominos Logo",
 		logoHref: dominosLogo,
 		website: "https://dominos.pt/"
+	},
+	{
+		name: "Boca Doce Logo",
+		logoHref: bocaDoceLogo,
+		website: "https://www.facebook.com/bemmequergrupobocadoce/"
 	}
 ];
