@@ -18,6 +18,7 @@ import divinalLogo from "../../public/assets/images/sponsors/divinal.png";
 import melhorCroissantLogo from "../../public/assets/images/sponsors/melhorCroissant.png";
 import deiLogo from "../../public/assets/images/sponsors/dei.png";
 import dominosLogo from "../../public/assets/images/sponsors/dominos.png";
+import bocaDoceLogo from "../../public/assets/images/sponsors/bocaDoce.png";
 
 export {
 	AccentureLogo,
@@ -37,5 +38,6 @@ export {
 	niwLogo,
 	deiLogo,
 	dominosLogo,
-	melhorCroissantLogo
+	melhorCroissantLogo,
+	bocaDoceLogo
 };
