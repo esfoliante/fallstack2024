@@ -6,6 +6,7 @@ import CompaniesSection from "../Companies/CompaniesSection";
 import FaqSection from "../Faq/FaqSection";
 import InfoText from "../InfoText";
 import Schedule from "../Schedule";
+import SponsorsSection from "../SponsorsSection";
 
 interface ContentProps {
   contentRef: React.RefObject<HTMLDivElement>;
@@ -64,7 +65,7 @@ const Content: React.FC<ContentProps> = ({ contentRef }) => {
 
       <CompaniesSection />
 
-      {/* <SponsorsSection /> */}
+      <SponsorsSection />
 
       <FaqSection />
     </section>
