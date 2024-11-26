@@ -6,6 +6,8 @@ import { isSaved } from "@/lib/savedStudents";
 import { verifyJwt } from "@/services/authService";
 import getServerSession from "@/services/getServerSession";
 import { saveSchema } from "@/schemas/saveSchema";
+import { completeAction } from "@/lib/completeAction";
+import config from "@/config";
 
 export async function POST(req: NextRequest) {
   const session = await getServerSession();
@@ -61,6 +63,61 @@ export async function POST(req: NextRequest) {
       { error: "Error creating history" },
       { status: 500 }
     );
+
+  if (!session.company) {
+    return NextResponse.json({ error: "Company not found" }, { status: 404 });
+  }
+
+  const company = await prisma.company.findUnique({
+    where: { id: session.company.id },
+    select: { name: true },
+  });
+
+  if (!company)
+    return NextResponse.json({ error: "Company not found" }, { status: 404 });
+
+  switch (company.name) {
+    case "akapeople":
+    case "AkaPeople":
+      await completeAction(student.code, config.constants.actionNames.akaPeopleBooth);
+      break;
+    case "natixis":
+      await completeAction(student.code, config.constants.actionNames.natixisBooth);
+      break;
+    case "apr":
+      await completeAction(student.code, config.constants.actionNames.aprBooth);
+      break;
+    case "hitachi solutions":
+      await completeAction(student.code, config.constants.actionNames.hitachiBooth);
+      break;
+    case "convatec":
+      await completeAction(student.code, config.constants.actionNames.convatecBooth);
+      break;
+    case "niw":
+      await completeAction(student.code, config.constants.actionNames.niwBooth);
+      break;
+    case "deloitte":
+      await completeAction(student.code, config.constants.actionNames.deloitteBooth);
+      break;
+    case "accenture":
+      await completeAction(student.code, config.constants.actionNames.accentureBooth);
+      break;
+    case "armis":
+      await completeAction(student.code, config.constants.actionNames.armisBooth);
+      break;
+    case "devscope":
+      await completeAction(student.code, config.constants.actionNames.devscopeBooth);
+      break;
+    case "insur:it msg":
+      await completeAction(student.code, config.constants.actionNames.msgInsurItBooth);
+      break;
+    case "glintt":
+      await completeAction(student.code, config.constants.actionNames.glinttBooth);
+      break;
+    case "konkconsulting":
+      await completeAction(student.code, config.constants.actionNames.konkConsultingBooth);
+      break;
+  }
 
   return NextResponse.json({ message: "Student scanned" }, { status: 201 });
 }
