@@ -68,12 +68,21 @@ export async function getStudentsForGiveaway(): Promise<StudentsForGiveaway[]> {
 
 export async function getStudents() {
   return await prisma.student.findMany({
-    include: {
+    where: {
       user: {
-        select: {
-          email: true,
-        },
+        AND: [{ role: "STUDENT" }],
       },
+    },
+    select: {
+      id: true,
+      code: true,
+      name: true,
+      bio: true,
+      year: true,
+      cv: true,
+      linkedin: true,
+      user: true,
+      avatar: true
     },
   });
 }

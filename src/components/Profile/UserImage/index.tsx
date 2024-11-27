@@ -66,7 +66,7 @@ const UserImage: React.FC<UserImageProps> = ({
         <Image
           width={328}
           height={328}
-          src={imageSrc || config.defaultAvatar}
+          src={imageSrc?.trimEnd() || config.defaultAvatar}
           alt="profile image"
           className="size-full rounded-full object-cover"
         />
