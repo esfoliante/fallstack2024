@@ -21,9 +21,9 @@ export async function POST(req: NextRequest) {
   if (!safeParse.success)
     return NextResponse.json({ message: safeParse.error }, { status: 400 });
 
-  const { token, code } = safeParse.data;
+  const { token } = safeParse.data;
 
-  let studentCode = code;
+  let studentCode = token;
   if (token) {
     const decoded = verifyJwt(token) as { code: string };
     studentCode = decoded.code;
@@ -124,8 +124,11 @@ export async function POST(req: NextRequest) {
 
 export async function PATCH(req: NextRequest) {
   const session = await getServerSession();
+  console.log({session});
 
   const body = await req.json();
+
+  console.log(body);
 
   if (!session)
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -136,11 +139,13 @@ export async function PATCH(req: NextRequest) {
   const parsed = saveSchema.safeParse(body);
   if (!parsed.success) return NextResponse.json({ error: parsed.error });
 
-  const { token, code } = parsed.data;
+  const { token } = parsed.data;
 
-  let studentCode = code as string;
+  let studentCode = token as string;
+  console.log({token});
   if (token) {
     const decoded = verifyJwt(token) as { code: string };
+    console.log(decoded);
     studentCode = decoded.code;
   }
 
