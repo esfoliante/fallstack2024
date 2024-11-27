@@ -3,5 +3,8 @@
   "editor.formatOnSave": true,
   "prettier.printWidth": 160,
   "prettier.tabWidth": 2,
-  "cSpell.words": ["fallstack"]
+  "cSpell.words": ["fallstack"],
+  "[dotenv]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  }
 }
