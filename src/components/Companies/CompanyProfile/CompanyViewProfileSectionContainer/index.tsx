@@ -2,7 +2,6 @@
 
 import { Company, Student, User } from "@prisma/client";
 import { motion } from "framer-motion";
-import { toast } from "react-toastify";
 
 import { BASE_URL } from "@/services/api";
 import BioSection from "@/components/Profile/BioSection";
@@ -11,6 +10,7 @@ import InterestsSection from "@/components/Profile/InterestsSection";
 import OpenCvSection from "@/components/Profile/OpenCvSection";
 import UserImage from "@/components/Profile/UserImage";
 import { Github, Linkedin } from "@/styles/Icons";
+import swal from "sweetalert";
 
 interface CompanyViewProfileSectionContainerProps {
   student: Student & { user: User };
@@ -24,7 +24,7 @@ const CompanyViewProfileSectionContainer: React.FC<
   CompanyViewProfileSectionContainerProps
 > = ({ student, interests, company, token, isSavedStudent }) => {
   const handleSaveProfile = async () => {
-    if (!company) return toast("Erro ao carregar perfil!");
+    if (!company) return swal("Erro ao carregar perfil!");
 
     const res = await fetch(BASE_URL + "/saved", {
       method: "PATCH",
@@ -32,12 +32,27 @@ const CompanyViewProfileSectionContainer: React.FC<
     });
 
     if (res.status === 200) {
-      toast.info("Perfil salvo com sucesso!");
+      swal({
+        title: "Success",
+        text: "Perfil salvo com sucesso!",
+        icon: "success",
+      }).then(() => {
+        window.location.reload();
+      });
     } else if (res.status === 400) {
-      toast.warning("Perfil já salvo!");
+      swal({
+        title: "Warning",
+        text: "Perfil já salvo!",
+        icon: "warning",
+      });
     } else {
-      toast.error("Erro ao salvar perfil!");
+      swal({
+        title: "Error",
+        text: "Erro ao salvar perfil!",
+        icon: "error"
+      });
     }
+    
   };
 
   return (
