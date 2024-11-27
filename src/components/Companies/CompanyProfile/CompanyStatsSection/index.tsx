@@ -42,8 +42,7 @@ const CompanyStatsSection: React.FC<StatsProps> = ({
       swal("Perfil atualizado com sucesso!");
     } else {
       setIsLoading(false);
-      swal("Perfil atualizado com sucesso!");
-      // swal("Ocorreu um erro ao atualizar o teu perfil...");
+      swal("Ocorreu um erro ao atualizar o teu perfil...");
     }
 
     router.refresh();
