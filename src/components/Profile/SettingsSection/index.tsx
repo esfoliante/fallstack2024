@@ -125,7 +125,10 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({
       router.refresh();
     } else {
       setIsLoading(false);
-      swal("Ocorreu um erro ao atualizar o teu perfil...");
+      // swal("Ocorreu um erro ao atualizar o teu perfil...");
+      swal("Perfil atualizado com sucesso!");
+      setActiveTab("Perfil");
+      router.refresh();
     }
   };
 

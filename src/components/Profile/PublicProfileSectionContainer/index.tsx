@@ -29,7 +29,7 @@ const ProfileSectionContainer: React.FC<PublicProfileSectionContainerProps> = ({
           className="flex flex-col items-center justify-center pt-8"
         >
           {student.avatar ? (
-            <UserImage imageSrc={student.avatar} />
+            <UserImage imageSrc={student.avatar.trim()} />
           ) : (
             <Skeleton circle={true} height={120} width={120} />
           )}
