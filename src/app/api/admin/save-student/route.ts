@@ -50,7 +50,7 @@ export async function POST(req: Request) {
   let savedStudent = await prisma.savedStudent.findFirst({
     where: {
       studentId: student.id,
-      savedById: company.id,
+      savedById: company.userId,
       isSaved: true,
     },
   });
