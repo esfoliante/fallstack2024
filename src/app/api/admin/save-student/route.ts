@@ -14,7 +14,8 @@ export async function POST(req: Request) {
   const requestBody = await req.json();
   const body = saveStudentAdminSchema.parse(requestBody);
   // valid body
-  let { studentEmailNumber, companyId } = body;
+  let studentEmailNumber = body.studentEmailNumber;
+  const companyId = body.companyId
 
   // complete the email if not already
   if (!studentEmailNumber.trim().endsWith("@isep.ipp.pt")) {
